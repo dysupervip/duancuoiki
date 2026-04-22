@@ -41,4 +41,12 @@ public class Player : MonoBehaviour
             animator.SetBool("isRun",false);
         }
     }
+    public void TakeDamage()
+    {
+        Die();
+    }
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }
