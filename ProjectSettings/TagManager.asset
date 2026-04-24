@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Explosion
+  - Energy
   layers:
   - Default
   - TransparentFX
@@ -65,6 +67,9 @@ TagManager:
     locked: 0
   - name: HpBar
     uniqueID: 1101804023
+    locked: 0
+  - name: Energy
+    uniqueID: 1298610091
     locked: 0
   m_RenderingLayers:
   - Default
