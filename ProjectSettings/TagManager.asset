@@ -63,6 +63,9 @@ TagManager:
   - name: Enemy
     uniqueID: 1717950831
     locked: 0
+  - name: HpBar
+    uniqueID: 1101804023
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
