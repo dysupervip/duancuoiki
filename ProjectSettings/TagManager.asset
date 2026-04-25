@@ -8,6 +8,7 @@ TagManager:
   - Explosion
   - Energy
   - EnemyBullet
+  - Usb
   layers:
   - Default
   - TransparentFX

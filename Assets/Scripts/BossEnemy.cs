@@ -9,6 +9,7 @@ public class BossEnemy : Enemy
     [SerializeField] private float hpValue = 100f;
     [SerializeField] private GameObject miniEnemy;
     [SerializeField] private float skillCooldown = 2f;
+    [SerializeField] private GameObject usbPrefabs;
     private float nextSkillTime = 0f;
     protected override void Update()
     {
@@ -18,6 +19,11 @@ public class BossEnemy : Enemy
             SudungSkill();
         }
     }
+    protected override void Die()
+    {
+        Instantiate(usbPrefabs, transform.position, Quaternion.identity);
+        base.Die();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -25,7 +31,7 @@ public class BossEnemy : Enemy
             player.TakeDamage(enterDamage);
         }
     }
-    private void OnTriggerStay2d(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
