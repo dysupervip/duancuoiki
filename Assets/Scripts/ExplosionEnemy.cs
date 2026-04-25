@@ -23,6 +23,7 @@ public class ExplosionEnemy : Enemy
         if (collision.CompareTag("Player"))
         {
             CreateExplosion();
+            Destroy(gameObject);
         }
     }
 }
