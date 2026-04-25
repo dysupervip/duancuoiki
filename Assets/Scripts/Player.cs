@@ -1,11 +1,14 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float movespeed = 5f;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    [SerializeField] private float maxHp = 100f;
+    private float currentHp;
+    [SerializeField] private Image hpBar;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,7 +17,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        
+        currentHp = maxHp;
+        UpdateHpBar();
     }
 
     
@@ -41,12 +45,22 @@ public class Player : MonoBehaviour
             animator.SetBool("isRun",false);
         }
     }
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
-        Die();
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0);
+        UpdateHpBar();
+        if (currentHp <=0 )
+        {
+            Die();
+        }
     }
     private void Die()
     {
         Destroy(gameObject);
+    }
+    private void UpdateHpBar()
+    {
+        hpBar.fillAmount = currentHp / maxHp;
     }
 }
