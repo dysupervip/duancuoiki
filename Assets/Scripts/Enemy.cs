@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public abstract class Enemy : MonoBehaviour
 {
+    private bool isDead = false;
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player; 
     [SerializeField] protected float maxHp = 50f;
@@ -45,9 +46,18 @@ public abstract class Enemy : MonoBehaviour
         }
     }
     protected virtual void Die()
-    {
+{
+    if (isDead) return;   // Ngăn chặn chết nhiều lần
+        isDead = true;
+
+        // Báo WaveManager
+        if (WaveManager.Instance != null)
+        {
+            WaveManager.Instance.HandleEnemyDeath();
+            WaveManager.Instance.TryDropOil(transform.position);
+        }
         Destroy(gameObject);
-    }
+}
     protected void UpdateHpBar()
     {
         if (hpBar != null)

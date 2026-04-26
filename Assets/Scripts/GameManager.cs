@@ -1,39 +1,27 @@
-using UnityEngine;
+using UnityEngine; // Bắt buộc để dùng các lớp của Unity (MonoBehaviour, GameObject...)
 
 public class GameManager : MonoBehaviour
 {
-    public int currentEnergy;
-    [SerializeField] private int energyThreshold = 3;
-    [SerializeField] private GameObject boss;
-    [SerializeField] private GameObject enemySpaner;
-    private bool bossCalled = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Singleton: cho phép truy cập GameManager từ bất kỳ script nào bằng GameManager.Instance
+    public static GameManager Instance;
+
+    [Header("Kết thúc game")]
+    [SerializeField] private GameObject victoryPanel; // Kéo Panel chiến thắng vào đây trong Inspector
+
+    void Awake()
     {
-        boss.SetActive(false);
+        // Đảm bảo chỉ có 1 GameManager tồn tại
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject); // Nếu đã có thì hủy bản mới
     }
 
-    // Update is called once per frame
-    void Update()
+    // Hàm được gọi khi người chơi thắng (nhặt chìa khóa boss)
+    public void WinGame()
     {
-        
-    }
-    public void AddEnergy()
-    {
-        if (bossCalled)
-        {
-            return;
-        }    
-        currentEnergy += 1;
-        if (currentEnergy == energyThreshold)
-        {
-            CallBoss();
-        }    
-    }
-    private void CallBoss()
-    {
-        bossCalled = true;
-        boss.SetActive(true);
-        enemySpaner.SetActive(false);
+        Debug.Log("Người chơi thắng!"); // In ra console
+        victoryPanel.SetActive(true);    // Hiện bảng chiến thắng
+        Time.timeScale = 0f;            // Dừng toàn bộ game (đóng băng thời gian)
     }
 }

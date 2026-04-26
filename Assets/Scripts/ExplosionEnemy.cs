@@ -22,8 +22,12 @@ public class ExplosionEnemy : Enemy
     {
         if (collision.CompareTag("Player"))
         {
-            CreateExplosion();
-            Destroy(gameObject);
+            // Gây sát thương cho Player (tùy chọn, dùng enterDamage có sẵn)
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+                player.TakeDamage(enterDamage);
+
+            Die(); // Gọi Die() để tạo vụ nổ, báo WaveManager và hủy đối tượng
         }
     }
 }
