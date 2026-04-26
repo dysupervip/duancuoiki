@@ -84,7 +84,11 @@ public class Player : MonoBehaviour
         currentHp -= effectiveDamage;
         currentHp = Mathf.Max(currentHp, 0); // Không để máu âm
         UpdateHpBar();
-        if (currentHp <= 0) Die();
+        if (currentHp <= 0)
+        {
+            GameManager.Instance.GameOver(); 
+            Destroy(gameObject);
+        }
     }
 
     public void Heal(float healValue)

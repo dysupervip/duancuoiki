@@ -104,6 +104,7 @@ public class WaveManager : MonoBehaviour
             }
 
             // --- Tự động trang bị súng mới (nếu có) ---
+            // Không tự đổi súng
             if (phase.newWeaponPrefab != null)
                 player.EquipWeapon(phase.newWeaponPrefab);
 
