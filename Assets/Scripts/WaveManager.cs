@@ -128,11 +128,12 @@ public class WaveManager : MonoBehaviour
     // Hiện UI chọn nâng cấp (tạm dừng game)
     IEnumerator ShowStatUpgrade()
     {
-        Time.timeScale = 0f; // Đóng băng game
-        upgradeUI.Show();    // Hiện bảng chọn
-        yield return new WaitUntil(() => upgradeUI.HasChosen); // Chờ người chơi chọn xong
+        //Time.timeScale = 0f; // Đóng băng game
+        //upgradeUI.Show();    // Hiện bảng chọn
+        //(skip dong nay vi ch co upgrade nhe) yield return new WaitUntil(() => upgradeUI.HasChosen); 
         upgradeUI.Hide();
         Time.timeScale = 1f; // Tiếp tục game
+        yield break;
     }
 
     // Được gọi từ Enemy khi nó chết

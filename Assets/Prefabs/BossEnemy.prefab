@@ -238,8 +238,8 @@ MonoBehaviour:
   enemyMoveSpeed: 2
   maxHp: 200
   hpBar: {fileID: 4106076318984826232}
-  enterDamage: 25
-  stayDamage: 0.1
+  enterDamage: 20000
+  stayDamage: 1000
   phase1Sprite: {fileID: 0}
   phase2Sprite: {fileID: 0}
   phase3Sprite: {fileID: 0}

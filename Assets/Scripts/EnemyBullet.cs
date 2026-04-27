@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -17,5 +17,13 @@ public class EnemyBullet : MonoBehaviour
     public void SetMovementDirection(Vector3 direction)
     {
         movementDirection = direction;
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("Đạn trúng: " + col.name);
+        if (col.CompareTag("Player"))
+        {
+            col.GetComponent<Player>().TakeDamage(20); 
+        }
     }
 }
