@@ -23,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
         Debug.Log("Đạn trúng: " + col.name);
         if (col.CompareTag("Player"))
         {
-            col.GetComponent<Player>().TakeDamage(20); 
+            col.GetComponent<Player>().TakeDamage(20f); 
         }
     }
 }

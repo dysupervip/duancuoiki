@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private Animator animator;                       // Để chạy animation
 
     // --- Máu và Giáp ---
-    [SerializeField] private float maxHp = 100f;     // Máu tối đa
+    [SerializeField] private float maxHp = 700f;     // Máu tối đa
     private float currentHp;                         // Máu hiện tại
     [SerializeField] private Image hpBar;            // Thanh máu UI (Image fill)
     [Header("Vị trí đặt súng")]
