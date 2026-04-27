@@ -29,6 +29,7 @@ public class WaveManager : MonoBehaviour
     private int enemiesKilled;           // Số quái đã bị tiêu diệt trong phase hiện tại
     private int enemiesSpawned;          // Số quái đã spawn trong phase hiện tại
     private int oilRemaining;            // Số dầu còn lại có thể rơi trong phase hiện tại
+    private int phaseColor = 0;
 
     public static WaveManager Instance;  // Singleton
 
@@ -49,6 +50,12 @@ public class WaveManager : MonoBehaviour
         if (index >= phases.Count) yield break; // Hết phase thì dừng
 
         Phase phase = phases[index];
+        // Reset UI
+if (ThanhTienTrinhUI.Instance != null)
+{
+    ThanhTienTrinhUI.Instance.ResetBar();
+    phaseColor = 0;
+}
         oilRemaining = phase.oilDropQuota; // Đặt lại quota dầu
 
         if (!phase.isBossPhase)
@@ -113,11 +120,29 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            // ===== PHASE BOSS =====
-            yield return new WaitForSeconds(1f); // Đợi 1 giây trước khi spawn boss
-            spawner.SpawnBoss(phase.bossPrefab);
-            // Với boss, ta dùng cách đợi đến khi boss chết (dùng tag "Enemy")
-            yield return new WaitWhile(() => GameObject.FindGameObjectsWithTag("Enemy").Length > 0);
+            yield return new WaitForSeconds(1f);
+
+            GameObject boss = spawner.SpawnBoss(phase.bossPrefab);
+
+            if (ThanhTienTrinhUI.Instance != null)
+            {
+                ThanhTienTrinhUI.Instance.SetColor(Color.yellow);
+            }
+
+            Enemy bossEnemy = boss.GetComponent<Enemy>();
+
+            while (bossEnemy != null)
+            {
+                if (ThanhTienTrinhUI.Instance != null)
+                {
+                    ThanhTienTrinhUI.Instance.UpdateBossHP(
+                        bossEnemy.GetCurrentHP(),
+                        bossEnemy.GetMaxHP()
+                    );
+                }
+
+                yield return null;
+            }
         }
 
         // Chuyển sang phase tiếp theo
@@ -140,6 +165,14 @@ public class WaveManager : MonoBehaviour
     public void HandleEnemyDeath()
     {
         enemiesKilled++;
+
+        if (ThanhTienTrinhUI.Instance != null)
+        {
+            ThanhTienTrinhUI.Instance.UpdateProgress(
+                enemiesKilled,
+                phases[currentPhaseIndex].totalEnemies
+            );
+        }
     }
 
     // Được Enemy gọi để xin rơi dầu; trả về true nếu còn quota và đã rơi

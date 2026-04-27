@@ -65,4 +65,13 @@ public abstract class Enemy : MonoBehaviour
             hpBar.fillAmount=currentHp / maxHp; 
         }
     }
+    public float GetCurrentHP()
+    {
+        return currentHp;
+    }
+
+    public float GetMaxHP()
+    {
+        return maxHp;
+    }
 }

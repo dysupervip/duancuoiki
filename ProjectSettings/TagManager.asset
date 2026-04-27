@@ -9,6 +9,7 @@ TagManager:
   - Energy
   - EnemyBullet
   - Key
+  - Usb
   layers:
   - Default
   - TransparentFX
@@ -78,6 +79,9 @@ TagManager:
     locked: 0
   - name: GameUI
     uniqueID: 3102843697
+    locked: 0
+  - name: ThanhTienTrinh
+    uniqueID: 3251783061
     locked: 0
   m_RenderingLayers:
   - Default
