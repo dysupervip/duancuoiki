@@ -20,45 +20,29 @@ public class BossEnemy : Enemy // Kế thừa từ Enemy.cs của bạn
     private int currentBossPhase = 1;           // Phase hiện tại (1,2,3)
     private SpriteRenderer bossSprite;          // Để thay đổi ảnh
     private float nextSkillTime;                // Thời điểm dùng skill tiếp theo
+    private float hpPerPhase;
 
     protected override void Start()
     {
-        base.Start(); // Gọi Start của Enemy (tìm Player, set máu...)
+        base.Start();
+
         bossSprite = GetComponent<SpriteRenderer>();
+
+        hpPerPhase = maxHp / 3f;   // chia 3 thanh
+        currentHp = hpPerPhase;    // bắt đầu thanh 1
+
         if (bossSprite != null && phase1Sprite != null)
-            bossSprite.sprite = phase1Sprite;   // Gán ảnh phase 1
+            bossSprite.sprite = phase1Sprite;
     }
 
     protected override void Update()
     {
         base.Update(); // Gọi Update của Enemy (di chuyển)
-        CheckPhaseTransition(); // Kiểm tra chuyển phase
-
         // Nếu đã đến lúc dùng skill
         if (Time.time >= nextSkillTime)
         {
             UseSkillsByPhase();               // Chọn skill theo phase
             nextSkillTime = Time.time + skillCooldown; // Đặt thời điểm dùng skill tiếp
-        }
-    }
-
-    void CheckPhaseTransition()
-    {
-        float hpPercent = currentHp / maxHp; // % máu hiện tại
-
-        // Chuyển từ phase 1 sang 2 khi máu <= 66%
-        if (currentBossPhase == 1 && hpPercent <= 0.66f)
-        {
-            currentBossPhase = 2;
-            if (phase2Sprite != null) bossSprite.sprite = phase2Sprite; // Đổi ảnh
-            Debug.Log("Boss chuyển phase 2");
-        }
-        // Chuyển từ phase 2 sang 3 khi máu <= 33%
-        else if (currentBossPhase == 2 && hpPercent <= 0.33f)
-        {
-            currentBossPhase = 3;
-            if (phase3Sprite != null) bossSprite.sprite = phase3Sprite;
-            Debug.Log("Boss chuyển phase 3");
         }
     }
 
@@ -145,5 +129,44 @@ public class BossEnemy : Enemy // Kế thừa từ Enemy.cs của bạn
         // Tạo chìa khóa (USB) tại vị trí boss
         Instantiate(usbPrefabs, transform.position, Quaternion.identity);
         base.Die(); // Gọi Die của Enemy (báo WaveManager, hủy đối tượng)
+    }
+    public override void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0);
+        UpdateHpBar();
+
+        if (currentHp <= 0)
+        {
+            if (currentBossPhase < 3)
+            {
+                NextPhase();
+            }
+            else
+            {
+                Die();
+            }
+        }
+    }
+    void NextPhase()
+    {
+        currentBossPhase++;
+
+        currentHp = hpPerPhase; // hồi đầy cây máu mới
+        UpdateHpBar();
+        ThanhTienTrinhUI.Instance.UpdateBossHP(currentHp, hpPerPhase);
+
+        if (currentBossPhase == 2)
+        {
+            bossSprite.sprite = phase2Sprite;
+            enemyMoveSpeed += 1f;
+            skillCooldown = 1.5f;
+        }
+        else if (currentBossPhase == 3)
+        {
+            bossSprite.sprite = phase3Sprite;
+            enemyMoveSpeed += 2f;
+            skillCooldown = 1f;
+        }
     }
 }

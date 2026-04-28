@@ -14,10 +14,10 @@ public class ThanhTienTrinhUI : MonoBehaviour
 
     public void UpdateProgress(int killed, int total)
     {
-        if (total <= 0) return;
+        if (total <= 0 || fillImage == null) return;
 
         float fill = 1f - ((float)killed / total);
-        fillImage.fillAmount = fill;
+        fillImage.fillAmount = Mathf.Clamp01(fill);
     }
 
     public void ResetBar()
@@ -27,9 +27,9 @@ public class ThanhTienTrinhUI : MonoBehaviour
 
     public void UpdateBossHP(float currentHp, float maxHp)
     {
-        if (maxHp <= 0) return;
+        if (maxHp <= 0 || fillImage == null) return;
 
-        fillImage.fillAmount = currentHp / maxHp;
+        fillImage.fillAmount = Mathf.Clamp01(currentHp / maxHp);
     }
 
     public void SetColor(Color color)

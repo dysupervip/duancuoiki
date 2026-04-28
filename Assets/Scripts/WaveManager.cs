@@ -29,7 +29,6 @@ public class WaveManager : MonoBehaviour
     private int enemiesKilled;           // Số quái đã bị tiêu diệt trong phase hiện tại
     private int enemiesSpawned;          // Số quái đã spawn trong phase hiện tại
     private int oilRemaining;            // Số dầu còn lại có thể rơi trong phase hiện tại
-    private int phaseColor = 0;
 
     public static WaveManager Instance;  // Singleton
 
@@ -51,11 +50,11 @@ public class WaveManager : MonoBehaviour
 
         Phase phase = phases[index];
         // Reset UI
-if (ThanhTienTrinhUI.Instance != null)
-{
-    ThanhTienTrinhUI.Instance.ResetBar();
-    phaseColor = 0;
-}
+        if (ThanhTienTrinhUI.Instance != null)
+        {
+            ThanhTienTrinhUI.Instance.ResetBar();
+            ThanhTienTrinhUI.Instance.SetColor(Color.yellow); 
+        }
         oilRemaining = phase.oilDropQuota; // Đặt lại quota dầu
 
         if (!phase.isBossPhase)
@@ -124,22 +123,20 @@ if (ThanhTienTrinhUI.Instance != null)
 
             GameObject boss = spawner.SpawnBoss(phase.bossPrefab);
 
-            if (ThanhTienTrinhUI.Instance != null)
-            {
-                ThanhTienTrinhUI.Instance.SetColor(Color.yellow);
-            }
-
             Enemy bossEnemy = boss.GetComponent<Enemy>();
+            bossEnemy.HideHpBar();
 
+            // setup thanh boss
+            ThanhTienTrinhUI.Instance.ResetBar();
+            ThanhTienTrinhUI.Instance.SetColor(new Color(0.6f, 0f, 1f)); // tím
+
+            // update thanh theo máu boss
             while (bossEnemy != null)
             {
-                if (ThanhTienTrinhUI.Instance != null)
-                {
-                    ThanhTienTrinhUI.Instance.UpdateBossHP(
-                        bossEnemy.GetCurrentHP(),
-                        bossEnemy.GetMaxHP()
-                    );
-                }
+                ThanhTienTrinhUI.Instance.UpdateBossHP(
+                    bossEnemy.GetCurrentHP(),
+                    bossEnemy.GetMaxHP() / 3f
+                );
 
                 yield return null;
             }

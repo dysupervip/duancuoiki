@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc76f779246b2a24590e5a6f734eeea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rifle
-  baseDamage: 50
+  baseDamage: 30
   baseFireRate: 0.1
   baseReloadTime: 0.5
   baseMagazine: 15

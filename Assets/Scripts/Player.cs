@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.UI; // Để dùng Image (thanh máu)
 
 public class Player : MonoBehaviour
-{   
-
+{
+    [SerializeField] private GameManager gameManager;
     [Header("Vũ khí mặc định")]
     [SerializeField] private WeaponBase defaultWeaponPrefab; // Kéo prefab Pistol vào đây
     // --- Di chuyển ---
@@ -60,6 +60,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer(); // Mỗi khung hình kiểm tra di chuyển
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.PauseGameMenu();
+        }    
     }
 
     void MovePlayer()
@@ -86,8 +90,7 @@ public class Player : MonoBehaviour
         UpdateHpBar();
         if (currentHp <= 0)
         {
-            GameManager.Instance.GameOver(); 
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -211,12 +214,26 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player chết. Game Over!");
-        Destroy(gameObject); // Hủy nhân vật (sau này có thể thêm UI thua)
+
+        GameManager.Instance.GameOver();
+
+        Destroy(gameObject);
     }
 
     void UpdateHpBar()
     {
         if (hpBar != null)
             hpBar.fillAmount = currentHp / maxHp; // Fill Image theo tỉ lệ máu
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Usb"))
+        {
+            Debug.Log("Nhặt USB → Thắng game");
+
+            Destroy(other.gameObject); 
+
+            GameManager.Instance.WinGame(); 
+        }
     }
 }

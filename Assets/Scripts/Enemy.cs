@@ -74,4 +74,12 @@ public abstract class Enemy : MonoBehaviour
     {
         return maxHp;
     }
+    public void HideHpBar()
+    {
+        if (hpBar != null)
+        {
+            Transform root = hpBar.transform.root;
+            hpBar.transform.parent.gameObject.SetActive(false);
+        }
+    }
 }

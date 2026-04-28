@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI stopwatchDisplay;
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private GameObject upgradePanel;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject pauseMenu;
      public enum GameState
     {
         Gameplay,
-        GameOver,
+        Result,
         Victory,
         Pause
     };
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     [Header("Kết thúc game")]
     [SerializeField] private GameObject victoryPanel;
     [Header("Game Over")]
-    [SerializeField] private GameObject gameOverPanel; // Kéo Panel chiến thắng vào đây trong Inspector
+    [SerializeField] private GameObject resultPanel; // Kéo Panel chiến thắng vào đây trong Inspector
 
     void Update()
     {
@@ -43,8 +45,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        currentState = GameState.Gameplay;
-        Time.timeScale = 1f;
+        currentState = GameState.Pause;
+        MainMenu();
     }
 
     // Hàm được gọi khi người chơi thắng (nhặt chìa khóa boss)
@@ -60,23 +62,15 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        if (currentState != GameState.Gameplay) return;
-        currentState = GameState.GameOver;
-        if (timeSurvivedDisplay != null && stopwatchDisplay != null)
-        {
-            timeSurvivedDisplay.text = stopwatchDisplay.text;
-        }
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true);
-        }
-        Time.timeScale = 0f;
-        if (gameplayUI != null)
-            gameplayUI.SetActive(false);
+        if (currentState == GameState.Result) return;
+
+        currentState = GameState.Result;
+
         if (upgradePanel != null)
             upgradePanel.SetActive(false);
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(true);
+
+        resultPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
     void UpdateStopwatch()
     {
@@ -98,11 +92,8 @@ public class GameManager : MonoBehaviour
     {
         currentState = newState;
 
-        if (newState == GameState.GameOver)
+        if (newState == GameState.Result)
         {
-            if (gameOverPanel != null)
-                gameOverPanel.SetActive(true);
-
             Time.timeScale = 0f;
         }
 
@@ -113,5 +104,35 @@ public class GameManager : MonoBehaviour
 
             Time.timeScale = 0f;
         }
+    }
+    public void MainMenu()
+    {
+        mainMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
+    public void PauseGameMenu()
+    {
+        pauseMenu.SetActive(true);
+        mainMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        resultPanel.SetActive(false);
+
+        stopwatchTime = 0f;
+
+        Time.timeScale = 1f;
+        currentState = GameState.Gameplay;
+    }
+    public void ResumeGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        currentState = GameState.Gameplay;
     }
 }
