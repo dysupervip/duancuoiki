@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 1f;
+    [SerializeField] private int xpReward = 10;
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
@@ -46,18 +47,21 @@ public abstract class Enemy : MonoBehaviour
         }
     }
     protected virtual void Die()
-{
-    if (isDead) return;   // Ngăn chặn chết nhiều lần
+    {
+        if (isDead) return;
         isDead = true;
 
-        // Báo WaveManager
+        // Cộng XP cho Player
+        Player player = FindAnyObjectByType<Player>();
+        if (player != null) player.AddXP(xpReward);
+
         if (WaveManager.Instance != null)
         {
             WaveManager.Instance.HandleEnemyDeath();
             WaveManager.Instance.TryDropOil(transform.position);
         }
         Destroy(gameObject);
-}
+    }
     protected void UpdateHpBar()
     {
         if (hpBar != null)

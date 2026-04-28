@@ -208,6 +208,7 @@ MonoBehaviour:
   hpBar: {fileID: 293483759006553905}
   enterDamage: 10
   stayDamage: 0
+  xpReward: 30
   explosionPrefabs: {fileID: 3256629678082119093, guid: 60f4d376c5981f94a85997cb88c5a72c, type: 3}
 --- !u!1001 &9194167490832553958
 PrefabInstance:

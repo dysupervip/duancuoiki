@@ -1,182 +1,284 @@
 using UnityEngine;
-using UnityEngine.UI; // Để dùng Image (thanh máu)
+using UnityEngine.UI; // Dùng Image cho thanh máu
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
-    [Header("Vũ khí mặc định")]
-    [SerializeField] private WeaponBase defaultWeaponPrefab; // Kéo prefab Pistol vào đây
-    // --- Di chuyển ---
-    [SerializeField] private float movespeed = 5f;   // Tốc độ di chuyển cơ bản
-    private Rigidbody2D rb;                          // Vật lý 2D
-    private SpriteRenderer spriteRenderer;           // Để lật mặt nhân vật
-    private Animator animator;                       // Để chạy animation
+    // === Di chuyển ===
+    [SerializeField] private float movespeed = 5f;          // Tốc độ di chuyển cơ bản
+    private Rigidbody2D rb;                                // Vật lý 2D
+    private SpriteRenderer spriteRenderer;                 // Để lật mặt nhân vật
+    private Animator animator;                             // Hoạt ảnh
+    // === Máu ===
+    [SerializeField] private float maxHp = 700f;           // Máu tối đa
+    private float currentHp;                               // Máu hiện tại
+    [SerializeField] private Image hpBar;                  // Thanh máu UI (Image fill)
 
-    // --- Máu và Giáp ---
-    [SerializeField] private float maxHp = 700f;     // Máu tối đa
-    private float currentHp;                         // Máu hiện tại
-    [SerializeField] private Image hpBar;            // Thanh máu UI (Image fill)
-    [Header("Vị trí đặt súng")]
-    [SerializeField] private Transform weaponSocket; // Kéo WeaponSocket vào đây
+    // === Level & XP ===
+    [SerializeField] private int level = 1;                // Cấp độ bắt đầu
+    [SerializeField] private int xp = 0;                   // XP hiện có
+    [SerializeField] private int[] xpToNextLevel;          // Mảng 9 số: XP cần cho lv2, lv3, ..., lv10
 
-    // --- Chỉ số nâng cấp ---
-    [SerializeField] private float armor = 0f;       // Giáp (0.0 = 0%, 0.5 = 50% giảm sát thương)
+    // === Vũ khí ===
+    [SerializeField] private Transform weaponSocket;       // Vị trí gắn súng (con của Player)
+    [SerializeField] private WeaponBase[] weaponUpgrades;  // Mảng súng: [0]Pistol, [1]SMG, [2]Rifle, [3]Laser, [4]Ultimate
+    public WeaponBase currentWeapon { get; private set; }  // Vũ khí đang cầm
 
-    // --- Dầu thô ---
-    public int crudeOil { get; private set; } = 0;   // Số dầu đang có (chỉ đọc từ ngoài)
+    // === Dầu thô ===
+    public int crudeOil { get; private set; } = 0;         // Số dầu hiện có
 
-    // --- Vũ khí ---
-    public WeaponBase currentWeapon { get; private set; }  // Vũ khí hiện tại (script WeaponBase)
+    // === Cấp nâng cấp bằng dầu ===
+    public int damageLevel = 0;      // Cấp sát thương (0-3), mỗi cấp +10 damage
+    public int magazineLevel = 0;    // Cấp băng đạn (0-3), mỗi cấp +5 đạn
+    public int reloadLevel = 0;      // Cấp nạp đạn (0-3), mỗi cấp giảm 0.3s
 
-    // --- Bonus từ dầu cho vũ khí ---
-    public float damageBonus = 0f;        // Tỉ lệ tăng sát thương (0.2 = +20%)
-    public float fireRateBonus = 0f;      // Tỉ lệ giảm thời gian hồi bắn
-    public float reloadSpeedBonus = 0f;   // Tỉ lệ giảm thời gian nạp đạn
-    public int magazineBonus = 0;         // Đạn cộng thêm vào băng
+    // === Kỹ năng ===
+    [Header("Skills")]
+    [SerializeField] private float speedBoostMultiplier = 2f;   // Hệ số nhân tốc độ (x2)
+    [SerializeField] private float speedBoostDuration = 3f;     // Thời gian tăng tốc
+    [SerializeField] private float speedBoostCooldown = 5f;     // Hồi chiêu sau khi hết hiệu lực
+    [SerializeField] private float dashDistance = 3f;           // Khoảng cách lướt
+    [SerializeField] private float dashCooldown = 3f;           // Hồi chiêu lướt
+    [SerializeField] private GameObject petPrefab;              // Prefab pet
+    [SerializeField] private int petCount = 3;                  // Số pet mỗi lần gọi
+    [SerializeField] private float petLifetime = 10f;           // Thời gian pet tồn tại
+    [SerializeField] private float petCooldown = 5f;            // Hồi chiêu sau khi pet biến mất
 
-    // Cấp nâng cấp (max 3)
-    public int damageUpgradeLevel = 0;
-    public int fireRateUpgradeLevel = 0;
-    public int reloadUpgradeLevel = 0;
-    public int magazineUpgradeLevel = 0;
+    // Trạng thái mở khóa skill
+    private bool hasSpeedBoost = false;
+    private bool hasDash = false;
+    private bool hasPet = false;
 
+    // Trạng thái tăng tốc
+    private bool speedBoostActive = false;
+    private float speedBoostTimer = 0f;
+
+    // Thời điểm có thể dùng skill tiếp theo
+    private float nextSpeedBoostTime = 0f;
+    private float nextDashTime = 0f;
+    private float nextPetAvailableTime = 0f;
+
+    // Hình ảnh thay đổi khi level 10
+    [SerializeField] private Sprite[] playerSprites;    // [0] mặc định, [1] level 10
+    
+    // Tự thiết lạp khi trò chơi bắt đầu
     void Awake()
     {
-        // Lấy các component gắn trên cùng GameObject
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();               // Lấy Rigidbody2D
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Lấy SpriteRenderer
+        animator = GetComponent<Animator>();            // Lấy Animator
     }
 
     void Start()
     {
-        currentHp = maxHp;  // Bắt đầu với máu đầy
-        UpdateHpBar();      // Cập nhật thanh máu UI
-        // Trang bị súng mặc định (súng ngắn) ngay khi bắt đầu
-        if (defaultWeaponPrefab != null)
-        EquipWeapon(defaultWeaponPrefab);
+        currentHp = maxHp;                              // Đặt máu đầy
+        UpdateHpBar();                                  // Cập nhật thanh máu
+        if (weaponUpgrades.Length > 0)                  // Nếu có súng trong mảng
+            EquipWeapon(weaponUpgrades[0]);             // Trang bị súng đầu tiên (Pistol)
     }
 
     void Update()
     {
-        MovePlayer(); // Mỗi khung hình kiểm tra di chuyển
-        if (Input.GetKeyDown(KeyCode.Escape))
+        MovePlayer();                                   // Di chuyển
+        UpdateSpeedBoost();                             // Cập nhật trạng thái tăng tốc
+        HandleSkillsInput();                            // Xử lý phím kỹ năng
+        if (Input.GetKeyDown(KeyCode.Escape))           // Nhấn ESC
         {
-            gameManager.PauseGameMenu();
-        }    
+            GameManager.Instance?.PauseGameMenu();      // Gọi menu tạm dừng
+        }
     }
 
     void MovePlayer()
     {
-        // Lấy input từ bàn phím (WASD hoặc mũi tên)
-        Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        // Gán vận tốc cho Rigidbody2D (di chuyển)
-        rb.linearVelocity = playerInput.normalized * movespeed;
+        // Lấy hướng di chuyển
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        // Nếu đang tăng tốc thì nhân tốc độ, ngược lại dùng tốc độ thường
+        float currentSpeed = speedBoostActive ? movespeed * speedBoostMultiplier : movespeed;
+        rb.linearVelocity = input.normalized * currentSpeed; // Gán vận tốc
 
-        // Lật mặt nhân vật dựa vào hướng di chuyển
-        if (playerInput.x < 0) spriteRenderer.flipX = true;   // Sang trái
-        else if (playerInput.x > 0) spriteRenderer.flipX = false; // Sang phải
+        // Lật mặt nhân vật
+        if (input.x < 0) spriteRenderer.flipX = true;
+        else if (input.x > 0) spriteRenderer.flipX = false;
 
         // Bật/tắt animation chạy
-        animator.SetBool("isRun", playerInput != Vector2.zero);
+        if (animator != null) animator.SetBool("isRun", input != Vector2.zero);
     }
 
-    public void TakeDamage(float damage)
+    void UpdateSpeedBoost()
     {
-        // Giáp giảm sát thương: damage * (1 - armor)
-        float effectiveDamage = damage * (1f - Mathf.Clamp01(armor));
-        currentHp -= effectiveDamage;
-        currentHp = Mathf.Max(currentHp, 0); // Không để máu âm
-        UpdateHpBar();
-        if (currentHp <= 0)
+        if (speedBoostActive)                           // Nếu đang tăng tốc
         {
-            Die();
+            speedBoostTimer -= Time.deltaTime;          // Giảm thời gian
+            if (speedBoostTimer <= 0)                   // Hết giờ
+            {
+                speedBoostActive = false;               // Tắt tăng tốc
+            }
         }
     }
 
-    public void Heal(float healValue)
+    void HandleSkillsInput()
     {
-        currentHp = Mathf.Min(currentHp + healValue, maxHp);
+        // Q - Tăng tốc: cần mở khóa và hết cooldown
+        if (Input.GetKeyDown(KeyCode.Q) && hasSpeedBoost && Time.time >= nextSpeedBoostTime)
+            ActivateSpeedBoost();
+        // E - Pet: cần mở khóa và hết cooldown
+        if (Input.GetKeyDown(KeyCode.E) && hasPet && Time.time >= nextPetAvailableTime)
+            SummonPets();
+        // R - Lướt: cần mở khóa và hết cooldown
+        if (Input.GetKeyDown(KeyCode.R) && hasDash && Time.time >= nextDashTime)
+            Dash();
+    }
+
+    // === XP & LEVEL ===
+    public void AddXP(int amount)
+    {
+        xp += amount;           // Cộng XP
+        CheckLevelUp();         // Kiểm tra lên cấp
+    }
+
+    void CheckLevelUp()
+    {
+        // Khi còn level < 10 và XP đủ ngưỡng
+        while (level < 10 && xpToNextLevel.Length >= level && xp >= xpToNextLevel[level - 1])
+        {
+            xp -= xpToNextLevel[level - 1];  // Trừ XP đã dùng
+            level++;                          // Tăng level
+            OnLevelUp();                      // Xử lý lên cấp
+        }
+    }
+
+    void OnLevelUp()
+    {
+        Debug.Log($"Level up! Now level {level}");
+        if (level == 3 && weaponUpgrades.Length > 1)
+            EquipWeapon(weaponUpgrades[1]);   // SMG
+        else if (level == 6 && weaponUpgrades.Length > 2)
+            EquipWeapon(weaponUpgrades[2]);   // Rifle
+        else if (level == 9 && weaponUpgrades.Length > 3)
+            EquipWeapon(weaponUpgrades[3]);   // Laser
+        else if (level == 10)
+        {
+            currentHp = maxHp;                // Hồi máu đầy
+            UpdateHpBar();
+            movespeed += 2f;                  // Tăng vĩnh viễn 2 tốc độ
+            if (weaponUpgrades.Length > 4)
+                EquipWeapon(weaponUpgrades[4]); // Súng tối thượng
+            if (playerSprites.Length >= 2)
+                spriteRenderer.sprite = playerSprites[1]; // Đổi hình
+        }
+    }
+
+    // === VŨ KHÍ ===
+    public void EquipWeapon(WeaponBase newWeaponPrefab)
+    {
+        if (newWeaponPrefab == null) return;    // Không làm gì nếu rỗng
+        if (currentWeapon != null)
+            Destroy(currentWeapon.gameObject); // Hủy súng cũ
+
+        // Tạo súng mới làm con của Player
+        WeaponBase newWeapon = Instantiate(newWeaponPrefab, transform);
+
+        // Đặt vị trí súng theo socket
+        if (weaponSocket != null)
+        {
+            newWeapon.transform.localPosition = weaponSocket.localPosition;
+            newWeapon.transform.localRotation = weaponSocket.localRotation;
+        }
+        else
+        {
+            newWeapon.transform.localPosition = Vector3.zero;
+            newWeapon.transform.localRotation = Quaternion.identity;
+        }
+
+        currentWeapon = newWeapon;
+        newWeapon.UpdateStatsFromPlayer(); // Cập nhật chỉ số từ Player
+
+        // Báo cho CursorManager biết vũ khí mới
+        if (CursorManager.Instance != null)
+            CursorManager.Instance.SetCurrentWeapon(newWeapon);
+    }
+
+    // === KỸ NĂNG ===
+    public void UnlockSpeedBoost() { hasSpeedBoost = true; }
+    public void UnlockDash() { hasDash = true; }
+    public void UnlockPet() { hasPet = true; }
+
+    void ActivateSpeedBoost()
+    {
+        speedBoostActive = true;
+        speedBoostTimer = speedBoostDuration;
+        nextSpeedBoostTime = Time.time + speedBoostDuration + speedBoostCooldown; // Thời điểm được dùng lại
+    }
+
+    void SummonPets()
+    {
+        for (int i = 0; i < petCount; i++)
+        {
+            // Vị trí ngẫu nhiên quanh player
+            Vector3 spawnPos = transform.position + (Vector3)Random.insideUnitCircle * 1.5f;
+            Instantiate(petPrefab, spawnPos, Quaternion.identity);
+        }
+        nextPetAvailableTime = Time.time + petLifetime + petCooldown;
+    }
+
+    void Dash()
+    {
+        // Lấy hướng di chuyển từ input, nếu không nhấn gì thì lăn sang phải
+        Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        if (dir == Vector2.zero) dir = Vector2.right;
+        transform.position += (Vector3)(dir * dashDistance); // Dịch chuyển
+        nextDashTime = Time.time + dashCooldown;
+    }
+
+    // === MÁU & DẦU ===
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0);
+        UpdateHpBar();
+        if (currentHp <= 0)
+        {
+            GameManager.Instance?.GameOver(); // Báo game over
+            Destroy(gameObject);
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        currentHp = Mathf.Min(currentHp + amount, maxHp);
         UpdateHpBar();
     }
 
-    // Nâng cấp từ bảng chọn sau phase
-    public void UpgradeHP(float amount)
-    {
-        maxHp += amount;
-        currentHp = maxHp; // Hồi đầy máu sau khi nâng cấp
-        UpdateHpBar();
-    }
-
-    public void UpgradeMoveSpeed(float amount)
-    {
-        movespeed += amount; // Tăng tốc độ vĩnh viễn
-    }
-
-    public void UpgradeArmor(float amount)
-    {
-        armor = Mathf.Clamp01(armor + amount); // Tăng giáp nhưng không vượt quá 100%
-    }
-
-    // Nhặt dầu thô
     public void AddCrudeOil(int amount)
     {
         crudeOil += amount;
-        // Ở đây có thể gọi UI cập nhật hiển thị dầu (sẽ làm sau)
     }
 
-    // Thay vũ khí mới (tự động sau phase)
-    public void EquipWeapon(WeaponBase newWeaponPrefab)
-{
-    if (newWeaponPrefab == null)
+    void UpdateHpBar()
     {
-        Debug.LogError("EquipWeapon: prefab súng rỗng!");
-        return;
+        if (hpBar != null) hpBar.fillAmount = currentHp / maxHp;
     }
 
-    if (currentWeapon != null)
-        Destroy(currentWeapon.gameObject);
-
-    WeaponBase newWeapon = Instantiate(newWeaponPrefab, transform);
-
-    if (weaponSocket != null)
-    {
-        newWeapon.transform.localPosition = weaponSocket.localPosition;
-        newWeapon.transform.localRotation = weaponSocket.localRotation;
-    }
-    else
-    {
-        newWeapon.transform.localPosition = Vector3.zero;
-        newWeapon.transform.localRotation = Quaternion.identity;
-    }
-
-    currentWeapon = newWeapon;
-}
-
-    // Các hàm nâng cấp vũ khí bằng dầu (gọi từ UI)
+    // === NÂNG CẤP BẰNG DẦU ===
     public bool UpgradeDamage()
     {
-        int cost = damageUpgradeLevel + 1; // Lần 1 tốn 1 dầu, lần 2 tốn 2...
-        if (crudeOil >= cost && damageUpgradeLevel < 3)
+        int cost = damageLevel + 1;             // Chi phí = cấp hiện tại + 1
+        if (crudeOil >= cost && damageLevel < 3) // Đủ dầu và chưa đạt cấp tối đa
         {
             crudeOil -= cost;
-            damageUpgradeLevel++;
-            damageBonus = damageUpgradeLevel * 0.2f; // Mỗi cấp +20% sát thương
-            currentWeapon?.UpdateStatsFromPlayer(); // Cập nhật chỉ số cho súng hiện tại
+            damageLevel++;
+            currentWeapon?.UpdateStatsFromPlayer(); // Cập nhật lại chỉ số súng
             return true;
         }
         return false;
     }
 
-    // Tương tự cho các chỉ số khác...
-    public bool UpgradeFireRate()
+    public bool UpgradeMagazine()
     {
-        int cost = fireRateUpgradeLevel + 1;
-        if (crudeOil >= cost && fireRateUpgradeLevel < 3)
+        int cost = magazineLevel + 1;
+        if (crudeOil >= cost && magazineLevel < 3)
         {
             crudeOil -= cost;
-            fireRateUpgradeLevel++;
-            fireRateBonus = fireRateUpgradeLevel * 0.15f; // Mỗi cấp giảm 15% thời gian hồi bắn
+            magazineLevel++;
             currentWeapon?.UpdateStatsFromPlayer();
             return true;
         }
@@ -185,55 +287,14 @@ public class Player : MonoBehaviour
 
     public bool UpgradeReloadSpeed()
     {
-        int cost = reloadUpgradeLevel + 1;
-        if (crudeOil >= cost && reloadUpgradeLevel < 3)
+        int cost = reloadLevel + 1;
+        if (crudeOil >= cost && reloadLevel < 3)
         {
             crudeOil -= cost;
-            reloadUpgradeLevel++;
-            reloadSpeedBonus = reloadUpgradeLevel * 0.2f; // Mỗi cấp giảm 20% thời gian nạp đạn
+            reloadLevel++;
             currentWeapon?.UpdateStatsFromPlayer();
             return true;
         }
         return false;
-    }
-
-    public bool UpgradeMagazine()
-    {
-        int cost = magazineUpgradeLevel + 1;
-        if (crudeOil >= cost && magazineUpgradeLevel < 3)
-        {
-            crudeOil -= cost;
-            magazineUpgradeLevel++;
-            magazineBonus = magazineUpgradeLevel * 3; // Mỗi cấp +3 đạn
-            currentWeapon?.UpdateStatsFromPlayer();
-            return true;
-        }
-        return false;
-    }
-
-    void Die()
-    {
-        Debug.Log("Player chết. Game Over!");
-
-        GameManager.Instance.GameOver();
-
-        Destroy(gameObject);
-    }
-
-    void UpdateHpBar()
-    {
-        if (hpBar != null)
-            hpBar.fillAmount = currentHp / maxHp; // Fill Image theo tỉ lệ máu
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Usb"))
-        {
-            Debug.Log("Nhặt USB → Thắng game");
-
-            Destroy(other.gameObject); 
-
-            GameManager.Instance.WinGame(); 
-        }
     }
 }

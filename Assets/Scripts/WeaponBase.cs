@@ -1,49 +1,64 @@
 using UnityEngine;
 
-public abstract class WeaponBase : MonoBehaviour // abstract nghĩa là không dùng trực tiếp, phải kế thừa
+public abstract class WeaponBase : MonoBehaviour
 {
-    [Header("Base stats")] // Các chỉ số cơ bản của súng (có thể chỉnh trong Inspector)
+    [Header("Base stats")]
     public float baseDamage = 10f;          // Sát thương gốc
-    public float baseFireRate = 0.3f;       // Thời gian giữa hai phát bắn (giây)
-    public float baseReloadTime = 1.5f;     // Thời gian nạp đạn
-    public int baseMagazine = 12;           // Số đạn tối đa trong băng
+    public float baseFireRate = 0.5f;       // Thời gian giữa hai phát bắn
+    public float baseReloadTime = 1.5f;     // Thời gian nạp đạn gốc
+    public int baseMagazine = 12;           // Cỡ băng đạn gốc
+    public int baseTotalAmmo = 60;          // Tổng đạn dự trữ
 
     [Header("References")]
-    [SerializeField] protected Transform firePos;      // Vị trí đầu nòng (nơi viên đạn xuất hiện)
-    [SerializeField] protected GameObject bulletPrefab; // Prefab viên đạn
+    [SerializeField] protected Transform firePos;        // Vị trí đầu nòng
+    [SerializeField] protected GameObject bulletPrefab;  // Prefab viên đạn
 
-    // Chỉ số thực tế sau khi cộng bonus từ Player
+    // Chỉ số thực tế (đã cộng bonus từ Player)
     protected float damage;
     protected float fireRate;
     protected float reloadTime;
     protected int magazineSize;
+    protected int totalAmmo;
 
     protected int currentAmmo;          // Đạn hiện tại trong băng
-    protected float nextShotTime;       // Thời điểm có thể bắn tiếp
+    protected float nextShotTime;       // Thời điểm được bắn tiếp
     protected bool isReloading;         // Đang nạp đạn?
-    protected float reloadTimer;        // Đếm ngược thời gian nạp
+    public bool IsReloading => isReloading;
+    protected float reloadTimer;        // Đếm ngược nạp đạn
+
+    // Tiến trình nạp đạn (0..1) để hiển thị UI
+    public float ReloadProgress => isReloading ? (1f - reloadTimer / reloadTime) : 0f;
+
+    // Sự kiện để CursorManager lắng nghe
+    public System.Action OnReloadStarted;
+    public System.Action OnReloadFinished;
 
     protected virtual void Start()
     {
-        UpdateStatsFromPlayer();     // Lấy bonus từ Player (nếu có)
-        currentAmmo = magazineSize;  // Nạp đầy đạn
+        UpdateStatsFromPlayer();    // Áp dụng chỉ số từ Player (level dầu, etc.)
+        currentAmmo = magazineSize; // Nạp đầy băng ban đầu
+        totalAmmo = baseTotalAmmo;
+        if (CursorManager.Instance != null)
+            CursorManager.Instance.SetCurrentWeapon(this); // Đăng ký với CursorManager
     }
 
-    // Gọi khi cần cập nhật chỉ số (ví dụ sau khi nâng cấp bằng dầu)
     public void UpdateStatsFromPlayer()
     {
-        Player player = FindAnyObjectByType<Player>(); // Tìm Player trong scene
+        Player player = FindAnyObjectByType<Player>();
         if (player != null)
         {
-            // Áp dụng bonus
-            damage = baseDamage * (1f + player.damageBonus);
-            fireRate = baseFireRate * (1f - player.fireRateBonus);
-            reloadTime = baseReloadTime * (1f - player.reloadSpeedBonus);
-            magazineSize = baseMagazine + player.magazineBonus;
+            // Sát thương = base + (cấp sát thương * 10)
+            damage = baseDamage + player.damageLevel * 10f;
+            // Tốc độ bắn giữ nguyên (không nâng cấp)
+            fireRate = baseFireRate;
+            // Nạp đạn = base - (cấp nạp * 0.3f), tối thiểu 0.1s
+            reloadTime = Mathf.Max(0.1f, baseReloadTime - player.reloadLevel * 0.3f);
+            // Băng đạn = base + (cấp băng * 5)
+            magazineSize = baseMagazine + player.magazineLevel * 5;
         }
         else
         {
-            // Nếu không tìm thấy Player (ví dụ lúc test) thì dùng chỉ số gốc
+            // Mặc định nếu không tìm thấy Player
             damage = baseDamage;
             fireRate = baseFireRate;
             reloadTime = baseReloadTime;
@@ -53,48 +68,62 @@ public abstract class WeaponBase : MonoBehaviour // abstract nghĩa là không d
 
     protected virtual void Update()
     {
-        RotateGun();         // Xoay súng theo chuột (hàm ảo, lớp con sẽ override)
-        HandleShooting();    // Xử lý bắn
-        HandleReload();      // Xử lý nạp đạn
+        RotateGun();        // Hàm ảo – lớp con tự định nghĩa
+        HandleReload();     // Xử lý nạp đạn
+        HandleShooting();   // Xử lý bắn
     }
 
-    protected abstract void RotateGun(); // Bắt buộc lớp con phải định nghĩa cách xoay
+    protected abstract void RotateGun();
 
     void HandleShooting()
     {
-        // Chuột trái giữ, còn đạn, hết thời gian hồi, không đang nạp
+        // Điều kiện bắn: giữ chuột trái, còn đạn, hết cooldown, không đang nạp
         if (Input.GetMouseButton(0) && currentAmmo > 0 && Time.time >= nextShotTime && !isReloading)
         {
-            nextShotTime = Time.time + fireRate; // Đặt thời điểm bắn tiếp theo
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation); // Tạo viên đạn
-            currentAmmo--;
-            if (currentAmmo <= 0) StartReload(); // Tự động nạp khi hết đạn
+            nextShotTime = Time.time + fireRate; // Đặt thời gian bắn tiếp
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation); // Tạo đạn
+            currentAmmo--; // Giảm đạn
+
+            // Tự động nạp đạn khi hết đạn trong băng
+            if (currentAmmo <= 0 && totalAmmo > 0 && !isReloading)
+            {
+                StartReload();
+            }
         }
     }
 
     void HandleReload()
     {
-        // Bấm phím R để nạp đạn thủ công
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !isReloading)
+        // Nạp thủ công: chuột phải, chưa đầy băng, không đang nạp, còn đạn dự trữ
+        if (Input.GetMouseButtonDown(1) && currentAmmo < magazineSize && !isReloading && totalAmmo > 0)
         {
             StartReload();
         }
 
-        // Nếu đang nạp, đếm ngược thời gian
+        // Nếu đang nạp
         if (isReloading)
         {
-            reloadTimer -= Time.deltaTime;
+            reloadTimer -= Time.deltaTime;    // Giảm đồng hồ
             if (reloadTimer <= 0)
             {
-                currentAmmo = magazineSize; // Nạp đầy
+                // Nạp xong: tính số đạn cần nạp
+                int ammoNeeded = magazineSize - currentAmmo;
+                int ammoToReload = Mathf.Min(ammoNeeded, totalAmmo);
+
+                currentAmmo += ammoToReload;
+                totalAmmo -= ammoToReload;
+
                 isReloading = false;
+                OnReloadFinished?.Invoke();   // Báo sự kiện kết thúc nạp
             }
         }
     }
 
     void StartReload()
     {
+        if (totalAmmo <= 0) return; // Không còn đạn dự trữ
         isReloading = true;
-        reloadTimer = reloadTime;
+        reloadTimer = reloadTime;    // Đặt lại thời gian nạp
+        OnReloadStarted?.Invoke();   // Báo sự kiện bắt đầu nạp
     }
 }

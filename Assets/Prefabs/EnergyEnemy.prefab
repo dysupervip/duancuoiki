@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5979031373020454747}
   m_Layer: 0
   m_Name: EnergyEnemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   hpBar: {fileID: 2318599208364732128}
   enterDamage: 10
   stayDamage: 1
+  xpReward: 10
   energryObject: {fileID: 4985292959592687857, guid: 1a35f2aa2fd45404e9635efa7391c3e2, type: 3}
 --- !u!95 &5979031373020454747
 Animator:

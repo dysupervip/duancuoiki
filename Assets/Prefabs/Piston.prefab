@@ -109,6 +109,7 @@ MonoBehaviour:
   baseFireRate: 0.3
   baseReloadTime: 1.5
   baseMagazine: 12
+  baseTotalAmmo: 60
   firePos: {fileID: 2010605817161212055}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
 --- !u!1 &8735210519270679354

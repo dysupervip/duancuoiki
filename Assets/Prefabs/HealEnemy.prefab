@@ -181,6 +181,7 @@ MonoBehaviour:
   hpBar: {fileID: 8732042812130353423}
   enterDamage: 5
   stayDamage: 1
+  xpReward: 20
   healValue: 20
 --- !u!50 &8038060008041177988
 Rigidbody2D:
