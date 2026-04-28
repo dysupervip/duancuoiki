@@ -6,40 +6,36 @@ public class SkillSelectionUI : MonoBehaviour
     [System.Serializable]
     public class SkillOption
     {
-        public string skillName;    // Tên skill: "SpeedBoost", "Dash", "Pet"
-        public Button button;       // Nút bấm
-        public Text label;          // Nhãn hiển thị
+        public string skillName;   // "SpeedBoost", "Dash", "Pet"
+        public Button button;
+        public Text label;
     }
 
-    [SerializeField] private SkillOption[] options;  // Mảng 3 lựa chọn
-    public bool HasChosen { get; private set; }     // Đã chọn chưa?
+    [SerializeField] private SkillOption[] options;
+    public bool HasChosen { get; private set; }
 
     private Player player;
 
-    void Start()
-    {
-        player = FindAnyObjectByType<Player>(); // Tìm Player trong scene
-    }
+    void Start() { player = FindAnyObjectByType<Player>(); }
 
     public void Show()
     {
         HasChosen = false;
-        gameObject.SetActive(true);               // Hiện bảng
-        Time.timeScale = 0f;                      // Dừng game (đề phòng)
+        gameObject.SetActive(true);
+        Time.timeScale = 0f;
         foreach (var opt in options)
         {
-            opt.button.onClick.RemoveAllListeners();         // Xóa sự kiện cũ
-            opt.button.onClick.AddListener(() => OnChoose(opt.skillName)); // Gán sự kiện mới
-            opt.button.interactable = true;                  // Cho phép bấm
+            opt.button.onClick.RemoveAllListeners();
+            opt.button.onClick.AddListener(() => OnChoose(opt.skillName));
+            opt.button.interactable = true;
         }
     }
 
     void OnChoose(string skillName)
     {
-        if (HasChosen) return;          // Chỉ chọn 1 lần
+        if (HasChosen) return;
         HasChosen = true;
 
-        // Mở khóa skill tương ứng trong Player
         switch (skillName)
         {
             case "SpeedBoost": player.UnlockSpeedBoost(); break;
@@ -47,12 +43,8 @@ public class SkillSelectionUI : MonoBehaviour
             case "Pet": player.UnlockPet(); break;
         }
 
-        // Vô hiệu hóa tất cả nút
         foreach (var opt in options) opt.button.interactable = false;
     }
 
-    public void Hide()
-    {
-        gameObject.SetActive(false);    // Ẩn bảng
-    }
+    public void Hide() { gameObject.SetActive(false); }
 }

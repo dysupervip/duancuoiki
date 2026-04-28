@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rifle
   baseDamage: 30
-  baseFireRate: 0.1
-  baseReloadTime: 0.5
-  baseMagazine: 15
+  baseFireRate: 0.05
+  baseReloadTime: 0.3
+  baseMagazine: 200
+  baseTotalAmmo: 200
   firePos: {fileID: 6815976738852696128}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
 --- !u!1 &6779043795339810285

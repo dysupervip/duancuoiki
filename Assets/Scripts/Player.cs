@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public int magazineLevel = 0;    // Cấp băng đạn (0-3), mỗi cấp +5 đạn
     public int reloadLevel = 0;      // Cấp nạp đạn (0-3), mỗi cấp giảm 0.3s
 
+
     // === Kỹ năng ===
     [Header("Skills")]
     [SerializeField] private float speedBoostMultiplier = 2f;   // Hệ số nhân tốc độ (x2)
@@ -47,6 +48,9 @@ public class Player : MonoBehaviour
     private bool hasSpeedBoost = false;
     private bool hasDash = false;
     private bool hasPet = false;
+    public bool HasSpeedBoost => hasSpeedBoost;
+        public bool HasDash => hasDash;
+        public bool HasPet => hasPet;
 
     // Trạng thái tăng tốc
     private bool speedBoostActive = false;
