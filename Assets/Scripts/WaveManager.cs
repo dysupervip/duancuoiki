@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<Phase> phases;
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private Player player;
-    [SerializeField] private SkillSelectionUI skillSelectionUI;   // Thay đổi
+    [SerializeField] private SkillSelectionUI skillSelectionUI;   // UI chọn kỹ năng
 
     [Header("Mở khóa enemy theo phase")]
     [SerializeField] private List<GameObject> enemyLibrary;

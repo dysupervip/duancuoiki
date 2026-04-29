@@ -6,28 +6,59 @@ public class SkillSelectionUI : MonoBehaviour
     [System.Serializable]
     public class SkillOption
     {
-        public string skillName;   // "SpeedBoost", "Dash", "Pet"
-        public Button button;
-        public Text label;
+        public string skillName;   // Tên kỹ năng: "SpeedBoost", "Dash", "Pet"
+        public Button button;      // Nút bấm
+        public Text label;         // Nhãn hiển thị
     }
 
-    [SerializeField] private SkillOption[] options;
-    public bool HasChosen { get; private set; }
+    [SerializeField] private SkillOption[] options;  // Mảng 3 lựa chọn
+    public bool HasChosen { get; private set; }      // Đã chọn xong chưa?
 
     private Player player;
 
-    void Start() { player = FindAnyObjectByType<Player>(); }
-
+    // Không dùng Start nữa vì Player có thể chưa tồn tại lúc panel được tạo
     public void Show()
     {
+        // Tìm Player mỗi lần Show để chắc chắn không bị null
+        player = FindAnyObjectByType<Player>();
+        if (player == null)
+        {
+            Debug.LogError("Player không tồn tại! Không thể hiển thị bảng kỹ năng.");
+            gameObject.SetActive(false);
+            return;
+        }
+
         HasChosen = false;
         gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        // Không tự ý đặt Time.timeScale, để WaveManager quản lý
+
         foreach (var opt in options)
         {
-            opt.button.onClick.RemoveAllListeners();
-            opt.button.onClick.AddListener(() => OnChoose(opt.skillName));
-            opt.button.interactable = true;
+            // Kiểm tra kỹ năng đã được mở khóa chưa
+            bool alreadyUnlocked = false;
+            switch (opt.skillName)
+            {
+                case "SpeedBoost": alreadyUnlocked = player.HasSpeedBoost; break;
+                case "Dash": alreadyUnlocked = player.HasDash; break;
+                case "Pet": alreadyUnlocked = player.HasPet; break;
+            }
+
+            if (alreadyUnlocked)
+            {
+                // Ẩn nút nếu đã sở hữu
+                opt.button.gameObject.SetActive(false);
+            }
+            else
+            {
+                // Hiện nút và gán sự kiện
+                opt.button.gameObject.SetActive(true);
+
+                // Tạo biến tạm để tránh lỗi closure
+                string skillNameLocal = opt.skillName;
+                opt.button.onClick.RemoveAllListeners();
+                opt.button.onClick.AddListener(() => OnChoose(skillNameLocal));
+                opt.button.interactable = true;
+            }
         }
     }
 
@@ -36,6 +67,7 @@ public class SkillSelectionUI : MonoBehaviour
         if (HasChosen) return;
         HasChosen = true;
 
+        // Mở khóa kỹ năng trong Player
         switch (skillName)
         {
             case "SpeedBoost": player.UnlockSpeedBoost(); break;
@@ -43,8 +75,17 @@ public class SkillSelectionUI : MonoBehaviour
             case "Pet": player.UnlockPet(); break;
         }
 
-        foreach (var opt in options) opt.button.interactable = false;
+        // Vô hiệu hóa tất cả nút
+        foreach (var opt in options)
+            opt.button.interactable = false;
+
+        // Tự ẩn panel
+        gameObject.SetActive(false);
     }
 
-    public void Hide() { gameObject.SetActive(false); }
+    public void Hide()
+    {
+        if (gameObject.activeSelf)
+            gameObject.SetActive(false);
+    }
 }

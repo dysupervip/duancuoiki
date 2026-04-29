@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 551906857048601282}
   - component: {fileID: 5703540581300775058}
   - component: {fileID: 7475573119014371827}
-  - component: {fileID: 918855137185686867}
+  - component: {fileID: 7289429921978819299}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.003964007, y: -0.003964156}
+  m_Offset: {x: 0.00044494867, y: 0.0009625852}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,9 +137,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.45549858, y: 0.23964155}
+  m_Size: {x: 0.4034158, y: 0.21289635}
   m_EdgeRadius: 0
---- !u!114 &918855137185686867
+--- !u!114 &7289429921978819299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a843aef09a68854bbddd2e149e1b134, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   moveSpeed: 25
   timeDestroy: 0.5
   damage: 10

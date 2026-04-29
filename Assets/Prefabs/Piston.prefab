@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8e0fe8de9ac5a4b9a632a6f76c54b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pistol
-  baseDamage: 30
+  baseDamage: 10
   baseFireRate: 0.07
-  baseReloadTime: 0.3
+  baseReloadTime: 1.5
   baseMagazine: 50
   baseTotalAmmo: 500
   firePos: {fileID: 2010605817161212055}

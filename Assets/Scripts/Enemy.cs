@@ -1,51 +1,52 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 public abstract class Enemy : MonoBehaviour
 {
-    private bool isDead = false;
+    private bool isDead = false;                        // Ngăn chặn chết nhiều lần
     [SerializeField] protected float enemyMoveSpeed = 1f;
-    protected Player player; 
+    protected Player player;
     [SerializeField] protected float maxHp = 50f;
     protected float currentHp;
     [SerializeField] private Image hpBar;
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 1f;
-    [SerializeField] private int xpReward = 10;
+    [SerializeField] private int xpReward = 10;         // XP thưởng khi chết
+
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
-        currentHp = maxHp; 
+        currentHp = maxHp;
         UpdateHpBar();
     }
-    protected virtual void Update()
-    {
-        MoveToPlayer();
-    }
+
+    protected virtual void Update() { MoveToPlayer(); }
+
     protected void MoveToPlayer()
     {
-        if(player != null)
+        if (player != null)
         {
-            transform.position=Vector2.MoveTowards(transform.position,player.transform.position,enemyMoveSpeed*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
         }
         FlipEnemy();
     }
+
     protected void FlipEnemy()
     {
-        if ( player != null)
+        if (player != null)
         {
-            transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1,1,1);
+            transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1, 1, 1);
         }
     }
+
     public virtual void TakeDamage(float damage)
     {
         currentHp -= damage;
-        currentHp = Mathf.Max(currentHp , 0);
+        currentHp = Mathf.Max(currentHp, 0);
         UpdateHpBar();
-        if (currentHp <=0 )
-        {
-            Die();
-        }
+        if (currentHp <= 0) Die();
     }
+
     protected virtual void Die()
     {
         if (isDead) return;
@@ -62,28 +63,17 @@ public abstract class Enemy : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
     protected void UpdateHpBar()
     {
-        if (hpBar != null)
-        {
-            hpBar.fillAmount=currentHp / maxHp; 
-        }
-    }
-    public float GetCurrentHP()
-    {
-        return currentHp;
+        if (hpBar != null) hpBar.fillAmount = currentHp / maxHp;
     }
 
-    public float GetMaxHP()
-    {
-        return maxHp;
-    }
+    public float GetCurrentHP() => currentHp;
+    public float GetMaxHP() => maxHp;
+
     public void HideHpBar()
     {
-        if (hpBar != null)
-        {
-            Transform root = hpBar.transform.root;
-            hpBar.transform.parent.gameObject.SetActive(false);
-        }
+        if (hpBar != null) hpBar.transform.parent.gameObject.SetActive(false);
     }
 }

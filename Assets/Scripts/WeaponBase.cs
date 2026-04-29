@@ -80,15 +80,23 @@ public abstract class WeaponBase : MonoBehaviour
         // Điều kiện bắn: giữ chuột trái, còn đạn, hết cooldown, không đang nạp
         if (Input.GetMouseButton(0) && currentAmmo > 0 && Time.time >= nextShotTime && !isReloading)
         {
-            nextShotTime = Time.time + fireRate; // Đặt thời gian bắn tiếp
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation); // Tạo đạn
-            currentAmmo--; // Giảm đạn
+            nextShotTime = Time.time + fireRate;
+            GameObject bulletObj = Instantiate(bulletPrefab, firePos.position, firePos.rotation);
 
-            // Tự động nạp đạn khi hết đạn trong băng
+            // Lấy script PlayerBullet từ viên đạn vừa tạo
+            PlayerBullet bullet = bulletObj.GetComponent<PlayerBullet>();
+            if (bullet != null)
+            {
+                // Truyền sát thương THỰC TẾ của súng (đã tính bonus) vào đạn
+                bullet.SetDamage(damage);
+            }
+
+            currentAmmo--;
             if (currentAmmo <= 0 && totalAmmo > 0 && !isReloading)
             {
                 StartReload();
             }
+
         }
     }
 

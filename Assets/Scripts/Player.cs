@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;                                // Vật lý 2D
     private SpriteRenderer spriteRenderer;                 // Để lật mặt nhân vật
     private Animator animator;                             // Hoạt ảnh
+
     // === Máu ===
     [SerializeField] private float maxHp = 700f;           // Máu tối đa
     private float currentHp;                               // Máu hiện tại
@@ -31,7 +32,6 @@ public class Player : MonoBehaviour
     public int magazineLevel = 0;    // Cấp băng đạn (0-3), mỗi cấp +5 đạn
     public int reloadLevel = 0;      // Cấp nạp đạn (0-3), mỗi cấp giảm 0.3s
 
-
     // === Kỹ năng ===
     [Header("Skills")]
     [SerializeField] private float speedBoostMultiplier = 2f;   // Hệ số nhân tốc độ (x2)
@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
     private bool hasDash = false;
     private bool hasPet = false;
     public bool HasSpeedBoost => hasSpeedBoost;
-        public bool HasDash => hasDash;
-        public bool HasPet => hasPet;
+    public bool HasDash => hasDash;
+    public bool HasPet => hasPet;
 
     // Trạng thái tăng tốc
     private bool speedBoostActive = false;
@@ -63,8 +63,8 @@ public class Player : MonoBehaviour
 
     // Hình ảnh thay đổi khi level 10
     [SerializeField] private Sprite[] playerSprites;    // [0] mặc định, [1] level 10
-    
-    // Tự thiết lạp khi trò chơi bắt đầu
+   
+    // Tự thiết lập khi trò chơi bắt đầu
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();               // Lấy Rigidbody2D
