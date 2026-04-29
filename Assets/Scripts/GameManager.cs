@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     float stopwatchTime;
     public TextMeshProUGUI stopwatchDisplay;
     [SerializeField] private GameObject gameplayUI;
-    [SerializeField] private GameObject upgradePanel;
+    
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
      public enum GameState
@@ -66,9 +66,7 @@ public class GameManager : MonoBehaviour
 
         currentState = GameState.Result;
 
-        if (upgradePanel != null)
-            upgradePanel.SetActive(false);
-
+        
         resultPanel.SetActive(true);
         Time.timeScale = 0f;
     }
