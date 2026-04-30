@@ -229,7 +229,11 @@ public class Player : MonoBehaviour
     }
 
     void Dash()
+
     {
+        // Kích hoạt animation
+        animator.SetTrigger("Dash");
+
         // Lấy hướng di chuyển từ input, nếu không nhấn gì thì lăn sang phải
         Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         if (dir == Vector2.zero) dir = Vector2.right;
