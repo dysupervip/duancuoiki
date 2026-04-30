@@ -112,6 +112,9 @@ MonoBehaviour:
   baseTotalAmmo: 200
   firePos: {fileID: 6815976738852696128}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
+  weaponIcon: {fileID: -7888296697152109952, guid: 45c2dc5a222b0054cbead1defe2ea7ac, type: 3}
+  weaponName: RIFLE
+  weaponDescription: "m\xF4 t\u1EA3... jqk"
 --- !u!1 &6779043795339810285
 GameObject:
   m_ObjectHideFlags: 0

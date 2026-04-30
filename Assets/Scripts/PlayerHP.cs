@@ -14,6 +14,8 @@ public class PlayerHP : MonoBehaviour
 
     public void UpdateHP(float currentHP, float maxHP)
     {
+        Debug.Log("UI cập nhật từ object: " + gameObject.name);
+
         if (hpFill != null)
         {
             hpFill.fillAmount = currentHP / maxHP;

@@ -5,8 +5,16 @@ public class ThanhTienTrinhUI : MonoBehaviour
 {
     public static ThanhTienTrinhUI Instance;
     [SerializeField] private Image fillImage;
+    private void Awake()
+    {
+        Instance = this;
+    }
 
-    private void Awake() { Instance = this; }
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
 
     public void UpdateProgress(int killed, int total)
     {

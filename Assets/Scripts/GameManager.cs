@@ -1,6 +1,7 @@
-using UnityEngine; // Bắt buộc để dùng các lớp của Unity (MonoBehaviour, GameObject...)
+﻿using UnityEngine; // Bắt buộc để dùng các lớp của Unity (MonoBehaviour, GameObject...)
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Singleton: cho phép truy cập GameManager từ bất kỳ script nào bằng GameManager.Instance
@@ -10,10 +11,11 @@ public class GameManager : MonoBehaviour
     float stopwatchTime;
     public TextMeshProUGUI stopwatchDisplay;
     [SerializeField] private GameObject gameplayUI;
-    
+
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
-     public enum GameState
+    public static bool isFromMenu = true;
+    public enum GameState
     {
         Gameplay,
         Result,
@@ -45,8 +47,20 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        currentState = GameState.Pause;
-        MainMenu();
+        if (isFromMenu)
+        {
+            MainMenu();
+        }
+        else
+        {
+            currentState = GameState.Gameplay;
+            Time.timeScale = 1f;
+
+            mainMenu.SetActive(false);
+            pauseMenu.SetActive(false);
+            resultPanel.SetActive(false);
+            victoryPanel.SetActive(false);
+        }
     }
 
     // Hàm được gọi khi người chơi thắng (nhặt chìa khóa boss)
@@ -66,7 +80,7 @@ public class GameManager : MonoBehaviour
 
         currentState = GameState.Result;
 
-        
+
         resultPanel.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -115,22 +129,27 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(false);
         Time.timeScale = 0f;
     }
-    public void StartGame()
-    {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        resultPanel.SetActive(false);
-
-        stopwatchTime = 0f;
-
-        Time.timeScale = 1f;
-        currentState = GameState.Gameplay;
-    }
     public void ResumeGame()
     {
         mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         currentState = GameState.Gameplay;
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+
+        resultPanel.SetActive(false);
+        victoryPanel.SetActive(false);
+        pauseMenu.SetActive(false);
+        mainMenu.SetActive(false);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void StartGame()
+    {
+        isFromMenu = false;
+        RestartGame();
     }
 }

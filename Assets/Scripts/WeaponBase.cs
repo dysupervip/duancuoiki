@@ -13,6 +13,13 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] protected Transform firePos;        // Vị trí đầu nòng
     [SerializeField] protected GameObject bulletPrefab;  // Prefab viên đạn
 
+    [Header("UI Info")]
+    public Sprite weaponIcon;
+    public string weaponName;
+
+    [TextArea]
+    public string weaponDescription;
+
     // Chỉ số thực tế (đã cộng bonus từ Player)
     protected float damage;
     protected float fireRate;

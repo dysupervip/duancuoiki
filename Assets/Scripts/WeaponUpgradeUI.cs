@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponUpgradeUI : MonoBehaviour
 {
@@ -22,6 +23,17 @@ public class WeaponUpgradeUI : MonoBehaviour
     [SerializeField] private Text reloadLevelText;      // Text cấp nạp đạn
     [SerializeField] private GameObject panel;
     private bool isOpen = false;
+
+    [SerializeField] private Image[] damageBlocks;
+    [SerializeField] private Image[] magazineBlocks;
+    [SerializeField] private Image[] reloadBlocks;
+    [SerializeField] private Color activeColor = new Color(0f, 1f, 1f);
+    [SerializeField] private Color inactiveColor = new Color(0.15f, 0.15f, 0.15f);
+
+    [Header("Weapon UI")]
+    [SerializeField] private Image weaponImage;
+    [SerializeField] private TMP_Text weaponNameText;
+    [SerializeField] private TMP_Text weaponDescriptionText;
 
     private Player player;
 
@@ -75,6 +87,17 @@ public class WeaponUpgradeUI : MonoBehaviour
         reloadCostText.text = player.reloadLevel < 3 ? "Cost: " + relCost : "MAX";
         reloadLevelText.text = "Lv." + player.reloadLevel + "/3";
         reloadButton.interactable = (player.reloadLevel < 3 && player.crudeOil >= relCost);
+
+        UpdateBlocks(damageBlocks, player.damageLevel);
+        UpdateBlocks(magazineBlocks, player.magazineLevel);
+        UpdateBlocks(reloadBlocks, player.reloadLevel);
+
+        if (player.currentWeapon != null)
+        {
+            weaponImage.sprite = player.currentWeapon.weaponIcon;
+            weaponNameText.text = player.currentWeapon.weaponName;
+            weaponDescriptionText.text = player.currentWeapon.weaponDescription;
+        }
     }
 
     // Các hàm gán cho sự kiện OnClick của Button
@@ -104,5 +127,12 @@ public class WeaponUpgradeUI : MonoBehaviour
     public bool IsOpen()
     {
         return isOpen;
+    }
+    void UpdateBlocks(Image[] blocks, int level)
+    {
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            blocks[i].color = i < level ? activeColor : inactiveColor;
+        }
     }
 }

@@ -112,6 +112,9 @@ MonoBehaviour:
   baseTotalAmmo: 500
   firePos: {fileID: 2010605817161212055}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
+  weaponIcon: {fileID: 8101326686158321518, guid: 45c2dc5a222b0054cbead1defe2ea7ac, type: 3}
+  weaponName: PISTON
+  weaponDescription: "m\xF4 t\u1EA3... abc"
 --- !u!1 &8735210519270679354
 GameObject:
   m_ObjectHideFlags: 0
