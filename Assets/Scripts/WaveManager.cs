@@ -91,9 +91,12 @@ public class WaveManager : MonoBehaviour
             Enemy bossEnemy = boss.GetComponent<Enemy>();
             bossEnemy.HideHpBar();
 
-            while (bossEnemy != null)
+            while (bossEnemy != null && bossEnemy.gameObject != null)
             {
-                ThanhTienTrinhUI.Instance.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP() / 3f);
+                ThanhTienTrinhUI.Instance.UpdateBossHP(
+                    bossEnemy.GetCurrentHP(),
+                    bossEnemy.GetMaxHP() / 3f
+                );
                 yield return null;
             }
         }

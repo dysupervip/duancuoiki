@@ -20,19 +20,34 @@ public class WeaponUpgradeUI : MonoBehaviour
     [SerializeField] private Text damageLevelText;      // Text cấp sát thương
     [SerializeField] private Text magazineLevelText;    // Text cấp băng đạn
     [SerializeField] private Text reloadLevelText;      // Text cấp nạp đạn
+    [SerializeField] private GameObject panel;
+    private bool isOpen = false;
 
     private Player player;
 
     void Start()
     {
         player = FindAnyObjectByType<Player>();
-        UpdateUI();
+        panel.SetActive(false);
     }
 
     void Update()
     {
-        // Chỉ cập nhật khi panel đang hiện để tiết kiệm hiệu năng
-        if (gameObject.activeSelf)
+        // TAB mở/đóng
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Toggle();
+        }
+
+        // ESC đóng
+        if (Input.GetKeyDown(KeyCode.Escape) && isOpen)
+        {
+            Close();
+            return;
+        }
+
+        // Update UI khi đang mở
+        if (isOpen)
             UpdateUI();
     }
 
@@ -66,4 +81,28 @@ public class WeaponUpgradeUI : MonoBehaviour
     public void UpgradeDamage()    { if (player.UpgradeDamage()) UpdateUI(); }
     public void UpgradeMagazine()  { if (player.UpgradeMagazine()) UpdateUI(); }
     public void UpgradeReload()    { if (player.UpgradeReloadSpeed()) UpdateUI(); }
+    public void Toggle()
+    {
+        if (isOpen) Close();
+        else Open();
+    }
+
+    public void Open()
+    {
+        panel.SetActive(true);
+        Time.timeScale = 0f;
+        isOpen = true;
+        UpdateUI();
+    }
+
+    public void Close()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1f;
+        isOpen = false;
+    }
+    public bool IsOpen()
+    {
+        return isOpen;
+    }
 }

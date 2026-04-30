@@ -85,9 +85,13 @@ public class Player : MonoBehaviour
         MovePlayer();                                   // Di chuyển
         UpdateSpeedBoost();                             // Cập nhật trạng thái tăng tốc
         HandleSkillsInput();                            // Xử lý phím kỹ năng
-        if (Input.GetKeyDown(KeyCode.Escape))           // Nhấn ESC
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance?.PauseGameMenu();      // Gọi menu tạm dừng
+            // Nếu đang mở upgrade thì KHÔNG pause
+            if (FindAnyObjectByType<WeaponUpgradeUI>()?.IsOpen() == true)
+                return;
+
+            GameManager.Instance?.PauseGameMenu();
         }
     }
 
@@ -259,7 +263,13 @@ public class Player : MonoBehaviour
 
     void UpdateHpBar()
     {
-        if (hpBar != null) hpBar.fillAmount = currentHp / maxHp;
+        if (hpBar != null)
+            hpBar.fillAmount = currentHp / maxHp;
+
+        if (PlayerHP.Instance != null)
+        {
+            PlayerHP.Instance.UpdateHP(currentHp, maxHp);
+        }
     }
 
     // === NÂNG CẤP BẰNG DẦU ===
