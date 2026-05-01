@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class Player : MonoBehaviour
 {
     // === Di chuyển ===
@@ -32,11 +32,15 @@ public class Player : MonoBehaviour
     public int magazineLevel = 0;
     public int reloadLevel = 0;
 
-    // === Dash (mặc định, phím C) ===
+    // === Dash (mặc định, phím Space) ===
     [Header("Dash")]
-    [SerializeField] private float dashDistance = 3f;
-    [SerializeField] private float dashCooldown = 3f;
-    private float nextDashTime = 0f;
+    [SerializeField] private float dashDistance = 5f;         // Khoảng cách lướt
+    [SerializeField] private float dashDuration = 0.2f;       // Thời gian lướt (giây)
+    [SerializeField] private float dashCooldown = 2f;         // Thời gian hồi chiêu
+    private bool isDashing = false;                           // Đang trong trạng thái lướt
+    private float dashTimer = 0f;                             // Bộ đếm thời gian lướt
+    private Vector2 dashDirection;                            // Hướng lướt
+    private float nextDashTime = 0f;                          // Thời điểm có thể dash tiếp theo
 
     // === Pet (mở khóa qua phase) ===
     [Header("Pet")]
@@ -46,17 +50,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float petCooldown = 5f;
     private bool hasPet = false;
     private float nextPetTime = 0f;
-
-    // === Energy Beam (mở khóa qua phase) ===
+    // == Energy Beam == //
     [Header("Energy Beam")]
     [SerializeField] private GameObject beamPrefab;
     [SerializeField] private Transform mouthPosition;
     [SerializeField] private float beamDamage = 20f;
     [SerializeField] private float beamRange = 5f;
     [SerializeField] private float beamCooldown = 2f;
+    [SerializeField] private float mouthOpenTime = 0.3f;   // Thời gian mở miệng (giây)
+    [SerializeField] private float beamDuration = 0.5f;     // Thời gian phun beam (giây)
     private bool hasBeam = false;
     private float nextBeamTime = 0f;
-
+    private bool isBeaming = false;   // Đang trong trạng thái bắn beam
     // === Dual Wield (mở khóa qua phase) ===
     [Header("Dual Wield")]
     [SerializeField] private float dualWieldDuration = 5f;
@@ -105,12 +110,16 @@ public class Player : MonoBehaviour
         MovePlayer();
         HandleSkillsInput();
         UpdateDualWieldTimer();
+        UpdateDash(); // Theo dõi trạng thái lướt
         if (Input.GetKeyDown(KeyCode.Escape))
             GameManager.Instance?.PauseGameMenu();
     }
 
     void MovePlayer()
     {
+        // Nếu đang lướt, không can thiệp di chuyển thường (vận tốc do Dash kiểm soát)
+        if (isDashing || isBeaming) return;
+
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.linearVelocity = input.normalized * movespeed;
         if (input.x < 0) spriteRenderer.flipX = true;
@@ -120,18 +129,20 @@ public class Player : MonoBehaviour
 
     void HandleSkillsInput()
     {
-        // Dash (C)
-        if (Input.GetKeyDown(KeyCode.C) && Time.time >= nextDashTime)
-            Dash();
-
+        // Dash (Space)
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && Time.time >= nextDashTime)
+        {
+            StartDash();
+        }
         // Pet (Q)
         if (Input.GetKeyDown(KeyCode.Q) && hasPet && Time.time >= nextPetTime)
             SummonPets();
 
         // Energy Beam (E)
-        if (Input.GetKeyDown(KeyCode.E) && hasBeam && Time.time >= nextBeamTime)
-            FireBeam();
-
+        if (Input.GetKeyDown(KeyCode.E) && hasBeam && !isBeaming && Time.time >= nextBeamTime)
+        {
+            StartCoroutine(FireBeamCoroutine());
+        }
         // Dual Wield (R)
         if (Input.GetKeyDown(KeyCode.R) && hasDualWield && !dualWieldActive && Time.time >= dualWieldCooldown)
             ActivateDualWield();
@@ -147,13 +158,45 @@ public class Player : MonoBehaviour
     }
 
     // ===== KỸ NĂNG =====
-    void Dash()
+    // ===== Dash mới =====
+void StartDash()
+{
+    isDashing = true;
+    dashTimer = dashDuration;
+    nextDashTime = Time.time + dashCooldown;
+
+    // Xác định hướng lướt: nếu không có input thì lướt theo hướng mặt
+    Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    if (input.magnitude > 0)
+        dashDirection = input.normalized;
+    else
+        dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+
+    // Gán vận tốc ban đầu
+    float dashSpeed = dashDistance / dashDuration;
+    rb.linearVelocity = dashDirection * dashSpeed;
+
+    // Kích hoạt animation nếu có
+    if (animator != null)
+        animator.SetTrigger("Dash");
+}
+void UpdateDash()
+{
+    if (isDashing)
     {
-        Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (dir == Vector2.zero) dir = Vector2.right;
-        transform.position += (Vector3)(dir * dashDistance);
-        nextDashTime = Time.time + dashCooldown;
+        dashTimer -= Time.deltaTime;
+        if (dashTimer <= 0)
+        {
+            isDashing = false;
+            rb.linearVelocity = Vector2.zero; // Dừng lại sau khi lướt xong
+        }
+        else
+        {
+            // Giữ vận tốc không đổi trong lúc lướt (có thể thêm hiệu ứng giảm dần nếu muốn)
+        }
     }
+}
+
 
     void SummonPets()
     {
@@ -177,6 +220,33 @@ public class Player : MonoBehaviour
             Vector2 dir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
             beamScript.Initialize(dmg, range, dir);
         }
+        nextBeamTime = Time.time + beamCooldown;
+    }
+    IEnumerator FireBeamCoroutine()
+    {
+        isBeaming = true;
+        // Kích hoạt animation "Beam" (mở miệng)
+        animator.SetTrigger("Beam");
+
+        // Đợi cho miệng mở xong
+        yield return new WaitForSeconds(mouthOpenTime);
+
+        // Tạo beam tại miệng
+        GameObject beam = Instantiate(beamPrefab, mouthPosition.position, Quaternion.identity);
+        EnergyBeam beamScript = beam.GetComponent<EnergyBeam>();
+        if (beamScript != null)
+        {
+            float dmg = beamDamage + (isAscended ? ascendedBeamDamageBonus : 0);
+            float range = beamRange + (isAscended ? ascendedBeamRangeBonus : 0);
+            Vector2 dir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+            beamScript.Initialize(dmg, range, dir);
+        }
+
+        // Đợi cho animation phun beam kết thúc
+        yield return new WaitForSeconds(beamDuration);
+
+        // Kết thúc beam, cho phép di chuyển
+        isBeaming = false;
         nextBeamTime = Time.time + beamCooldown;
     }
 
