@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4241074263650956696}
   - component: {fileID: 7906465965783732107}
   - component: {fileID: 4030396430544285923}
+  - component: {fileID: 4809560069316688311}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Energy
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1298610091
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7213742777133032008, guid: 54f96dd8ca601474cbcbb6bb73c047e0, type: 3}
@@ -151,3 +152,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.22222222
+--- !u!114 &4809560069316688311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985292959592687857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82885877036ad7f41ab0e85647e90916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChipItem

@@ -6,54 +6,64 @@ public class SkillSelectionUI : MonoBehaviour
     [System.Serializable]
     public class SkillOption
     {
-        public string skillName;   // Tên kỹ năng: "SpeedBoost", "Dash", "Pet"
-        public Button button;      // Nút bấm
-        public Text label;         // Nhãn hiển thị
+        public string skillName;   // "Pet", "EnergyBeam", "DualWield"
+        public Button button;
+        public Text label;
     }
 
-    [SerializeField] private SkillOption[] options;  // Mảng 3 lựa chọn
-    public bool HasChosen { get; private set; }      // Đã chọn xong chưa?
+    [SerializeField] private SkillOption[] options;
+    public bool HasChosen { get; private set; }
 
-    private Player player;
+    // Không dùng Start nữa, tìm Player mỗi lần cần
 
-    // Không dùng Start nữa vì Player có thể chưa tồn tại lúc panel được tạo
-    public void Show()
+    /// <summary>
+    /// Trả về true nếu còn ít nhất 1 kỹ năng chưa được mở khóa.
+    /// </summary>
+    public bool HasAvailableSkills()
     {
-        // Tìm Player mỗi lần Show để chắc chắn không bị null
-        player = FindAnyObjectByType<Player>();
+        Player player = FindAnyObjectByType<Player>();
         if (player == null)
         {
-            Debug.LogError("Player không tồn tại! Không thể hiển thị bảng kỹ năng.");
+            Debug.LogWarning("[SkillSelectionUI] HasAvailableSkills: Player is NULL!");
+            return false; // Nếu không tìm thấy Player, coi như không có skill nào để chọn
+        }
+        bool available = !player.HasPet || !player.HasBeam || !player.HasDualWield;
+        Debug.Log($"[SkillSelectionUI] HasAvailableSkills: HasPet={player.HasPet}, HasBeam={player.HasBeam}, HasDualWield={player.HasDualWield} => {available}");
+        return available;
+    }
+
+    public void Show()
+    {
+        Player player = FindAnyObjectByType<Player>();
+        if (player == null)
+        {
+            Debug.LogError("[SkillSelectionUI] Show: Player is NULL! Không thể hiển thị.");
             gameObject.SetActive(false);
             return;
         }
 
         HasChosen = false;
         gameObject.SetActive(true);
-        // Không tự ý đặt Time.timeScale, để WaveManager quản lý
 
         foreach (var opt in options)
         {
-            // Kiểm tra kỹ năng đã được mở khóa chưa
             bool alreadyUnlocked = false;
             switch (opt.skillName)
             {
-                case "SpeedBoost": alreadyUnlocked = player.HasSpeedBoost; break;
-                case "Dash": alreadyUnlocked = player.HasDash; break;
                 case "Pet": alreadyUnlocked = player.HasPet; break;
+                case "EnergyBeam": alreadyUnlocked = player.HasBeam; break;
+                case "DualWield": alreadyUnlocked = player.HasDualWield; break;
             }
+
+            Debug.Log($"[SkillSelectionUI] Skill '{opt.skillName}' - đã mở khóa: {alreadyUnlocked}");
 
             if (alreadyUnlocked)
             {
-                // Ẩn nút nếu đã sở hữu
                 opt.button.gameObject.SetActive(false);
             }
             else
             {
-                // Hiện nút và gán sự kiện
                 opt.button.gameObject.SetActive(true);
-
-                // Tạo biến tạm để tránh lỗi closure
                 string skillNameLocal = opt.skillName;
                 opt.button.onClick.RemoveAllListeners();
                 opt.button.onClick.AddListener(() => OnChoose(skillNameLocal));
@@ -64,28 +74,28 @@ public class SkillSelectionUI : MonoBehaviour
 
     void OnChoose(string skillName)
     {
+        Debug.Log($"[SkillSelectionUI] OnChoose: {skillName}");
         if (HasChosen) return;
         HasChosen = true;
 
-        // Mở khóa kỹ năng trong Player
+        Player player = FindAnyObjectByType<Player>();
+        if (player == null) return;
+
         switch (skillName)
         {
-            case "SpeedBoost": player.UnlockSpeedBoost(); break;
-            case "Dash": player.UnlockDash(); break;
             case "Pet": player.UnlockPet(); break;
+            case "EnergyBeam": player.UnlockBeam(); break;
+            case "DualWield": player.UnlockDualWield(); break;
         }
 
-        // Vô hiệu hóa tất cả nút
         foreach (var opt in options)
             opt.button.interactable = false;
 
-        // Tự ẩn panel
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // Tự ẩn sau khi chọn
     }
 
     public void Hide()
     {
-        if (gameObject.activeSelf)
-            gameObject.SetActive(false);
+        if (gameObject.activeSelf) gameObject.SetActive(false);
     }
 }
