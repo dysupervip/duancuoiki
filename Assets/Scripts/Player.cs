@@ -50,18 +50,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float petCooldown = 5f;
     private bool hasPet = false;
     private float nextPetTime = 0f;
-    // == Energy Beam == //
+    // === Energy Beam (mở khóa qua phase) ===
     [Header("Energy Beam")]
     [SerializeField] private GameObject beamPrefab;
-    [SerializeField] private Transform mouthPosition;
+   [SerializeField] private Transform bellyPosition;   // Vị trí bụng (khi chuột cùng phía)
+    [SerializeField] private Transform backPosition;    // Vị trí lưng (khi chuột khác phía)
     [SerializeField] private float beamDamage = 20f;
     [SerializeField] private float beamRange = 5f;
     [SerializeField] private float beamCooldown = 2f;
-    [SerializeField] private float mouthOpenTime = 0.3f;   // Thời gian mở miệng (giây)
-    [SerializeField] private float beamDuration = 0.5f;     // Thời gian phun beam (giây)
+    [SerializeField] private float beamDuration = 0.5f;   // Thời gian beam tồn tại
     private bool hasBeam = false;
     private float nextBeamTime = 0f;
-    private bool isBeaming = false;   // Đang trong trạng thái bắn beam
+    private bool isBeaming = false;
     // === Dual Wield (mở khóa qua phase) ===
     [Header("Dual Wield")]
     [SerializeField] private float dualWieldDuration = 5f;
@@ -159,43 +159,43 @@ public class Player : MonoBehaviour
 
     // ===== KỸ NĂNG =====
     // ===== Dash mới =====
-void StartDash()
-{
-    isDashing = true;
-    dashTimer = dashDuration;
-    nextDashTime = Time.time + dashCooldown;
-
-    // Xác định hướng lướt: nếu không có input thì lướt theo hướng mặt
-    Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    if (input.magnitude > 0)
-        dashDirection = input.normalized;
-    else
-        dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-
-    // Gán vận tốc ban đầu
-    float dashSpeed = dashDistance / dashDuration;
-    rb.linearVelocity = dashDirection * dashSpeed;
-
-    // Kích hoạt animation nếu có
-    if (animator != null)
-        animator.SetTrigger("Dash");
-}
-void UpdateDash()
-{
-    if (isDashing)
+    void StartDash()
     {
-        dashTimer -= Time.deltaTime;
-        if (dashTimer <= 0)
-        {
-            isDashing = false;
-            rb.linearVelocity = Vector2.zero; // Dừng lại sau khi lướt xong
-        }
+        isDashing = true;
+        dashTimer = dashDuration;
+        nextDashTime = Time.time + dashCooldown;
+
+        // Xác định hướng lướt: nếu không có input thì lướt theo hướng mặt
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (input.magnitude > 0)
+            dashDirection = input.normalized;
         else
+            dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+
+        // Gán vận tốc ban đầu
+        float dashSpeed = dashDistance / dashDuration;
+        rb.linearVelocity = dashDirection * dashSpeed;
+
+        // Kích hoạt animation nếu có
+        if (animator != null)
+            animator.SetTrigger("Dash");
+    }
+    void UpdateDash()
+    {
+        if (isDashing)
         {
-            // Giữ vận tốc không đổi trong lúc lướt (có thể thêm hiệu ứng giảm dần nếu muốn)
+            dashTimer -= Time.deltaTime;
+            if (dashTimer <= 0)
+            {
+                isDashing = false;
+                rb.linearVelocity = Vector2.zero; // Dừng lại sau khi lướt xong
+            }
+            else
+            {
+                // Giữ vận tốc không đổi trong lúc lướt (có thể thêm hiệu ứng giảm dần nếu muốn)
+            }
         }
     }
-}
 
 
     void SummonPets()
@@ -209,43 +209,34 @@ void UpdateDash()
         nextPetTime = Time.time + petLifetime + petCooldown;
     }
 
-    void FireBeam()
-    {
-        GameObject beam = Instantiate(beamPrefab, mouthPosition.position, Quaternion.identity);
-        EnergyBeam beamScript = beam.GetComponent<EnergyBeam>();
-        if (beamScript != null)
-        {
-            float dmg = beamDamage + (isAscended ? ascendedBeamDamageBonus : 0);
-            float range = beamRange + (isAscended ? ascendedBeamRangeBonus : 0);
-            Vector2 dir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-            beamScript.Initialize(dmg, range, dir);
-        }
-        nextBeamTime = Time.time + beamCooldown;
-    }
-    IEnumerator FireBeamCoroutine()
+    
+   IEnumerator FireBeamCoroutine()
     {
         isBeaming = true;
-        // Kích hoạt animation "Beam" (mở miệng)
-        animator.SetTrigger("Beam");
+        animator.SetTrigger("Beam");   // Kích hoạt animation giật (nếu bạn muốn giữ animation này)
 
-        // Đợi cho miệng mở xong
-        yield return new WaitForSeconds(mouthOpenTime);
+        // Bắn beam NGAY LẬP TỨC, không chờ nữa
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - transform.position).normalized;
 
-        // Tạo beam tại miệng
-        GameObject beam = Instantiate(beamPrefab, mouthPosition.position, Quaternion.identity);
+        bool facingLeft = spriteRenderer.flipX;
+        bool mouseOnLeft = mousePos.x < transform.position.x;
+        bool sameSide = (facingLeft == mouseOnLeft);
+        Transform spawnPoint = sameSide ? bellyPosition : backPosition;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        GameObject beam = Instantiate(beamPrefab, spawnPoint.position, Quaternion.Euler(0, 0, angle));
         EnergyBeam beamScript = beam.GetComponent<EnergyBeam>();
         if (beamScript != null)
         {
             float dmg = beamDamage + (isAscended ? ascendedBeamDamageBonus : 0);
             float range = beamRange + (isAscended ? ascendedBeamRangeBonus : 0);
-            Vector2 dir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-            beamScript.Initialize(dmg, range, dir);
+            beamScript.Initialize(dmg, range, direction);
         }
 
-        // Đợi cho animation phun beam kết thúc
+        // Chỉ chờ beam tồn tại trong beamDuration
         yield return new WaitForSeconds(beamDuration);
 
-        // Kết thúc beam, cho phép di chuyển
         isBeaming = false;
         nextBeamTime = Time.time + beamCooldown;
     }
