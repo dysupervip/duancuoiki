@@ -1996,7 +1996,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 498893495
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -11397,7 +11397,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000007de68c638d6c49a7a77bd0fee1168665b782bc1ddd4b02bb6fd96566f731ac41ab37674d3524a05d31a3f1b89545d2c1
+  m_ApplyToSortingLayers: 000000007de68c638d6c49a7a77bd0fee1168665b782bc1ddd4b02bb6fd96566f731ac41ab37674d3524a05d31a3f1b89545d2c155a92a8a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -14232,7 +14232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.499985, y: -3}
+  m_AnchoredPosition: {x: -40.49997, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -14401,7 +14401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.9999, y: -78}
+  m_AnchoredPosition: {x: 959.9999, y: -78.00003}
   m_SizeDelta: {x: 1919.9999, y: 853.1825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250364607
@@ -14847,7 +14847,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1703286497
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -16958,9 +16958,11 @@ MonoBehaviour:
   beamRange: 7
   beamCooldown: 0
   beamDuration: 0.5
+  dualGunSortingLayer: 1
+  dualGunOrderInLayer: 0
   dualWieldDuration: 5
   dualWieldCooldown: 10
-  dualGunOffset: {x: -0.5, y: -0.2, z: 0}
+  dualGunOffset: {x: 0, y: -0.2, z: 0}
   dualGunLayer: Default
   ascendedPetBonus: 2
   ascendedBeamRangeBonus: 3
@@ -17085,8 +17087,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1670178429
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7950320164446702114, guid: 2e9bdfcb06db2c54b86f35a67704c721, type: 3}
