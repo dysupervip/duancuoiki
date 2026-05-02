@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 156191261}
   - component: {fileID: 156191263}
   m_Layer: 5
-  m_Name: Dash
+  m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,7 +1916,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Speed
+  m_Text: SummonPet
 --- !u!1 &307760214
 GameObject:
   m_ObjectHideFlags: 0
@@ -9709,7 +9709,7 @@ RectTransform:
   m_GameObject: {fileID: 353743780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1121426, y: 1.1469525, z: 1.1121426}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1370632807}
@@ -9720,7 +9720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 315}
+  m_AnchoredPosition: {x: 0, y: 611}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &362512766
@@ -10184,7 +10184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -85}
+  m_AnchoredPosition: {x: 0, y: -362}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454767266
@@ -10420,6 +10420,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460977611}
   m_CullTransparentMesh: 1
+--- !u!1 &475732539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 475732540}
+  m_Layer: 0
+  m_Name: MouthPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &475732540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475732539}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.39, y: -0.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1665009848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483354540
 GameObject:
   m_ObjectHideFlags: 0
@@ -10433,7 +10464,7 @@ GameObject:
   - component: {fileID: 483354542}
   - component: {fileID: 483354544}
   m_Layer: 5
-  m_Name: SummonPet
+  m_Name: DualWield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11112,7 +11143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dash
+  m_Text: Beam
 --- !u!1 &547569156
 GameObject:
   m_ObjectHideFlags: 0
@@ -12202,7 +12233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746497253
@@ -12697,7 +12728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 279}
+  m_AnchoredPosition: {x: 0, y: 418}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &785323972
@@ -13887,7 +13918,7 @@ GameObject:
   - component: {fileID: 1166106343}
   - component: {fileID: 1166106345}
   m_Layer: 5
-  m_Name: SpeedBoost
+  m_Name: Pet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14201,7 +14232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.5, y: -3}
+  m_AnchoredPosition: {x: -40.499985, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -14226,24 +14257,6 @@ MonoBehaviour:
   damageLevelText: {fileID: 1181208733}
   magazineLevelText: {fileID: 621194973}
   reloadLevelText: {fileID: 1380329610}
-  panel: {fileID: 1200586471}
-  damageBlocks:
-  - {fileID: 949842198}
-  - {fileID: 1785017671}
-  - {fileID: 235057757}
-  magazineBlocks:
-  - {fileID: 1069657172}
-  - {fileID: 1521554285}
-  - {fileID: 728362320}
-  reloadBlocks:
-  - {fileID: 1160678301}
-  - {fileID: 974905801}
-  - {fileID: 1010414109}
-  activeColor: {r: 0, g: 1, b: 1, a: 1}
-  inactiveColor: {r: 0.15, g: 0.15, b: 0.15, a: 1}
-  weaponImage: {fileID: 733854009}
-  weaponNameText: {fileID: 2063683045}
-  weaponDescriptionText: {fileID: 610671346}
 --- !u!114 &1200586474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14388,7 +14401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.9999, y: 224}
+  m_AnchoredPosition: {x: 959.9999, y: -78}
   m_SizeDelta: {x: 1919.9999, y: 853.1825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250364607
@@ -16685,21 +16698,36 @@ MonoBehaviour:
     totalEnemies: 5
     spawnDelay: 1
     oilDropQuota: 3
+    spawnMiniBoss: 0
+    miniBossPrefab: {fileID: 0}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
     totalEnemies: 5
     spawnDelay: 1
     oilDropQuota: 6
+    spawnMiniBoss: 0
+    miniBossPrefab: {fileID: 0}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
     totalEnemies: 5
     spawnDelay: 1
     oilDropQuota: 9
+    spawnMiniBoss: 0
+    miniBossPrefab: {fileID: 0}
+  - isBossPhase: 0
+    bossPrefab: {fileID: 0}
+    totalEnemies: 5
+    spawnDelay: 1
+    oilDropQuota: 5
+    spawnMiniBoss: 1
+    miniBossPrefab: {fileID: 1455368844027433599, guid: 6436d33ad55606d42aa0caf30ba05b08, type: 3}
   - isBossPhase: 1
     bossPrefab: {fileID: 9121122710836681019, guid: b60b06bc1fa86a441963312a75570f2c, type: 3}
     totalEnemies: 0
     spawnDelay: 0
     oilDropQuota: 0
+    spawnMiniBoss: 0
+    miniBossPrefab: {fileID: 0}
   spawner: {fileID: 47564894}
   player: {fileID: 1665009844}
   skillSelectionUI: {fileID: 1864624069}
@@ -16907,7 +16935,7 @@ MonoBehaviour:
   hpBar: {fileID: 1034309003}
   level: 1
   xp: 0
-  xpToNextLevel: 
+  xpToNextLevel: 1e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000
   weaponSocket: {fileID: 1807946815}
   weaponUpgrades:
   - {fileID: 2833746395576755480, guid: 53547e358236da7418f229dbc69beeb3, type: 3}
@@ -16916,16 +16944,29 @@ MonoBehaviour:
   damageLevel: 0
   magazineLevel: 0
   reloadLevel: 0
-  speedBoostMultiplier: 2
-  speedBoostDuration: 3
-  speedBoostCooldown: 5
   dashDistance: 3
-  dashCooldown: 3
-  petPrefab: {fileID: 0}
+  dashDuration: 0.2
+  dashCooldown: 0.5
+  petPrefab: {fileID: 4217081991236673259, guid: 08c0bdb702c87d84d9317017a7d0125a, type: 3}
   petCount: 3
   petLifetime: 10
   petCooldown: 5
-  playerSprites: []
+  beamPrefab: {fileID: 2682272718378537657, guid: 0280949382e692d4e96329f6eba6f77b, type: 3}
+  mouthPosition: {fileID: 475732540}
+  beamDamage: 20
+  beamRange: 5
+  beamCooldown: 0
+  mouthOpenTime: 0.27
+  beamDuration: 0.5
+  dualWieldDuration: 5
+  dualWieldCooldown: 10
+  dualGunOffset: {x: -0.5, y: -0.2, z: 0}
+  dualGunLayer: Default
+  ascendedPetBonus: 2
+  ascendedBeamRangeBonus: 3
+  ascendedBeamDamageBonus: 10
+  ascendedDualWieldDurationBonus: 5
+  ascendedSprite: {fileID: 0}
 --- !u!61 &1665009845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17073,6 +17114,7 @@ Transform:
   m_Children:
   - {fileID: 1807946815}
   - {fileID: 1429845814}
+  - {fileID: 475732540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1665009849
@@ -17085,7 +17127,7 @@ Animator:
   m_GameObject: {fileID: 1665009842}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bcf9998053cc79741b341c0854aff0ed, type: 2}
+  m_Controller: {fileID: 9100000, guid: df58d132ba84e95489b58b519c577a27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -17270,7 +17312,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SummonPet
+  m_Text: DualWield
 --- !u!222 &1807214231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17556,13 +17598,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillSelectionUI
   options:
-  - skillName: SpeedBoost
+  - skillName: Pet
     button: {fileID: 1166106345}
     label: {fileID: 290881815}
-  - skillName: Dash
+  - skillName: EnergyBeam
     button: {fileID: 156191263}
     label: {fileID: 536953152}
-  - skillName: Pet
+  - skillName: DualWield
     button: {fileID: 483354544}
     label: {fileID: 1807214230}
 --- !u!1 &1871515928

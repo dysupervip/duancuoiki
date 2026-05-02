@@ -13,13 +13,6 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] protected Transform firePos;        // Vị trí đầu nòng
     [SerializeField] protected GameObject bulletPrefab;  // Prefab viên đạn
 
-    [Header("UI Info")]
-    public Sprite weaponIcon;
-    public string weaponName;
-
-    [TextArea]
-    public string weaponDescription;
-
     // Chỉ số thực tế (đã cộng bonus từ Player)
     protected float damage;
     protected float fireRate;
@@ -39,6 +32,9 @@ public abstract class WeaponBase : MonoBehaviour
     // Sự kiện để CursorManager lắng nghe
     public System.Action OnReloadStarted;
     public System.Action OnReloadFinished;
+
+    // Biến để đánh dấu súng clone (dùng cho Dual Wield)
+    [HideInInspector] public bool isClone = false;
 
     protected virtual void Start()
     {
@@ -75,6 +71,10 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        // Nếu là súng clone (Dual Wield), bỏ qua toàn bộ input để tránh xung đột
+        if (isClone)
+            return;
+
         RotateGun();        // Hàm ảo – lớp con tự định nghĩa
         HandleReload();     // Xử lý nạp đạn
         HandleShooting();   // Xử lý bắn
@@ -88,22 +88,23 @@ public abstract class WeaponBase : MonoBehaviour
         if (Input.GetMouseButton(0) && currentAmmo > 0 && Time.time >= nextShotTime && !isReloading)
         {
             nextShotTime = Time.time + fireRate;
-            GameObject bulletObj = Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
 
-            // Lấy script PlayerBullet từ viên đạn vừa tạo
-            PlayerBullet bullet = bulletObj.GetComponent<PlayerBullet>();
-            if (bullet != null)
+            // === Xử lý tiêu hao đạn ===
+            // Tìm Player trong scene
+            Player player = FindAnyObjectByType<Player>();
+            // Nếu Player không tồn tại hoặc Player chưa thăng hoa => trừ đạn bình thường
+            if (player == null || !player.IsAscended)
             {
-                // Truyền sát thương THỰC TẾ của súng (đã tính bonus) vào đạn
-                bullet.SetDamage(damage);
+                currentAmmo--;
             }
+            // Nếu Player đã thăng hoa => không trừ đạn (vô hạn đạn)
 
-            currentAmmo--;
+            // Tự động nạp đạn khi hết đạn trong băng
             if (currentAmmo <= 0 && totalAmmo > 0 && !isReloading)
             {
                 StartReload();
             }
-
         }
     }
 

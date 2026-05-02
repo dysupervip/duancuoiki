@@ -12,16 +12,18 @@ public class WaveManager : MonoBehaviour
         public int totalEnemies = 10;
         public float spawnDelay = 1.5f;
         public int oilDropQuota = 3;
-        // Không còn newWeaponPrefab
+        // Hỗ trợ MiniBoss trong phase thường
+        public bool spawnMiniBoss = false;
+        public GameObject miniBossPrefab;
     }
 
     [SerializeField] private List<Phase> phases;
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private Player player;
-    [SerializeField] private SkillSelectionUI skillSelectionUI;   // UI chọn kỹ năng
+    [SerializeField] private SkillSelectionUI skillSelectionUI;
 
     [Header("Mở khóa enemy theo phase")]
-    [SerializeField] private List<GameObject> enemyLibrary;
+    [SerializeField] private List<GameObject> enemyLibrary; // 3 loại enemy thường
 
     private List<GameObject> unlockedEnemyPrefabs = new List<GameObject>();
     private int currentPhaseIndex = 0;
@@ -32,36 +34,40 @@ public class WaveManager : MonoBehaviour
     public static WaveManager Instance;
 
     void Awake() { Instance = this; }
-
     void Start() { StartCoroutine(RunPhase(currentPhaseIndex)); }
 
     IEnumerator RunPhase(int index)
     {
         if (index >= phases.Count) yield break;
         Phase phase = phases[index];
+        oilRemaining = phase.oilDropQuota;
         if (ThanhTienTrinhUI.Instance != null)
         {
             ThanhTienTrinhUI.Instance.ResetBar();
             ThanhTienTrinhUI.Instance.SetColor(phase.isBossPhase ? new Color(0.6f, 0f, 1f) : Color.yellow);
         }
-        oilRemaining = phase.oilDropQuota;
 
         if (!phase.isBossPhase)
         {
-            // Mở khóa enemy mới
+            // Mở khóa enemy mới (nếu còn)
             if (currentPhaseIndex < enemyLibrary.Count)
             {
                 GameObject newEnemy = enemyLibrary[currentPhaseIndex];
                 if (!unlockedEnemyPrefabs.Contains(newEnemy))
-                {
                     unlockedEnemyPrefabs.Add(newEnemy);
-                    Debug.Log($"Mở khóa enemy mới: {newEnemy.name}");
-                }
             }
 
             enemiesKilled = 0;
             enemiesSpawned = 0;
 
+            // Spawn MiniBoss ngay từ đầu nếu có
+            if (phase.spawnMiniBoss && phase.miniBossPrefab != null)
+            {
+                spawner.SpawnSpecificEnemy(phase.miniBossPrefab);
+                enemiesSpawned++;
+            }
+
+            // Vòng lặp spawn quái thường
             while (enemiesKilled < phase.totalEnemies)
             {
                 if (enemiesSpawned < phase.totalEnemies)
@@ -81,22 +87,26 @@ public class WaveManager : MonoBehaviour
                 }
             }
 
-            // Sau phase thường -> chọn kỹ năng
-            yield return StartCoroutine(ShowSkillSelection());
+            // Chỉ hiển thị chọn kỹ năng nếu còn kỹ năng chưa mở khóa
+            if (skillSelectionUI.HasAvailableSkills())
+            {
+                yield return StartCoroutine(ShowSkillSelection());
+            }
+            else
+            {
+                Debug.Log("Tất cả kỹ năng đã mở khóa. Bỏ qua chọn kỹ năng.");
+            }
         }
         else
         {
+            // Phase boss (phase 4)
             yield return new WaitForSeconds(1f);
             GameObject boss = spawner.SpawnBoss(phase.bossPrefab);
             Enemy bossEnemy = boss.GetComponent<Enemy>();
             bossEnemy.HideHpBar();
-
-            while (bossEnemy != null && bossEnemy.gameObject != null)
+            while (bossEnemy != null)
             {
-                ThanhTienTrinhUI.Instance.UpdateBossHP(
-                    bossEnemy.GetCurrentHP(),
-                    bossEnemy.GetMaxHP() / 3f
-                );
+                ThanhTienTrinhUI.Instance.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP() / 3f);
                 yield return null;
             }
         }
