@@ -1,47 +1,54 @@
 using UnityEngine;
+using System.Collections.Generic;   // Cần cho HashSet
 
 public class EnergyBeam : MonoBehaviour
 {
     [SerializeField] private float damage = 20f;
     [SerializeField] private float range = 5f;
-    [SerializeField] private float lifetime = 0.3f;       // Thời gian tồn tại
-    [SerializeField] private LayerMask enemyLayer;         // Vẫn giữ để kiểm tra (có thể không cần)
+    [SerializeField] private float lifetime = 0.5f;       // Tăng lên để beam tồn tại đủ lâu
+    [SerializeField] private LayerMask enemyLayer;         // (không dùng trực tiếp, giữ lại tùy chọn)
 
-    private bool hasDealtDamage = false;                  // Chỉ gây sát thương 1 lần
+    // Tập hợp các enemy đã bị beam này gây sát thương
+    private HashSet<Enemy> hitEnemies = new HashSet<Enemy>();
 
     public void Initialize(float dmg, float rng, Vector2 direction)
     {
         damage = dmg;
         range = rng;
 
-        // 1. Xoay beam theo hướng bắn
+        // Xoay beam theo hướng bắn
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // 2. Điều chỉnh kích thước collider (nếu có) để khớp với tầm bắn
+        // Điều chỉnh collider dài ra theo hướng bắn
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         if (col != null)
         {
             col.size = new Vector2(range, col.size.y);   // Dài theo hướng bắn
             col.offset = new Vector2(range / 2f, 0);     // Đặt pivot ở đầu beam
         }
+        else
+        {
+            Debug.LogError("[EnergyBeam] Không tìm thấy BoxCollider2D trên prefab Beam! Hãy thêm component.");
+        }
 
-        // 3. Tự hủy sau thời gian lifetime
         Destroy(gameObject, lifetime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Dùng OnTriggerStay2D để liên tục kiểm tra enemy trong vùng beam
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        // Kiểm tra tag Enemy để đảm bảo
-        if (collision.CompareTag("Enemy") && !hasDealtDamage)
+        if (!collision.CompareTag("Enemy")) return;
+
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy == null) return;
+
+        // Nếu enemy này chưa bị beam này sát thương
+        if (!hitEnemies.Contains(enemy))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-                hasDealtDamage = true;   // Mỗi beam chỉ gây sát thương 1 lần
-                Debug.Log($"Beam trúng {enemy.name}, gây {damage} sát thương");
-            }
+            enemy.TakeDamage(damage);
+            hitEnemies.Add(enemy);
+            Debug.Log($"[EnergyBeam] Gây {damage} sát thương cho {enemy.name}");
         }
     }
 }
