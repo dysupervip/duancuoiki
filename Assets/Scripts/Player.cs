@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+
 public class Player : MonoBehaviour
 {
     // === Di chuyển ===
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
 
     // === Vũ khí ===
     [SerializeField] private Transform weaponSocket;
-    [SerializeField] private WeaponBase[] weaponUpgrades; // Pistol, SMG, Rifle, Laser
+    [SerializeField] private WeaponBase[] weaponUpgrades; // Pistol, SMG, Rifle, Laser, Ultimate
     public WeaponBase currentWeapon { get; private set; }
 
     // === Dầu thô ===
@@ -34,13 +35,13 @@ public class Player : MonoBehaviour
 
     // === Dash (mặc định, phím Space) ===
     [Header("Dash")]
-    [SerializeField] private float dashDistance = 5f;         // Khoảng cách lướt
-    [SerializeField] private float dashDuration = 0.2f;       // Thời gian lướt (giây)
-    [SerializeField] private float dashCooldown = 2f;         // Thời gian hồi chiêu
-    private bool isDashing = false;                           // Đang trong trạng thái lướt
-    private float dashTimer = 0f;                             // Bộ đếm thời gian lướt
-    private Vector2 dashDirection;                            // Hướng lướt
-    private float nextDashTime = 0f;                          // Thời điểm có thể dash tiếp theo
+    [SerializeField] private float dashDistance = 5f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 2f;
+    private bool isDashing = false;
+    private float dashTimer = 0f;
+    private Vector2 dashDirection;
+    private float nextDashTime = 0f;
 
     // === Pet (mở khóa qua phase) ===
     [Header("Pet")]
@@ -50,22 +51,24 @@ public class Player : MonoBehaviour
     [SerializeField] private float petCooldown = 5f;
     private bool hasPet = false;
     private float nextPetTime = 0f;
+
     // === Energy Beam (mở khóa qua phase) ===
     [Header("Energy Beam")]
     [SerializeField] private GameObject beamPrefab;
-   [SerializeField] private Transform bellyPosition;   // Vị trí bụng (khi chuột cùng phía)
-    [SerializeField] private Transform backPosition;    // Vị trí lưng (khi chuột khác phía)
+    [SerializeField] private Transform bellyPosition;     // Vị trí bụng
+    [SerializeField] private Transform backPosition;      // Vị trí lưng
     [SerializeField] private float beamDamage = 20f;
     [SerializeField] private float beamRange = 5f;
     [SerializeField] private float beamCooldown = 2f;
-    [SerializeField] private float beamDuration = 0.5f;   // Thời gian beam tồn tại
+    [SerializeField] private float beamDuration = 0.5f;
     private bool hasBeam = false;
     private float nextBeamTime = 0f;
     private bool isBeaming = false;
+
     // === Dual Wield (mở khóa qua phase) ===
     [Header("Dual Wield")]
-    [SerializeField] private string dualGunSortingLayer = "Default";  // Tên Sorting Layer
-    [SerializeField] private int dualGunOrderInLayer = 0;             // Thứ tự trong layer
+    [SerializeField] private string dualGunSortingLayer = "Default";
+    [SerializeField] private int dualGunOrderInLayer = 0;
     [SerializeField] private float dualWieldDuration = 5f;
     [SerializeField] private float dualWieldCooldown = 10f;
     [SerializeField] private Vector3 dualGunOffset = new Vector3(-0.5f, -0.2f, 0f);
@@ -84,7 +87,7 @@ public class Player : MonoBehaviour
     private bool isAscended = false;
     public bool IsAscended => isAscended;
 
-    // Thuộc tính public cho UI kiểm tra
+    // Thuộc tính public cho UI
     public bool HasPet => hasPet;
     public bool HasBeam => hasBeam;
     public bool HasDualWield => hasDualWield;
@@ -112,14 +115,13 @@ public class Player : MonoBehaviour
         MovePlayer();
         HandleSkillsInput();
         UpdateDualWieldTimer();
-        UpdateDash(); // Theo dõi trạng thái lướt
+        UpdateDash();
         if (Input.GetKeyDown(KeyCode.Escape))
             GameManager.Instance?.PauseGameMenu();
     }
 
     void MovePlayer()
     {
-        // Nếu đang lướt, không can thiệp di chuyển thường (vận tốc do Dash kiểm soát)
         if (isDashing || isBeaming) return;
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -160,28 +162,25 @@ public class Player : MonoBehaviour
     }
 
     // ===== KỸ NĂNG =====
-    // ===== Dash mới =====
     void StartDash()
     {
         isDashing = true;
         dashTimer = dashDuration;
         nextDashTime = Time.time + dashCooldown;
 
-        // Xác định hướng lướt: nếu không có input thì lướt theo hướng mặt
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (input.magnitude > 0)
             dashDirection = input.normalized;
         else
             dashDirection = spriteRenderer.flipX ? Vector2.left : Vector2.right;
 
-        // Gán vận tốc ban đầu
         float dashSpeed = dashDistance / dashDuration;
         rb.linearVelocity = dashDirection * dashSpeed;
 
-        // Kích hoạt animation nếu có
         if (animator != null)
             animator.SetTrigger("Dash");
     }
+
     void UpdateDash()
     {
         if (isDashing)
@@ -190,15 +189,10 @@ public class Player : MonoBehaviour
             if (dashTimer <= 0)
             {
                 isDashing = false;
-                rb.linearVelocity = Vector2.zero; // Dừng lại sau khi lướt xong
-            }
-            else
-            {
-                // Giữ vận tốc không đổi trong lúc lướt (có thể thêm hiệu ứng giảm dần nếu muốn)
+                rb.linearVelocity = Vector2.zero;
             }
         }
     }
-
 
     void SummonPets()
     {
@@ -211,36 +205,62 @@ public class Player : MonoBehaviour
         nextPetTime = Time.time + petLifetime + petCooldown;
     }
 
-    
-   IEnumerator FireBeamCoroutine()
+    IEnumerator FireBeamCoroutine()
     {
         isBeaming = true;
-        animator.SetTrigger("Beam");   // Kích hoạt animation giật (nếu bạn muốn giữ animation này)
+        animator.SetTrigger("Beam");
 
-        // Bắn beam NGAY LẬP TỨC, không chờ nữa
+        // Xác định hướng và vị trí chuột
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
+        // Sát thương và tầm (tăng khi thăng hoa)
+        float dmg = beamDamage + (isAscended ? ascendedBeamDamageBonus : 0);
+        float range = beamRange + (isAscended ? ascendedBeamRangeBonus : 0);
+
+        // --- Quyết định vị trí bắn chính (cơ chế cũ) ---
         bool facingLeft = spriteRenderer.flipX;
         bool mouseOnLeft = mousePos.x < transform.position.x;
         bool sameSide = (facingLeft == mouseOnLeft);
-        Transform spawnPoint = sameSide ? bellyPosition : backPosition;
+        Transform primarySpawn = sameSide ? bellyPosition : backPosition;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        GameObject beam = Instantiate(beamPrefab, spawnPoint.position, Quaternion.Euler(0, 0, angle));
-        EnergyBeam beamScript = beam.GetComponent<EnergyBeam>();
-        if (beamScript != null)
+        // --- Spawn tia chính ---
+        SpawnBeam(primarySpawn.position, angle, dmg, range, direction);
+
+        // --- Nếu thăng hoa, spawn thêm tia từ vị trí còn lại ---
+        if (isAscended)
         {
-            float dmg = beamDamage + (isAscended ? ascendedBeamDamageBonus : 0);
-            float range = beamRange + (isAscended ? ascendedBeamRangeBonus : 0);
-            beamScript.Initialize(dmg, range, direction);
+            Transform secondarySpawn = sameSide ? backPosition : bellyPosition;
+            if (secondarySpawn != null)
+            {
+                SpawnBeam(secondarySpawn.position, angle, dmg, range, direction);
+            }
         }
 
-        // Chỉ chờ beam tồn tại trong beamDuration
         yield return new WaitForSeconds(beamDuration);
 
         isBeaming = false;
         nextBeamTime = Time.time + beamCooldown;
+    }
+
+    /// <summary>
+    /// Tạo một tia beam tại vị trí spawnPoint, với góc xoay, sát thương, tầm và hướng.
+    /// </summary>
+    void SpawnBeam(Vector3 spawnPoint, float angle, float dmg, float range, Vector2 direction)
+    {
+        if (beamPrefab == null)
+        {
+            Debug.LogError("[Player] SpawnBeam: beamPrefab is null!");
+            return;
+        }
+
+        GameObject beam = Instantiate(beamPrefab, spawnPoint, Quaternion.Euler(0, 0, angle));
+        EnergyBeam beamScript = beam.GetComponent<EnergyBeam>();
+        if (beamScript != null)
+        {
+            beamScript.Initialize(dmg, range, direction);
+        }
     }
 
     void ActivateDualWield()
@@ -261,8 +281,7 @@ public class Player : MonoBehaviour
             foreach (Transform child in dualGun.GetComponentsInChildren<Transform>())
                 child.gameObject.layer = dualGun.layer;
 
-            // --- Sorting Layer & Order (MỚI) ---
-            // Áp dụng cho SpriteRenderer của súng clone và tất cả con
+            // --- Sorting Layer & Order ---
             SpriteRenderer[] renderers = dualGun.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer sr in renderers)
             {
@@ -286,7 +305,6 @@ public class Player : MonoBehaviour
     public void AddXP(int amount)
     {
         xp += amount;
-        Debug.Log($"[Player] Nhận {amount} XP, tổng: {xp}, cần: {(level < 10 && level-1 < xpToNextLevel.Length ? xpToNextLevel[level-1].ToString() : "MAX")}");
         CheckLevelUp();
     }
 
@@ -330,15 +348,26 @@ public class Player : MonoBehaviour
     }
 
     // ===== MỞ KHÓA KỸ NĂNG =====
-    public void UnlockPet()        { hasPet = true; }
-    public void UnlockBeam()       { hasBeam = true; }
-    public void UnlockDualWield()  { hasDualWield = true; }
+    public void UnlockPet() { hasPet = true; }
+    public void UnlockBeam() { hasBeam = true; }
+    public void UnlockDualWield() { hasDualWield = true; }
 
     // ===== THĂNG HOA =====
     public void EnterAscendedState()
     {
         isAscended = true;
         if (ascendedSprite != null) spriteRenderer.sprite = ascendedSprite;
+
+        // Trang bị súng tối thượng (index 4) nếu có
+        if (weaponUpgrades.Length > 4 && weaponUpgrades[4] != null)
+        {
+            EquipWeapon(weaponUpgrades[4]);
+            Debug.Log("[Player] Entered Ascended State! Trang bị súng tối thượng.");
+        }
+        else
+        {
+            Debug.Log("[Player] Entered Ascended State nhưng không có súng tối thượng.");
+        }
     }
 
     // ===== MÁU & DẦU =====
