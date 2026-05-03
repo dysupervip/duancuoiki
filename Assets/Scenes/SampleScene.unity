@@ -26474,7 +26474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.49997, y: -3}
+  m_AnchoredPosition: {x: -40.5, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -26499,6 +26499,23 @@ MonoBehaviour:
   damageLevelText: {fileID: 1181208733}
   magazineLevelText: {fileID: 621194973}
   reloadLevelText: {fileID: 1380329610}
+  damageBlocks:
+  - {fileID: 949842198}
+  - {fileID: 1785017671}
+  - {fileID: 235057757}
+  magazineBlocks:
+  - {fileID: 1069657172}
+  - {fileID: 1521554285}
+  - {fileID: 728362320}
+  reloadBlocks:
+  - {fileID: 1160678301}
+  - {fileID: 974905801}
+  - {fileID: 1010414109}
+  activeColor: {r: 0.7122642, g: 0.42048532, b: 0.15118816, a: 1}
+  inactiveColor: {r: 0.15, g: 0.15, b: 0.15, a: 1}
+  weaponImage: {fileID: 733854009}
+  weaponNameText: {fileID: 2063683045}
+  weaponDescriptionText: {fileID: 610671346}
 --- !u!114 &1200586474
 MonoBehaviour:
   m_ObjectHideFlags: 0

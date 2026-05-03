@@ -36,6 +36,14 @@ public abstract class WeaponBase : MonoBehaviour
     // Biến để đánh dấu súng clone (dùng cho Dual Wield)
     [HideInInspector] public bool isClone = false;
 
+    [Header("UI Info")]
+    public Sprite weaponIcon;
+
+    [TextArea]
+    public string weaponDescription;
+
+    public string weaponName;
+
     protected virtual void Start()
     {
         UpdateStatsFromPlayer();    // Áp dụng chỉ số từ Player (level dầu, etc.)
