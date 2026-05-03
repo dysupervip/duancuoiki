@@ -11,12 +11,9 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 1f;
-    [SerializeField] private int xpReward = 10;
-
-    // --- Drop chip (cho MiniBoss) ---
-    [SerializeField] private bool dropChip = false;
-    [SerializeField] private GameObject chipPrefab;   // Prefab của chip
-
+    [SerializeField] protected int xpReward = 10;          
+    [SerializeField] protected bool dropChip = false;      
+    [SerializeField] protected GameObject chipPrefab;      
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();

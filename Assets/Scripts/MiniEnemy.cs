@@ -3,12 +3,12 @@ using System.Collections;
 
 public class MiniBossEnemy : Enemy
 {
-    [Header("Cấu hình chung")]
-    [SerializeField] private Transform playerTransform;
+    [Header("Tham chiếu")]
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform playerTransform;
 
     [Header("Di chuyển")]
-    [SerializeField] private float moveSpeed = 3f;              // Tốc độ chạy riêng
+    [SerializeField] private float moveSpeed = 3f;
 
     [Header("Đánh thường")]
     [SerializeField] private float meleeDamage = 20f;
@@ -41,18 +41,18 @@ public class MiniBossEnemy : Enemy
     private float nextJumpTime = 0f;
     private float nextThrowTime = 0f;
 
-    // Animation triggers
-    private const string ANIM_MELEE_1 = "Melee1";
-    private const string ANIM_MELEE_2 = "Melee2";
-    private const string ANIM_MELEE_3 = "Melee3";
-    private const string ANIM_THROW = "Throw";
-    private const string ANIM_JUMP = "Jump";
-    private const string ANIM_HURT = "Hurt";
-    private const string ANIM_DIE = "Die";
+    // Tên các Trigger trong Animator (đặt đúng với tên bạn đã tạo)
+    private const string TRIGGER_LEFT_PUNCH = "LeftPunch";   // Melee1
+    private const string TRIGGER_RIGHT_PUNCH = "RightPunch"; // Melee2
+    private const string TRIGGER_KICK = "Kick";             // Melee3
+    private const string TRIGGER_THROW = "ThrowGift";       // Throw
+    private const string TRIGGER_JUMP = "LandingPunch";     // Jump
+    private const string TRIGGER_HURT = "Damage";           // Hurt
+    private const string TRIGGER_DIE = "Die";               // Die
+    private const string BOOL_ISMOVING = "isMoving";        // Bool điều khiển Run/Idle
 
-    protected override void Start()
+   protected override void Start()
     {
-        // Không gọi base.Start() vì chúng ta tự tìm player
         if (playerTransform == null)
         {
             Player player = FindAnyObjectByType<Player>();
@@ -61,13 +61,15 @@ public class MiniBossEnemy : Enemy
         if (animator == null) animator = GetComponent<Animator>();
         currentHp = maxHp;
         UpdateHpBar();
+        
+        // Reset scale về đúng chuẩn trước khi lật mặt
+        transform.localScale = Vector3.one;
+        FlipEnemy(); // Sau đó mới lật mặt theo hướng player
     }
 
-    // Ghi đè Update, KHÔNG gọi base.Update() để tránh di chuyển mặc định từ Enemy
     protected override void Update()
     {
-        if (isDead) return;
-        if (playerTransform == null || isUsingSkill) return;
+        if (isDead || playerTransform == null || isUsingSkill) return;
 
         float distance = Vector2.Distance(transform.position, playerTransform.position);
 
@@ -87,25 +89,29 @@ public class MiniBossEnemy : Enemy
         {
             MoveTowardsPlayer();
         }
+        else
+        {
+            // Đứng yên, tắt animation chạy
+            if (animator != null) animator.SetBool(BOOL_ISMOVING, false);
+        }
     }
 
-    // Di chuyển về phía player (không dùng coroutine để liên tục)
-    void MoveTowardsPlayer()
+    private void MoveTowardsPlayer()
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
         FlipEnemy();
+        if (animator != null) animator.SetBool(BOOL_ISMOVING, true);
     }
-
-    // ===== KỸ NĂNG =====
 
     IEnumerator PerformMelee()
     {
         isUsingSkill = true;
         nextMeleeTime = Time.time + meleeCooldown;
+        if (animator != null) animator.SetBool(BOOL_ISMOVING, false);
 
         int animIndex = Random.Range(0, 3);
-        string triggerName = animIndex == 0 ? ANIM_MELEE_1 : (animIndex == 1 ? ANIM_MELEE_2 : ANIM_MELEE_3);
+        string triggerName = animIndex == 0 ? TRIGGER_LEFT_PUNCH : (animIndex == 1 ? TRIGGER_RIGHT_PUNCH : TRIGGER_KICK);
         animator.SetTrigger(triggerName);
 
         yield return new WaitForSeconds(0.3f);
@@ -128,17 +134,19 @@ public class MiniBossEnemy : Enemy
     {
         isUsingSkill = true;
         nextThrowTime = Time.time + throwCooldown;
+        if (animator != null) animator.SetBool(BOOL_ISMOVING, false);
 
-        animator.SetTrigger(ANIM_THROW);
+        animator.SetTrigger(TRIGGER_THROW);
         yield return new WaitForSeconds(0.3f);
 
         if (giftBoxPrefab != null && throwPoint != null && playerTransform != null)
         {
-            GameObject giftBox = Instantiate(giftBoxPrefab, throwPoint.position, Quaternion.identity);
-            EnemyBullet bullet = giftBox.AddComponent<EnemyBullet>();
+            GameObject giftBoxObj = Instantiate(giftBoxPrefab, throwPoint.position, Quaternion.identity);
+            GiftBox giftBox = giftBoxObj.GetComponent<GiftBox>();
+            if (giftBox == null) giftBox = giftBoxObj.AddComponent<GiftBox>();
+
             Vector3 direction = (playerTransform.position - throwPoint.position).normalized;
-            bullet.SetMovementDirection(direction * giftBoxSpeed);
-            // TODO: thêm SetDamage vào EnemyBullet nếu cần
+            giftBox.Initialize(giftBoxDamage, giftBoxSpeed, direction);
         }
 
         yield return new WaitForSeconds(0.7f);
@@ -149,8 +157,9 @@ public class MiniBossEnemy : Enemy
     {
         isUsingSkill = true;
         nextJumpTime = Time.time + jumpCooldown;
+        if (animator != null) animator.SetBool(BOOL_ISMOVING, false);
 
-        animator.SetTrigger(ANIM_JUMP);
+        animator.SetTrigger(TRIGGER_JUMP);
 
         Vector3 startPos = transform.position;
         Vector3 targetPos = playerTransform.position;
@@ -183,7 +192,6 @@ public class MiniBossEnemy : Enemy
         isUsingSkill = false;
     }
 
-    // ===== NHẬN SÁT THƯƠNG =====
     public override void TakeDamage(float damage)
     {
         if (isDead) return;
@@ -195,23 +203,17 @@ public class MiniBossEnemy : Enemy
         {
             Die();
         }
-        else
+        else if (animator != null)
         {
-            // Kích hoạt animation nhận damage
-            if (animator != null)
-            {
-                animator.SetTrigger(ANIM_HURT);
-            }
+            animator.SetTrigger(TRIGGER_HURT);
         }
     }
 
-    // ===== CHẾT (để lại xác) =====
     protected override void Die()
     {
         if (isDead) return;
         isDead = true;
 
-        // Cộng XP, rơi chip,... (giữ nguyên logic từ Enemy)
         Player player = FindAnyObjectByType<Player>();
         if (player != null) player.AddXP(xpReward);
 
@@ -226,27 +228,18 @@ public class MiniBossEnemy : Enemy
             WaveManager.Instance.TryDropOil(transform.position);
         }
 
-        // Kích hoạt animation chết
         if (animator != null)
         {
-            animator.SetTrigger(ANIM_DIE);
+            animator.SetTrigger(TRIGGER_DIE);
         }
 
-        // Vô hiệu hóa collider, script, rigidbody để xác nằm yên
         Collider2D col = GetComponent<Collider2D>();
         if (col) col.enabled = false;
-
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
-
-        // Ngăn không cho Update chạy tiếp
         enabled = false;
-
-        // KHÔNG Destroy(gameObject) ngay lập tức
-        // Nếu muốn hủy sau một thời gian, dùng Destroy(gameObject, 5f);
     }
 
-    // Lật mặt
     private void FlipEnemy()
     {
         if (playerTransform == null) return;
