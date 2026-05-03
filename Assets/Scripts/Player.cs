@@ -64,6 +64,8 @@ public class Player : MonoBehaviour
     private bool isBeaming = false;
     // === Dual Wield (mở khóa qua phase) ===
     [Header("Dual Wield")]
+    [SerializeField] private string dualGunSortingLayer = "Default";  // Tên Sorting Layer
+    [SerializeField] private int dualGunOrderInLayer = 0;             // Thứ tự trong layer
     [SerializeField] private float dualWieldDuration = 5f;
     [SerializeField] private float dualWieldCooldown = 10f;
     [SerializeField] private Vector3 dualGunOffset = new Vector3(-0.5f, -0.2f, 0f);
@@ -254,10 +256,19 @@ public class Player : MonoBehaviour
                 Quaternion.identity, transform);
             dualGunInstance = dualGun;
 
-            // Set layer cho súng clone và tất cả con
+            // --- Layer vật lý ---
             dualGun.layer = LayerMask.NameToLayer(dualGunLayer);
             foreach (Transform child in dualGun.GetComponentsInChildren<Transform>())
                 child.gameObject.layer = dualGun.layer;
+
+            // --- Sorting Layer & Order (MỚI) ---
+            // Áp dụng cho SpriteRenderer của súng clone và tất cả con
+            SpriteRenderer[] renderers = dualGun.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer sr in renderers)
+            {
+                sr.sortingLayerName = dualGunSortingLayer;
+                sr.sortingOrder = dualGunOrderInLayer;
+            }
 
             DualWieldHandler handler = dualGun.AddComponent<DualWieldHandler>();
             handler.Initialize(currentWeapon, duration);
@@ -275,6 +286,7 @@ public class Player : MonoBehaviour
     public void AddXP(int amount)
     {
         xp += amount;
+        Debug.Log($"[Player] Nhận {amount} XP, tổng: {xp}, cần: {(level < 10 && level-1 < xpToNextLevel.Length ? xpToNextLevel[level-1].ToString() : "MAX")}");
         CheckLevelUp();
     }
 
