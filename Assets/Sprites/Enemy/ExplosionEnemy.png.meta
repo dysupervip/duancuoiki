@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 61431a32774d1f849b02c7c71863918c
+guid: 6248f60eb9975434bbca50db43c3191e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4773505730122942320
-    second: HealEnemy_0
+      213: -4152478854310431082
+    second: ExplosionEnemy_0
   - first:
-      213: -3580760937636177956
-    second: HealEnemy_1
+      213: 8044750219086231540
+    second: ExplosionEnemy_1
   - first:
-      213: -2348689362191468239
-    second: HealEnemy_2
+      213: 3837409235045015485
+    second: ExplosionEnemy_2
   - first:
-      213: 1810728684745962927
-    second: HealEnemy_3
+      213: 2745004216292151226
+    second: ExplosionEnemy_3
   - first:
-      213: 6282129684871042245
-    second: HealEnemy_4
+      213: -4742055045712375154
+    second: ExplosionEnemy_4
   - first:
-      213: 3468501758171589908
-    second: HealEnemy_5
+      213: -761194238730332376
+    second: ExplosionEnemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,11 +111,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealEnemy_0
+      name: ExplosionEnemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 098fabe54d911cdb0800000000000000
-      internalID: -4773505730122942320
+      spriteID: 69671879b7e6f56c0800000000000000
+      internalID: -4152478854310431082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealEnemy_1
+      name: ExplosionEnemy_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd7d99e16e49e4ec0800000000000000
-      internalID: -3580760937636177956
+      spriteID: 4f7716b83b1b4af60800000000000000
+      internalID: 8044750219086231540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealEnemy_2
+      name: ExplosionEnemy_2
       rect:
         serializedVersion: 2
         x: 64
@@ -174,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 139b6de0877c76fd0800000000000000
-      internalID: -2348689362191468239
+      spriteID: dbf59a82e57314530800000000000000
+      internalID: 3837409235045015485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealEnemy_3
+      name: ExplosionEnemy_3
       rect:
         serializedVersion: 2
         x: 96
@@ -196,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa5b4e62520012910800000000000000
-      internalID: 1810728684745962927
+      spriteID: abf0b038ac6381620800000000000000
+      internalID: 2745004216292151226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealEnemy_4
+      name: ExplosionEnemy_4
       rect:
         serializedVersion: 2
         x: 128
@@ -218,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c4dcab0aab9e2750800000000000000
-      internalID: 6282129684871042245
+      spriteID: e8217f67f06d03eb0800000000000000
+      internalID: -4742055045712375154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HealEnemy_5
+      name: ExplosionEnemy_5
       rect:
         serializedVersion: 2
         x: 160
@@ -240,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41da2aed8f7922030800000000000000
-      internalID: 3468501758171589908
+      spriteID: 82797637fd1bf65f0800000000000000
+      internalID: -761194238730332376
       vertices: []
       indices: 
       edges: []
@@ -250,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3838d438d7f0f00478f2483592c3a2e7
+    spriteID: c15786f14be300e47a682ef0a1702254
     internalID: 0
     vertices: []
     indices: 
@@ -262,12 +275,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      HealEnemy_0: -4773505730122942320
-      HealEnemy_1: -3580760937636177956
-      HealEnemy_2: -2348689362191468239
-      HealEnemy_3: 1810728684745962927
-      HealEnemy_4: 6282129684871042245
-      HealEnemy_5: 3468501758171589908
+      ExplosionEnemy_0: -4152478854310431082
+      ExplosionEnemy_1: 8044750219086231540
+      ExplosionEnemy_2: 3837409235045015485
+      ExplosionEnemy_3: 2745004216292151226
+      ExplosionEnemy_4: -4742055045712375154
+      ExplosionEnemy_5: -761194238730332376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

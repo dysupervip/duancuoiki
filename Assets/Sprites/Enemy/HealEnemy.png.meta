@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 5bbec7b3d34d650418f51c491212775a
+guid: 61431a32774d1f849b02c7c71863918c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3500680291411888395
-    second: EnemyBullet_0
+      213: -4773505730122942320
+    second: HealEnemy_0
   - first:
-      213: -6056718934982530415
-    second: EnemyBullet_1
+      213: -3580760937636177956
+    second: HealEnemy_1
   - first:
-      213: 6272018121671087921
-    second: EnemyBullet_2
+      213: -2348689362191468239
+    second: HealEnemy_2
   - first:
-      213: -7868281884578131997
-    second: EnemyBullet_3
+      213: 1810728684745962927
+    second: HealEnemy_3
   - first:
-      213: -3108551675976025591
-    second: EnemyBullet_4
+      213: 6282129684871042245
+    second: HealEnemy_4
   - first:
-      213: -3526919806560321361
-    second: EnemyBullet_5
-  - first:
-      213: 5799135824014645602
-    second: EnemyBullet_6
-  - first:
-      213: 5404942958839476981
-    second: EnemyBullet_7
+      213: 3468501758171589908
+    second: HealEnemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,17 +111,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyBullet_0
+      name: HealEnemy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0901d97d2ae49030800000000000000
-      internalID: 3500680291411888395
+      spriteID: 098fabe54d911cdb0800000000000000
+      internalID: -4773505730122942320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyBullet_1
+      name: HealEnemy_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 32
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19aebffe73632fba0800000000000000
-      internalID: -6056718934982530415
+      spriteID: cd7d99e16e49e4ec0800000000000000
+      internalID: -3580760937636177956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyBullet_2
+      name: HealEnemy_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,42 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1379407404faa0750800000000000000
-      internalID: 6272018121671087921
+      spriteID: 139b6de0877c76fd0800000000000000
+      internalID: -2348689362191468239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyBullet_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ef441d505f3ec290800000000000000
-      internalID: -7868281884578131997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyBullet_4
+      name: HealEnemy_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90af08378b43cd4d0800000000000000
-      internalID: -3108551675976025591
+      spriteID: fa5b4e62520012910800000000000000
+      internalID: 1810728684745962927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyBullet_5
+      name: HealEnemy_4
       rect:
         serializedVersion: 2
-        x: 120
+        x: 128
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa0cea25f1ddd0fc0800000000000000
-      internalID: -3526919806560321361
+      spriteID: 5c4dcab0aab9e2750800000000000000
+      internalID: 6282129684871042245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyBullet_6
+      name: HealEnemy_5
       rect:
         serializedVersion: 2
-        x: 144
+        x: 160
         y: 0
-        width: 24
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,30 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26992aa8e4baa7050800000000000000
-      internalID: 5799135824014645602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EnemyBullet_7
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f230e40cf6320b40800000000000000
-      internalID: 5404942958839476981
+      spriteID: 41da2aed8f7922030800000000000000
+      internalID: 3468501758171589908
       vertices: []
       indices: 
       edges: []
@@ -300,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 59aa0ded4bdc15844b4e57055e2a7c1e
+    spriteID: 3838d438d7f0f00478f2483592c3a2e7
     internalID: 0
     vertices: []
     indices: 
@@ -310,16 +273,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      EnemyBullet_0: 3500680291411888395
-      EnemyBullet_1: -6056718934982530415
-      EnemyBullet_2: 6272018121671087921
-      EnemyBullet_3: -7868281884578131997
-      EnemyBullet_4: -3108551675976025591
-      EnemyBullet_5: -3526919806560321361
-      EnemyBullet_6: 5799135824014645602
-      EnemyBullet_7: 5404942958839476981
+      HealEnemy_0: -4773505730122942320
+      HealEnemy_1: -3580760937636177956
+      HealEnemy_2: -2348689362191468239
+      HealEnemy_3: 1810728684745962927
+      HealEnemy_4: 6282129684871042245
+      HealEnemy_5: 3468501758171589908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

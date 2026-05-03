@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 6248f60eb9975434bbca50db43c3191e
+guid: 5bbec7b3d34d650418f51c491212775a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4152478854310431082
-    second: ExplosionEnemy_0
+      213: 3500680291411888395
+    second: EnemyBullet_0
   - first:
-      213: 8044750219086231540
-    second: ExplosionEnemy_1
+      213: -6056718934982530415
+    second: EnemyBullet_1
   - first:
-      213: 3837409235045015485
-    second: ExplosionEnemy_2
+      213: 6272018121671087921
+    second: EnemyBullet_2
   - first:
-      213: 2745004216292151226
-    second: ExplosionEnemy_3
+      213: -7868281884578131997
+    second: EnemyBullet_3
   - first:
-      213: -4742055045712375154
-    second: ExplosionEnemy_4
+      213: -3108551675976025591
+    second: EnemyBullet_4
   - first:
-      213: -761194238730332376
-    second: ExplosionEnemy_5
+      213: -3526919806560321361
+    second: EnemyBullet_5
+  - first:
+      213: 5799135824014645602
+    second: EnemyBullet_6
+  - first:
+      213: 5404942958839476981
+    second: EnemyBullet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,17 +117,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExplosionEnemy_0
+      name: EnemyBullet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69671879b7e6f56c0800000000000000
-      internalID: -4152478854310431082
+      spriteID: b0901d97d2ae49030800000000000000
+      internalID: 3500680291411888395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionEnemy_1
+      name: EnemyBullet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 24
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f7716b83b1b4af60800000000000000
-      internalID: 8044750219086231540
+      spriteID: 19aebffe73632fba0800000000000000
+      internalID: -6056718934982530415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionEnemy_2
+      name: EnemyBullet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +193,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbf59a82e57314530800000000000000
-      internalID: 3837409235045015485
+      spriteID: 1379407404faa0750800000000000000
+      internalID: 6272018121671087921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionEnemy_3
+      name: EnemyBullet_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef441d505f3ec290800000000000000
+      internalID: -7868281884578131997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyBullet_4
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abf0b038ac6381620800000000000000
-      internalID: 2745004216292151226
+      spriteID: 90af08378b43cd4d0800000000000000
+      internalID: -3108551675976025591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionEnemy_4
+      name: EnemyBullet_5
       rect:
         serializedVersion: 2
-        x: 128
+        x: 120
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8217f67f06d03eb0800000000000000
-      internalID: -4742055045712375154
+      spriteID: fa0cea25f1ddd0fc0800000000000000
+      internalID: -3526919806560321361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExplosionEnemy_5
+      name: EnemyBullet_6
       rect:
         serializedVersion: 2
-        x: 160
+        x: 144
         y: 0
-        width: 32
-        height: 32
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +281,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82797637fd1bf65f0800000000000000
-      internalID: -761194238730332376
+      spriteID: 26992aa8e4baa7050800000000000000
+      internalID: 5799135824014645602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemyBullet_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f230e40cf6320b40800000000000000
+      internalID: 5404942958839476981
       vertices: []
       indices: 
       edges: []
@@ -250,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c15786f14be300e47a682ef0a1702254
+    spriteID: 59aa0ded4bdc15844b4e57055e2a7c1e
     internalID: 0
     vertices: []
     indices: 
@@ -260,14 +323,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":24.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ExplosionEnemy_0: -4152478854310431082
-      ExplosionEnemy_1: 8044750219086231540
-      ExplosionEnemy_2: 3837409235045015485
-      ExplosionEnemy_3: 2745004216292151226
-      ExplosionEnemy_4: -4742055045712375154
-      ExplosionEnemy_5: -761194238730332376
+      EnemyBullet_0: 3500680291411888395
+      EnemyBullet_1: -6056718934982530415
+      EnemyBullet_2: 6272018121671087921
+      EnemyBullet_3: -7868281884578131997
+      EnemyBullet_4: -3108551675976025591
+      EnemyBullet_5: -3526919806560321361
+      EnemyBullet_6: 5799135824014645602
+      EnemyBullet_7: 5404942958839476981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
