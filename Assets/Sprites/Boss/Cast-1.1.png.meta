@@ -1,0 +1,593 @@
+fileFormatVersion: 2
+guid: 059f9ef8c03dedc4bb40c24e48ee9fde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6052274417255064286
+    second: Cast-1.1_0
+  - first:
+      213: -7911325060190227537
+    second: Cast-1.1_1
+  - first:
+      213: 5842178773161213053
+    second: Cast-1.1_2
+  - first:
+      213: -3205946738636235879
+    second: Cast-1.1_3
+  - first:
+      213: -4641458428705633379
+    second: Cast-1.1_4
+  - first:
+      213: 6837373074937033853
+    second: Cast-1.1_5
+  - first:
+      213: 6215320323117621271
+    second: Cast-1.1_6
+  - first:
+      213: 3205575793579987436
+    second: Cast-1.1_7
+  - first:
+      213: 139297476952890084
+    second: Cast-1.1_8
+  - first:
+      213: 1549712670954123770
+    second: Cast-1.1_9
+  - first:
+      213: 6205539402755014010
+    second: Cast-1.1_10
+  - first:
+      213: 597950021787338018
+    second: Cast-1.1_11
+  - first:
+      213: -7308276005636553973
+    second: Cast-1.1_12
+  - first:
+      213: 2216909277149695477
+    second: Cast-1.1_13
+  - first:
+      213: -3360665156107664496
+    second: Cast-1.1_14
+  - first:
+      213: 2669607892834309161
+    second: Cast-1.1_15
+  - first:
+      213: 8641456087654120042
+    second: Cast-1.1_16
+  - first:
+      213: 7081375651058564044
+    second: Cast-1.1_17
+  - first:
+      213: -6095640647333707737
+    second: Cast-1.1_18
+  - first:
+      213: 6472601281634495893
+    second: Cast-1.1_19
+  - first:
+      213: -501513880584290013
+    second: Cast-1.1_20
+  - first:
+      213: 3378536578645044307
+    second: Cast-1.1_21
+  - first:
+      213: 4039275571832960836
+    second: Cast-1.1_22
+  - first:
+      213: 6121535650996676182
+    second: Cast-1.1_23
+  - first:
+      213: -8127675618947286639
+    second: Cast-1.1_24
+  - first:
+      213: 5167409814011089578
+    second: Cast-1.1_25
+  - first:
+      213: 8997108094888012062
+    second: Cast-1.1_26
+  - first:
+      213: -3149929402486586640
+    second: Cast-1.1_27
+  - first:
+      213: -3298280306216903029
+    second: Cast-1.1_28
+  - first:
+      213: -9013820055650454085
+    second: Cast-1.1_29
+  - first:
+      213: -6609861931525133820
+    second: Cast-1.1_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cast-1.1_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252db502196689f4788a4b723549ae62
+      internalID: 404341323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d33693f1d8e3949949c5bcc9d988c8
+      internalID: -972221710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_2
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620f3c4b0fca9dd4b8c1d9b27a390521
+      internalID: -40818802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_3
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186cb521611172944ab8dd78f2635595
+      internalID: 130447248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_4
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b72709a2a809c947942b55a0ae8e236
+      internalID: -305935679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_5
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3832ba9a11a17714b83b33eeba38d5a8
+      internalID: 952318362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_6
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009bcef8f0648fe49ab452e5e50d4fab
+      internalID: -932467780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_7
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741d62e9409514a48824d7910a4f1b7b
+      internalID: -1066902273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_8
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7a9889c5d363143a6643fbdc78a5f6
+      internalID: -805791271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_9
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc840c004dcbef46adeecb36d047437
+      internalID: -821112612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_10
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5076f7b8e2e712140bb81da04b12e8f5
+      internalID: -1315328061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_11
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486e76b2da7e0504d99edc85666a172f
+      internalID: 1799102494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_12
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1e1fc48bc8e7b4792139797f47b21b
+      internalID: 1286801274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_13
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99d5fec13c0adc488662d9c2a450419
+      internalID: 1283798367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_14
+      rect:
+        serializedVersion: 2
+        x: 2404
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f220e479be6e48340ace65bb107480ce
+      internalID: 1377056041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cast-1.1_15
+      rect:
+        serializedVersion: 2
+        x: 2575
+        y: 0
+        width: 171
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99091b55866d544cbebed506ea93f05
+      internalID: 624800013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7cda5cf9f3b87dd49ae72f6aef0deeb0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":171.0,"y":128.0},"gridSpriteOffset":{"x":10.0,"y":8.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
+    nameFileIdTable:
+      Cast-1.1_0: 404341323
+      Cast-1.1_1: -972221710
+      Cast-1.1_10: -1315328061
+      Cast-1.1_11: 1799102494
+      Cast-1.1_12: 1286801274
+      Cast-1.1_13: 1283798367
+      Cast-1.1_14: 1377056041
+      Cast-1.1_15: 624800013
+      Cast-1.1_2: -40818802
+      Cast-1.1_3: 130447248
+      Cast-1.1_4: -305935679
+      Cast-1.1_5: 952318362
+      Cast-1.1_6: -932467780
+      Cast-1.1_7: -1066902273
+      Cast-1.1_8: -805791271
+      Cast-1.1_9: -821112612
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

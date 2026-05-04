@@ -1,0 +1,2106 @@
+fileFormatVersion: 2
+guid: 094954ca82456584ba5bc112ee02602d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7412923889031435369
+    second: lamcaigidotangsm_0
+  - first:
+      213: 8653937803647692722
+    second: lamcaigidotangsm_1
+  - first:
+      213: -6446746320245358658
+    second: lamcaigidotangsm_2
+  - first:
+      213: 8475725843112775562
+    second: lamcaigidotangsm_3
+  - first:
+      213: 4706110539519334551
+    second: lamcaigidotangsm_4
+  - first:
+      213: -4190528632212581407
+    second: lamcaigidotangsm_5
+  - first:
+      213: -2205705797896845643
+    second: lamcaigidotangsm_6
+  - first:
+      213: 5220303523691651749
+    second: lamcaigidotangsm_7
+  - first:
+      213: 5384337292538134084
+    second: lamcaigidotangsm_8
+  - first:
+      213: -8680665983932129409
+    second: lamcaigidotangsm_9
+  - first:
+      213: 8504844172087665506
+    second: lamcaigidotangsm_10
+  - first:
+      213: -7005269509250117768
+    second: lamcaigidotangsm_11
+  - first:
+      213: -6604061054013891438
+    second: lamcaigidotangsm_12
+  - first:
+      213: -6120832046671199419
+    second: lamcaigidotangsm_13
+  - first:
+      213: 6259270972569934167
+    second: lamcaigidotangsm_14
+  - first:
+      213: 5889175119250212805
+    second: lamcaigidotangsm_15
+  - first:
+      213: -638342507469960673
+    second: lamcaigidotangsm_16
+  - first:
+      213: 2028727940095382513
+    second: lamcaigidotangsm_17
+  - first:
+      213: -3671915221614915212
+    second: lamcaigidotangsm_18
+  - first:
+      213: -8114730154222467738
+    second: lamcaigidotangsm_19
+  - first:
+      213: -2892589882384591246
+    second: lamcaigidotangsm_20
+  - first:
+      213: -949015847633528215
+    second: lamcaigidotangsm_21
+  - first:
+      213: 2312573151262728256
+    second: lamcaigidotangsm_22
+  - first:
+      213: 811754555190166982
+    second: lamcaigidotangsm_23
+  - first:
+      213: -4940439638315612255
+    second: lamcaigidotangsm_24
+  - first:
+      213: -4172629270986306075
+    second: lamcaigidotangsm_25
+  - first:
+      213: 817318522887740367
+    second: lamcaigidotangsm_26
+  - first:
+      213: -689079416574986143
+    second: lamcaigidotangsm_27
+  - first:
+      213: -2165891334522170454
+    second: lamcaigidotangsm_28
+  - first:
+      213: -4001413629226919559
+    second: lamcaigidotangsm_29
+  - first:
+      213: 4258019507469701720
+    second: lamcaigidotangsm_30
+  - first:
+      213: -9165623050967838594
+    second: lamcaigidotangsm_31
+  - first:
+      213: 3362525611690116644
+    second: lamcaigidotangsm_32
+  - first:
+      213: 6256799490788090653
+    second: lamcaigidotangsm_33
+  - first:
+      213: -192046599621942885
+    second: lamcaigidotangsm_34
+  - first:
+      213: 3352653581449952653
+    second: lamcaigidotangsm_35
+  - first:
+      213: 7214908020644464314
+    second: lamcaigidotangsm_36
+  - first:
+      213: 5778490257752668658
+    second: lamcaigidotangsm_37
+  - first:
+      213: 9076351839330891414
+    second: lamcaigidotangsm_38
+  - first:
+      213: -5748625812613398578
+    second: lamcaigidotangsm_39
+  - first:
+      213: -1671543657398656485
+    second: lamcaigidotangsm_40
+  - first:
+      213: -1862915949989268015
+    second: lamcaigidotangsm_41
+  - first:
+      213: 2128651435159288163
+    second: lamcaigidotangsm_42
+  - first:
+      213: 306167619928244911
+    second: lamcaigidotangsm_43
+  - first:
+      213: 2060784482469969700
+    second: lamcaigidotangsm_44
+  - first:
+      213: -4589976441266267021
+    second: lamcaigidotangsm_45
+  - first:
+      213: 8369807180670816523
+    second: lamcaigidotangsm_46
+  - first:
+      213: -1901416928457140308
+    second: lamcaigidotangsm_47
+  - first:
+      213: 312776131997849959
+    second: lamcaigidotangsm_48
+  - first:
+      213: -801826665851062435
+    second: lamcaigidotangsm_49
+  - first:
+      213: 8476092799781940992
+    second: lamcaigidotangsm_50
+  - first:
+      213: 9138478773585388291
+    second: lamcaigidotangsm_51
+  - first:
+      213: -2505872457089336487
+    second: lamcaigidotangsm_52
+  - first:
+      213: -2374086132985329576
+    second: lamcaigidotangsm_53
+  - first:
+      213: 3800841837172550797
+    second: lamcaigidotangsm_54
+  - first:
+      213: 458377056563530323
+    second: lamcaigidotangsm_55
+  - first:
+      213: -2008415834993023762
+    second: lamcaigidotangsm_56
+  - first:
+      213: 5402699512072264438
+    second: lamcaigidotangsm_57
+  - first:
+      213: -3447882956075021173
+    second: lamcaigidotangsm_58
+  - first:
+      213: 2813796885090416595
+    second: lamcaigidotangsm_59
+  - first:
+      213: -8631553893641691665
+    second: lamcaigidotangsm_60
+  - first:
+      213: 4513892576608316490
+    second: lamcaigidotangsm_61
+  - first:
+      213: -3491616203620764092
+    second: lamcaigidotangsm_62
+  - first:
+      213: -5419386807107065702
+    second: lamcaigidotangsm_63
+  - first:
+      213: -6832137799573561888
+    second: lamcaigidotangsm_64
+  - first:
+      213: 53731798554170518
+    second: lamcaigidotangsm_65
+  - first:
+      213: -3358371078178489351
+    second: lamcaigidotangsm_66
+  - first:
+      213: 2835009487723146120
+    second: lamcaigidotangsm_67
+  - first:
+      213: -4605704487259333703
+    second: lamcaigidotangsm_68
+  - first:
+      213: 3043091176012985950
+    second: lamcaigidotangsm_69
+  - first:
+      213: 7113975927637994105
+    second: lamcaigidotangsm_70
+  - first:
+      213: 7192881545929213956
+    second: lamcaigidotangsm_71
+  - first:
+      213: 4641784068582900186
+    second: lamcaigidotangsm_72
+  - first:
+      213: -4522483873654051105
+    second: lamcaigidotangsm_73
+  - first:
+      213: -7304102345073357904
+    second: lamcaigidotangsm_74
+  - first:
+      213: -2803404058316217447
+    second: lamcaigidotangsm_75
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lamcaigidotangsm_0
+      rect:
+        serializedVersion: 2
+        x: 14795
+        y: 965
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964d9b0700fffd660800000000000000
+      internalID: 7412923889031435369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_1
+      rect:
+        serializedVersion: 2
+        x: 16085
+        y: 971
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfaeb6f496f81870800000000000000
+      internalID: 8653937803647692722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_2
+      rect:
+        serializedVersion: 2
+        x: 17369
+        y: 977
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebff7b8c06e8886a0800000000000000
+      internalID: -6446746320245358658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_3
+      rect:
+        serializedVersion: 2
+        x: 10907
+        y: 917
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fc55c7fb3df9570800000000000000
+      internalID: 8475725843112775562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_4
+      rect:
+        serializedVersion: 2
+        x: 12209
+        y: 947
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79895c50a967f4140800000000000000
+      internalID: 4706110539519334551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_5
+      rect:
+        serializedVersion: 2
+        x: 13415
+        y: 947
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e39ddf496048d5c0800000000000000
+      internalID: -4190528632212581407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_6
+      rect:
+        serializedVersion: 2
+        x: 13505
+        y: 959
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6c65d5342c361e0800000000000000
+      internalID: -2205705797896845643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_7
+      rect:
+        serializedVersion: 2
+        x: 14705
+        y: 953
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a26c5d756e327840800000000000000
+      internalID: 5220303523691651749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_8
+      rect:
+        serializedVersion: 2
+        x: 17399
+        y: 953
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ebf987d3209ba40800000000000000
+      internalID: 5384337292538134084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_9
+      rect:
+        serializedVersion: 2
+        x: 17429
+        y: 953
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f98ed9744188780800000000000000
+      internalID: -8680665983932129409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_10
+      rect:
+        serializedVersion: 2
+        x: 18593
+        y: 953
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2632653c6b6470670800000000000000
+      internalID: 8504844172087665506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_11
+      rect:
+        serializedVersion: 2
+        x: 18713
+        y: 953
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f85413f7848ce90800000000000000
+      internalID: -7005269509250117768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_12
+      rect:
+        serializedVersion: 2
+        x: 19877
+        y: 959
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c92801679a954a0800000000000000
+      internalID: -6604061054013891438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_13
+      rect:
+        serializedVersion: 2
+        x: 20003
+        y: 959
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5430650eeaf6e0ba0800000000000000
+      internalID: -6120832046671199419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_14
+      rect:
+        serializedVersion: 2
+        x: 9419
+        y: 641
+        width: 386
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759d1f859c56dd650800000000000000
+      internalID: 6259270972569934167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_15
+      rect:
+        serializedVersion: 2
+        x: 10805
+        y: 893
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c74afa919d8ab150800000000000000
+      internalID: 5889175119250212805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_16
+      rect:
+        serializedVersion: 2
+        x: 12125
+        y: 941
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1a883d1fd62427f0800000000000000
+      internalID: -638342507469960673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_17
+      rect:
+        serializedVersion: 2
+        x: 13391
+        y: 935
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f39b47105d772c10800000000000000
+      internalID: 2028727940095382513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_18
+      rect:
+        serializedVersion: 2
+        x: 13571
+        y: 935
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4711b428f8cba0dc0800000000000000
+      internalID: -3671915221614915212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_19
+      rect:
+        serializedVersion: 2
+        x: 14675
+        y: 941
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6654b6d1befa26f80800000000000000
+      internalID: -8114730154222467738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_20
+      rect:
+        serializedVersion: 2
+        x: 14831
+        y: 941
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 276d39bd3d47bd7d0800000000000000
+      internalID: -2892589882384591246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_21
+      rect:
+        serializedVersion: 2
+        x: 14855
+        y: 941
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a569b5d1b64d2f0800000000000000
+      internalID: -949015847633528215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_22
+      rect:
+        serializedVersion: 2
+        x: 16019
+        y: 941
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040ee1e4709e71020800000000000000
+      internalID: 2312573151262728256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_23
+      rect:
+        serializedVersion: 2
+        x: 16115
+        y: 947
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c54ae2977ee34b00800000000000000
+      internalID: 811754555190166982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_24
+      rect:
+        serializedVersion: 2
+        x: 16145
+        y: 947
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a740f31358007bb0800000000000000
+      internalID: -4940439638315612255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_25
+      rect:
+        serializedVersion: 2
+        x: 17303
+        y: 947
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edc67b19c7d716c0800000000000000
+      internalID: -4172629270986306075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_26
+      rect:
+        serializedVersion: 2
+        x: 10973
+        y: 905
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb1211cdd2b75b00800000000000000
+      internalID: 817318522887740367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_27
+      rect:
+        serializedVersion: 2
+        x: 12101
+        y: 923
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168b309ebe5ef66f0800000000000000
+      internalID: -689079416574986143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_28
+      rect:
+        serializedVersion: 2
+        x: 12155
+        y: 923
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa395bf7e4531f1e0800000000000000
+      internalID: -2165891334522170454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_29
+      rect:
+        serializedVersion: 2
+        x: 12191
+        y: 923
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979d58e218f1878c0800000000000000
+      internalID: -4001413629226919559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_30
+      rect:
+        serializedVersion: 2
+        x: 12257
+        y: 923
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8525a6d9e26871b30800000000000000
+      internalID: 4258019507469701720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_31
+      rect:
+        serializedVersion: 2
+        x: 12281
+        y: 923
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e701eed856a2dc080800000000000000
+      internalID: -9165623050967838594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_32
+      rect:
+        serializedVersion: 2
+        x: 13445
+        y: 929
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42641f87a371aae20800000000000000
+      internalID: 3362525611690116644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_33
+      rect:
+        serializedVersion: 2
+        x: 13541
+        y: 929
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13e447acfd94d650800000000000000
+      internalID: 6256799490788090653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_34
+      rect:
+        serializedVersion: 2
+        x: 14735
+        y: 935
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91663992a6b55df0800000000000000
+      internalID: -192046599621942885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_35
+      rect:
+        serializedVersion: 2
+        x: 17483
+        y: 929
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8df3415ba4078e20800000000000000
+      internalID: 3352653581449952653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_36
+      rect:
+        serializedVersion: 2
+        x: 8135
+        y: 641
+        width: 386
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab641a95e90802460800000000000000
+      internalID: 7214908020644464314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_37
+      rect:
+        serializedVersion: 2
+        x: 10865
+        y: 905
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f9376f0642513050800000000000000
+      internalID: 5778490257752668658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_38
+      rect:
+        serializedVersion: 2
+        x: 12053
+        y: 905
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696f7c7c8eda5fd70800000000000000
+      internalID: 9076351839330891414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_39
+      rect:
+        serializedVersion: 2
+        x: 13337
+        y: 917
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf798ce747c830b0800000000000000
+      internalID: -5748625812613398578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_40
+      rect:
+        serializedVersion: 2
+        x: 14621
+        y: 923
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12223a56eb7dc8e0800000000000000
+      internalID: -1671543657398656485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_41
+      rect:
+        serializedVersion: 2
+        x: 14747
+        y: 917
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5fa7a40d79526e0800000000000000
+      internalID: -1862915949989268015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_42
+      rect:
+        serializedVersion: 2
+        x: 14915
+        y: 917
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3697b43c33d7a8d10800000000000000
+      internalID: 2128651435159288163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_43
+      rect:
+        serializedVersion: 2
+        x: 16031
+        y: 923
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2cc8304d9bf3400800000000000000
+      internalID: 306167619928244911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_44
+      rect:
+        serializedVersion: 2
+        x: 16199
+        y: 923
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f724c7190699c10800000000000000
+      internalID: 2060784482469969700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_45
+      rect:
+        serializedVersion: 2
+        x: 10703
+        y: 641
+        width: 374
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c99e2deb02d40c0800000000000000
+      internalID: -4589976441266267021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_46
+      rect:
+        serializedVersion: 2
+        x: 11987
+        y: 641
+        width: 374
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01d5622947872470800000000000000
+      internalID: 8369807180670816523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_47
+      rect:
+        serializedVersion: 2
+        x: 13379
+        y: 911
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca7d561b06fcc95e0800000000000000
+      internalID: -1901416928457140308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_48
+      rect:
+        serializedVersion: 2
+        x: 13457
+        y: 911
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769d3f12c34375400800000000000000
+      internalID: 312776131997849959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_49
+      rect:
+        serializedVersion: 2
+        x: 13625
+        y: 911
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57f28a45e65fd4f0800000000000000
+      internalID: -801826665851062435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_50
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00faf3e3e7121a570800000000000000
+      internalID: 8476092799781940992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_51
+      rect:
+        serializedVersion: 2
+        x: 13271
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303210fd60662de70800000000000000
+      internalID: 9138478773585388291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_52
+      rect:
+        serializedVersion: 2
+        x: 14555
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95b31c6e64a593dd0800000000000000
+      internalID: -2505872457089336487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_53
+      rect:
+        serializedVersion: 2
+        x: 15839
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8588a319d3d8d0fd0800000000000000
+      internalID: -2374086132985329576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_54
+      rect:
+        serializedVersion: 2
+        x: 16229
+        y: 863
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cec10638d4fb430800000000000000
+      internalID: 3800841837172550797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_55
+      rect:
+        serializedVersion: 2
+        x: 17123
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a88ad118b7c5600800000000000000
+      internalID: 458377056563530323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_56
+      rect:
+        serializedVersion: 2
+        x: 17513
+        y: 869
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4a8f9607ca024e0800000000000000
+      internalID: -2008415834993023762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_57
+      rect:
+        serializedVersion: 2
+        x: 18407
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa5e3dd49e3afa40800000000000000
+      internalID: 5402699512072264438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_58
+      rect:
+        serializedVersion: 2
+        x: 19691
+        y: 641
+        width: 374
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c460818b8a620d0800000000000000
+      internalID: -3447882956075021173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_59
+      rect:
+        serializedVersion: 2
+        x: 12365
+        y: 845
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d73aeddb5d9c0720800000000000000
+      internalID: 2813796885090416595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_60
+      rect:
+        serializedVersion: 2
+        x: 13655
+        y: 851
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedd8d5377f863880800000000000000
+      internalID: -8631553893641691665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_61
+      rect:
+        serializedVersion: 2
+        x: 14945
+        y: 857
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ce20ff16194ae30800000000000000
+      internalID: 4513892576608316490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_62
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 641
+        width: 374
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446bf2bef894b8fc0800000000000000
+      internalID: -3491616203620764092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_63
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 641
+        width: 374
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98e1fd79687ac4b0800000000000000
+      internalID: -5419386807107065702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_64
+      rect:
+        serializedVersion: 2
+        x: 11069
+        y: 827
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed16e79ede5f21a0800000000000000
+      internalID: -6832137799573561888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_65
+      rect:
+        serializedVersion: 2
+        x: 16229
+        y: 827
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694d6fd39c4eeb000800000000000000
+      internalID: 53731798554170518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_66
+      rect:
+        serializedVersion: 2
+        x: 17513
+        y: 833
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbb93d3c4ba461d0800000000000000
+      internalID: -3358371078178489351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_67
+      rect:
+        serializedVersion: 2
+        x: 4283
+        y: 641
+        width: 374
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ba99acb1af75720800000000000000
+      internalID: 2835009487723146120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_68
+      rect:
+        serializedVersion: 2
+        x: 5567
+        y: 641
+        width: 374
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb1c70cb204510c0800000000000000
+      internalID: -4605704487259333703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_69
+      rect:
+        serializedVersion: 2
+        x: 6851
+        y: 641
+        width: 374
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5631653d4b3b3a20800000000000000
+      internalID: 3043091176012985950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_70
+      rect:
+        serializedVersion: 2
+        x: 12365
+        y: 809
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97aea8b2a6be9b260800000000000000
+      internalID: 7113975927637994105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_71
+      rect:
+        serializedVersion: 2
+        x: 13655
+        y: 815
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408c29018af32d360800000000000000
+      internalID: 7192881545929213956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_72
+      rect:
+        serializedVersion: 2
+        x: 14945
+        y: 821
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad183f3640eea6040800000000000000
+      internalID: 4641784068582900186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_73
+      rect:
+        serializedVersion: 2
+        x: 11069
+        y: 791
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdeea68c0e8ec31c0800000000000000
+      internalID: -4522483873654051105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_74
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 683
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb0ecead9d92aa90800000000000000
+      internalID: -7304102345073357904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lamcaigidotangsm_75
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 641
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9936c2eacde4819d0800000000000000
+      internalID: -2803404058316217447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lamcaigidotangsm_0: 7412923889031435369
+      lamcaigidotangsm_1: 8653937803647692722
+      lamcaigidotangsm_10: 8504844172087665506
+      lamcaigidotangsm_11: -7005269509250117768
+      lamcaigidotangsm_12: -6604061054013891438
+      lamcaigidotangsm_13: -6120832046671199419
+      lamcaigidotangsm_14: 6259270972569934167
+      lamcaigidotangsm_15: 5889175119250212805
+      lamcaigidotangsm_16: -638342507469960673
+      lamcaigidotangsm_17: 2028727940095382513
+      lamcaigidotangsm_18: -3671915221614915212
+      lamcaigidotangsm_19: -8114730154222467738
+      lamcaigidotangsm_2: -6446746320245358658
+      lamcaigidotangsm_20: -2892589882384591246
+      lamcaigidotangsm_21: -949015847633528215
+      lamcaigidotangsm_22: 2312573151262728256
+      lamcaigidotangsm_23: 811754555190166982
+      lamcaigidotangsm_24: -4940439638315612255
+      lamcaigidotangsm_25: -4172629270986306075
+      lamcaigidotangsm_26: 817318522887740367
+      lamcaigidotangsm_27: -689079416574986143
+      lamcaigidotangsm_28: -2165891334522170454
+      lamcaigidotangsm_29: -4001413629226919559
+      lamcaigidotangsm_3: 8475725843112775562
+      lamcaigidotangsm_30: 4258019507469701720
+      lamcaigidotangsm_31: -9165623050967838594
+      lamcaigidotangsm_32: 3362525611690116644
+      lamcaigidotangsm_33: 6256799490788090653
+      lamcaigidotangsm_34: -192046599621942885
+      lamcaigidotangsm_35: 3352653581449952653
+      lamcaigidotangsm_36: 7214908020644464314
+      lamcaigidotangsm_37: 5778490257752668658
+      lamcaigidotangsm_38: 9076351839330891414
+      lamcaigidotangsm_39: -5748625812613398578
+      lamcaigidotangsm_4: 4706110539519334551
+      lamcaigidotangsm_40: -1671543657398656485
+      lamcaigidotangsm_41: -1862915949989268015
+      lamcaigidotangsm_42: 2128651435159288163
+      lamcaigidotangsm_43: 306167619928244911
+      lamcaigidotangsm_44: 2060784482469969700
+      lamcaigidotangsm_45: -4589976441266267021
+      lamcaigidotangsm_46: 8369807180670816523
+      lamcaigidotangsm_47: -1901416928457140308
+      lamcaigidotangsm_48: 312776131997849959
+      lamcaigidotangsm_49: -801826665851062435
+      lamcaigidotangsm_5: -4190528632212581407
+      lamcaigidotangsm_50: 8476092799781940992
+      lamcaigidotangsm_51: 9138478773585388291
+      lamcaigidotangsm_52: -2505872457089336487
+      lamcaigidotangsm_53: -2374086132985329576
+      lamcaigidotangsm_54: 3800841837172550797
+      lamcaigidotangsm_55: 458377056563530323
+      lamcaigidotangsm_56: -2008415834993023762
+      lamcaigidotangsm_57: 5402699512072264438
+      lamcaigidotangsm_58: -3447882956075021173
+      lamcaigidotangsm_59: 2813796885090416595
+      lamcaigidotangsm_6: -2205705797896845643
+      lamcaigidotangsm_60: -8631553893641691665
+      lamcaigidotangsm_61: 4513892576608316490
+      lamcaigidotangsm_62: -3491616203620764092
+      lamcaigidotangsm_63: -5419386807107065702
+      lamcaigidotangsm_64: -6832137799573561888
+      lamcaigidotangsm_65: 53731798554170518
+      lamcaigidotangsm_66: -3358371078178489351
+      lamcaigidotangsm_67: 2835009487723146120
+      lamcaigidotangsm_68: -4605704487259333703
+      lamcaigidotangsm_69: 3043091176012985950
+      lamcaigidotangsm_7: 5220303523691651749
+      lamcaigidotangsm_70: 7113975927637994105
+      lamcaigidotangsm_71: 7192881545929213956
+      lamcaigidotangsm_72: 4641784068582900186
+      lamcaigidotangsm_73: -4522483873654051105
+      lamcaigidotangsm_74: -7304102345073357904
+      lamcaigidotangsm_75: -2803404058316217447
+      lamcaigidotangsm_8: 5384337292538134084
+      lamcaigidotangsm_9: -8680665983932129409
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
