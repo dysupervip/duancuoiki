@@ -10,6 +10,8 @@ TagManager:
   - EnemyBullet
   - Key
   - Usb
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX

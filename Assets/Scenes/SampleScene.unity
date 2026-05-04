@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 307760216}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22859,7 +22859,7 @@ GameObject:
   - component: {fileID: 752442042}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27053,7 +27053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.499985, y: -3}
+  m_AnchoredPosition: {x: -40.49997, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -29146,8 +29146,8 @@ MonoBehaviour:
   player: {fileID: 1665009844}
   skillSelectionUI: {fileID: 1864624069}
   enemyLibrary:
-  - {fileID: 6602216969975067311, guid: 8f62e4bfeb5fa6e458679447d5b99aa0, type: 3}
-  - {fileID: 4347170523142718251, guid: 71e096f4e75f0af4a9669cae8f39a99a, type: 3}
+  - {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+  - {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
   - {fileID: 5766228539789985143, guid: 1ab0e163eea3c694b9dad83e532c7dc0, type: 3}
 --- !u!4 &1639996640
 Transform:

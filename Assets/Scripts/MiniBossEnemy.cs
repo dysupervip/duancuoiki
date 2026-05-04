@@ -37,9 +37,7 @@ public class MiniBossEnemy : Enemy
 
     private enum State { Moving, Attacking, Jumping, Throwing, Dead }
     private State currentState = State.Moving;
-    private bool isDead = false;
     private Rigidbody2D rb;
-
     private float nextMeleeTime = 0f;
     private float nextJumpTime = 0f;
     private float nextThrowTime = 0f;

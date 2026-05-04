@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    private bool isDead = false;
+    protected bool isDead;
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
     [SerializeField] protected float maxHp = 50f;
@@ -33,9 +33,17 @@ public abstract class Enemy : MonoBehaviour
     protected void FlipEnemy()
     {
         if (player != null)
-            transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1, 1, 1);
-    }
+        {
+            float sizeX = Mathf.Abs(transform.localScale.x);
+            float sizeY = Mathf.Abs(transform.localScale.y);
 
+            transform.localScale = new Vector3(
+                player.transform.position.x < transform.position.x ? -sizeX : sizeX,
+                sizeY,
+                transform.localScale.z
+            );
+        }
+    }
     public virtual void TakeDamage(float damage)
     {
         currentHp -= damage;
