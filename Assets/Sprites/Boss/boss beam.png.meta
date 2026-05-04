@@ -1,25 +1,40 @@
 fileFormatVersion: 2
-guid: 177cbe0305625b94c9c087bc68dbccdc
+guid: 56c04d8468988404abe420850534a9ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7810000145931463741
-    second: Spell-1-Port_1-sheet_0
+      213: 5768715146580463011
+    second: boss beam_0
   - first:
-      213: 4400481668622495500
-    second: Spell-1-Port_1-sheet_1
+      213: 7107501152574611506
+    second: boss beam_1
   - first:
-      213: 7028891195976993514
-    second: Spell-1-Port_1-sheet_2
+      213: 7386836513532337036
+    second: boss beam_2
   - first:
-      213: 7945080961384291270
-    second: Spell-1-Port_1-sheet_3
+      213: -3605646601574917082
+    second: boss beam_3
   - first:
-      213: 1865034182561100378
-    second: Spell-1-Port_1-sheet_4
+      213: -1765967071181305966
+    second: boss beam_4
   - first:
-      213: 4482143247683544836
-    second: Spell-1-Port_1-sheet_5
+      213: -2621173614962143750
+    second: boss beam_5
+  - first:
+      213: 2321361149602063229
+    second: boss beam_6
+  - first:
+      213: -3836630312656433428
+    second: boss beam_7
+  - first:
+      213: 502196286249045423
+    second: boss beam_8
+  - first:
+      213: 884206909419550271
+    second: boss beam_9
+  - first:
+      213: 5268961599255084975
+    second: boss beam_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +143,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_0
+      name: boss beam_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 1
-        width: 42
-        height: 36
+        x: 0
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c391061f3e4d9390800000000000000
-      internalID: -7810000145931463741
+      spriteID: 3ad0852acd79e0050800000000000000
+      internalID: 5768715146580463011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_1
+      name: boss beam_1
       rect:
         serializedVersion: 2
-        x: 233
-        y: 1
-        width: 42
-        height: 36
+        x: 160
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0facda43c6a11d30800000000000000
-      internalID: 4400481668622495500
+      spriteID: 230a3ef14aae2a260800000000000000
+      internalID: 7107501152574611506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_2
+      name: boss beam_2
       rect:
         serializedVersion: 2
-        x: 406
-        y: 1
-        width: 41
-        height: 37
+        x: 320
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aea44155d43ab8160800000000000000
-      internalID: 7028891195976993514
+      spriteID: c8bdaf20ca0538660800000000000000
+      internalID: 7386836513532337036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_3
+      name: boss beam_3
       rect:
         serializedVersion: 2
-        x: 576
-        y: 1
-        width: 44
-        height: 38
+        x: 480
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6cb970f1a09924e60800000000000000
-      internalID: 7945080961384291270
+      spriteID: 62c5887f48b26fdc0800000000000000
+      internalID: -3605646601574917082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_4
+      name: boss beam_4
       rect:
         serializedVersion: 2
-        x: 746
-        y: 1
-        width: 43
-        height: 38
+        x: 640
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a52f38925bee1e910800000000000000
-      internalID: 1865034182561100378
+      spriteID: 29783352e460e77e0800000000000000
+      internalID: -1765967071181305966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Port_1-sheet_5
+      name: boss beam_5
       rect:
         serializedVersion: 2
-        x: 918
-        y: 1
-        width: 40
-        height: 37
+        x: 800
+        y: 0
+        width: 160
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 407e79e4985c33e30800000000000000
-      internalID: 4482143247683544836
+      spriteID: afd0e891c78bf9bd0800000000000000
+      internalID: -2621173614962143750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss beam_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d736c6d9aa1273020800000000000000
+      internalID: 2321361149602063229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss beam_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 160
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee0e97de0d81cac0800000000000000
+      internalID: -3836630312656433428
       vertices: []
       indices: 
       edges: []
@@ -263,7 +322,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 58cc78553213f8848bf88748d925a8ec
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +330,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Spell-1-Port_1-sheet_0: -7810000145931463741
-      Spell-1-Port_1-sheet_1: 4400481668622495500
-      Spell-1-Port_1-sheet_2: 7028891195976993514
-      Spell-1-Port_1-sheet_3: 7945080961384291270
-      Spell-1-Port_1-sheet_4: 1865034182561100378
-      Spell-1-Port_1-sheet_5: 4482143247683544836
+      boss beam_0: 5768715146580463011
+      boss beam_1: 7107501152574611506
+      boss beam_2: 7386836513532337036
+      boss beam_3: -3605646601574917082
+      boss beam_4: -1765967071181305966
+      boss beam_5: -2621173614962143750
+      boss beam_6: 2321361149602063229
+      boss beam_7: -3836630312656433428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

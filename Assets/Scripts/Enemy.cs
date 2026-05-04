@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    private bool isDead = false;
+    protected bool isDead = false;
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
     [SerializeField] protected float maxHp = 50f;

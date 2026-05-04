@@ -1,34 +1,40 @@
 fileFormatVersion: 2
-guid: f0112d5b082d09748b80aa3dbe13b0a5
+guid: 4bd3f1e1ec2fa0a42890cd3da5e35e51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1912205190177721547
-    second: Spell-3_0
+      213: -7067145222930939646
+    second: beam thang_0
   - first:
-      213: 2086640154111784799
-    second: Spell-3_1
+      213: -7900591553637024640
+    second: beam thang_1
   - first:
-      213: -6407623417630251492
-    second: Spell-3_2
+      213: 206543980778910154
+    second: beam thang_2
   - first:
-      213: 3462130389799607547
-    second: Spell-3_3
+      213: -3826623440641925101
+    second: beam thang_3
   - first:
-      213: 6919535553339404023
-    second: Spell-3_4
+      213: 6047649554270804695
+    second: beam thang_4
   - first:
-      213: 2367915586768486973
-    second: Spell-3_5
+      213: -2677880149618559222
+    second: beam thang_5
   - first:
-      213: 5155375345774671148
-    second: Spell-3_6
+      213: -1874735381639944304
+    second: beam thang_6
   - first:
-      213: 2639887591747386523
-    second: Spell-3_7
+      213: -2988475498154429232
+    second: beam thang_7
   - first:
-      213: 1886788726480332267
-    second: Spell-3_8
+      213: 1771842389989506203
+    second: beam thang_8
+  - first:
+      213: -7916769206936405974
+    second: beam thang_9
+  - first:
+      213: 2755544375846237173
+    second: beam thang_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -137,13 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spell-3_0
+      name: beam thang_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bcc833a3d74898a10800000000000000
-      internalID: 1912205190177721547
+      spriteID: 2014a13fcd47ced90800000000000000
+      internalID: -7067145222930939646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_1
+      name: beam thang_1
       rect:
         serializedVersion: 2
         x: 171
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5736e72a2c35fc10800000000000000
-      internalID: 2086640154111784799
+      spriteID: 08c730257d57b5290800000000000000
+      internalID: -7900591553637024640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_2
+      name: beam thang_2
       rect:
         serializedVersion: 2
         x: 342
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c16aca1637c8317a0800000000000000
-      internalID: -6407623417630251492
+      spriteID: ac172dcf7aacdd200800000000000000
+      internalID: 206543980778910154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_3
+      name: beam thang_3
       rect:
         serializedVersion: 2
         x: 513
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfc17121f35fb0030800000000000000
-      internalID: 3462130389799607547
+      spriteID: 310ea5b414a15eac0800000000000000
+      internalID: -3826623440641925101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_4
+      name: beam thang_4
       rect:
         serializedVersion: 2
         x: 684
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fe2b7bace0270060800000000000000
-      internalID: 6919535553339404023
+      spriteID: 7da5c505a319de350800000000000000
+      internalID: 6047649554270804695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_5
+      name: beam thang_5
       rect:
         serializedVersion: 2
         x: 855
-        y: 0
+        y: 7
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,20 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d32427f2ea68cd020800000000000000
-      internalID: 2367915586768486973
+      spriteID: a077ae2213246dad0800000000000000
+      internalID: -2677880149618559222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_6
+      name: beam thang_6
       rect:
         serializedVersion: 2
         x: 1026
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c25b4b800929b8740800000000000000
-      internalID: 5155375345774671148
+      spriteID: 097ae796a1a9bf5e0800000000000000
+      internalID: -1874735381639944304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-3_7
+      name: beam thang_7
       rect:
         serializedVersion: 2
         x: 1197
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,8 +312,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9c701927c3c2a420800000000000000
-      internalID: 2639887591747386523
+      spriteID: 0d4fb883e5dc686d0800000000000000
+      internalID: -2988475498154429232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam thang_8
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cbd4d1449d69810800000000000000
+      internalID: 1771842389989506203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam thang_9
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28fdc3e95cf12290800000000000000
+      internalID: -7916769206936405974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam thang_10
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3f325a209ad3620800000000000000
+      internalID: 2755544375846237173
       vertices: []
       indices: 
       edges: []
@@ -316,7 +388,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 26d814753e66e184aad93169f20458d1
+    spriteID: c8bfd933cb7e7c648ab9f39865a4cab0
     internalID: 0
     vertices: []
     indices: 
@@ -326,16 +398,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":171.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":8.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":171.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Spell-3_0: 1912205190177721547
-      Spell-3_1: 2086640154111784799
-      Spell-3_2: -6407623417630251492
-      Spell-3_3: 3462130389799607547
-      Spell-3_4: 6919535553339404023
-      Spell-3_5: 2367915586768486973
-      Spell-3_6: 5155375345774671148
-      Spell-3_7: 2639887591747386523
+      beam thang_0: -7067145222930939646
+      beam thang_1: -7900591553637024640
+      beam thang_10: 2755544375846237173
+      beam thang_2: 206543980778910154
+      beam thang_3: -3826623440641925101
+      beam thang_4: 6047649554270804695
+      beam thang_5: -2677880149618559222
+      beam thang_6: -1874735381639944304
+      beam thang_7: -2988475498154429232
+      beam thang_8: 1771842389989506203
+      beam thang_9: -7916769206936405974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

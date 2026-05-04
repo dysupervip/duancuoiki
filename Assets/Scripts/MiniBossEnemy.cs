@@ -8,7 +8,7 @@ public class MiniBossEnemy : Enemy
     [SerializeField] private Transform playerTransform;
 
     [Header("Di chuyển")]
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 5f;
 
     [Header("Đánh thường")]
     [SerializeField] private float meleeDamage = 20f;
@@ -37,7 +37,7 @@ public class MiniBossEnemy : Enemy
 
     private enum State { Moving, Attacking, Jumping, Throwing, Dead }
     private State currentState = State.Moving;
-    private bool isDead = false;
+
     private Rigidbody2D rb;
 
     private float nextMeleeTime = 0f;

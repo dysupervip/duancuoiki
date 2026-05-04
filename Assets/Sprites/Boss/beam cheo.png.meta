@@ -1,28 +1,49 @@
 fileFormatVersion: 2
-guid: 3b85431df21e1d741aa5ab8d2669f4d6
+guid: 1aadeb5201bee274ba62efc18951e03c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -635807847820482190
-    second: Spell-1-Ground_1-sheet_0
+      213: 7600773072578175392
+    second: beam cheo_0
   - first:
-      213: 4978079112012683748
-    second: Spell-1-Ground_1-sheet_1
+      213: 370375982717214361
+    second: beam cheo_1
   - first:
-      213: 1355537843346946198
-    second: Spell-1-Ground_1-sheet_2
+      213: 2324826214542087428
+    second: beam cheo_2
   - first:
-      213: 8969012381127781445
-    second: Spell-1-Ground_1-sheet_3
+      213: 9085215559561882703
+    second: beam cheo_3
   - first:
-      213: -2035660583368374457
-    second: Spell-1-Ground_1-sheet_4
+      213: -3148107599808677953
+    second: beam cheo_4
   - first:
-      213: 5044897918676855464
-    second: Spell-1-Ground_1-sheet_5
+      213: -6391709934421041306
+    second: beam cheo_5
   - first:
-      213: -7465077891589790893
-    second: Spell-1-Ground_1-sheet_6
+      213: 5429925866301700525
+    second: beam cheo_6
+  - first:
+      213: -5964309045016908563
+    second: beam cheo_7
+  - first:
+      213: -6972284694995749536
+    second: beam cheo_8
+  - first:
+      213: 8144260492656019015
+    second: beam cheo_9
+  - first:
+      213: -1864225985214968546
+    second: beam cheo_10
+  - first:
+      213: -5113851600866412097
+    second: beam cheo_11
+  - first:
+      213: 8781935333268446255
+    second: beam cheo_12
+  - first:
+      213: -4198134817646876627
+    second: beam cheo_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -131,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_0
+      name: beam cheo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 279214d81282d27f0800000000000000
-      internalID: -635807847820482190
+      spriteID: 0a16061c6de5b7960800000000000000
+      internalID: 7600773072578175392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_1
+      name: beam cheo_1
       rect:
         serializedVersion: 2
         x: 171
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4e9de4fc390b51540800000000000000
-      internalID: 4978079112012683748
+      spriteID: 99e12337ef6d32500800000000000000
+      internalID: 370375982717214361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_2
+      name: beam cheo_2
       rect:
         serializedVersion: 2
         x: 342
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6983b409c76dfc210800000000000000
-      internalID: 1355537843346946198
+      spriteID: 4051c4aef11734020800000000000000
+      internalID: 2324826214542087428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_3
+      name: beam cheo_3
       rect:
         serializedVersion: 2
         x: 513
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +233,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54ca333ad35587c70800000000000000
-      internalID: 8969012381127781445
+      spriteID: f4ca9877a6b251e70800000000000000
+      internalID: 9085215559561882703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_4
+      name: beam cheo_4
       rect:
         serializedVersion: 2
         x: 684
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 747401d1c71efb3e0800000000000000
-      internalID: -2035660583368374457
+      spriteID: fb732be31dcaf44d0800000000000000
+      internalID: -3148107599808677953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spell-1-Ground_1-sheet_5
+      name: beam cheo_5
       rect:
         serializedVersion: 2
         x: 855
-        y: 0
+        y: 8
         width: 171
-        height: 128
+        height: 400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,8 +277,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8aa67d29de3130640800000000000000
-      internalID: 5044897918676855464
+      spriteID: 66f9f7beda51c47a0800000000000000
+      internalID: -6391709934421041306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam cheo_6
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da93e917ec8fa5b40800000000000000
+      internalID: 5429925866301700525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam cheo_7
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec2e1916848a3da0800000000000000
+      internalID: -5964309045016908563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam cheo_8
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065b2e9b2087d3f90800000000000000
+      internalID: -6972284694995749536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam cheo_9
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746820794c9360170800000000000000
+      internalID: 8144260492656019015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beam cheo_10
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 8
+        width: 171
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d8532f750f026e0800000000000000
+      internalID: -1864225985214968546
       vertices: []
       indices: 
       edges: []
@@ -266,7 +397,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7cc84e133e4c5444abad7a156cfff097
+    spriteID: 86e6baf7175dbe140acda1f850ca76c9
     internalID: 0
     vertices: []
     indices: 
@@ -276,14 +407,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":171.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":8.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":171.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Spell-1-Ground_1-sheet_0: -635807847820482190
-      Spell-1-Ground_1-sheet_1: 4978079112012683748
-      Spell-1-Ground_1-sheet_2: 1355537843346946198
-      Spell-1-Ground_1-sheet_3: 8969012381127781445
-      Spell-1-Ground_1-sheet_4: -2035660583368374457
-      Spell-1-Ground_1-sheet_5: 5044897918676855464
+      beam cheo_0: 7600773072578175392
+      beam cheo_1: 370375982717214361
+      beam cheo_10: -1864225985214968546
+      beam cheo_2: 2324826214542087428
+      beam cheo_3: 9085215559561882703
+      beam cheo_4: -3148107599808677953
+      beam cheo_5: -6391709934421041306
+      beam cheo_6: 5429925866301700525
+      beam cheo_7: -5964309045016908563
+      beam cheo_8: -6972284694995749536
+      beam cheo_9: 8144260492656019015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
