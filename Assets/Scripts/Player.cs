@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
     private bool dualWieldActive = false;
     private float dualWieldTimer = 0f;
     private GameObject dualGunInstance;
+    private float nextDualWieldTime = 0f;
 
     // === Trạng thái thăng hoa (Ascended) ===
     [Header("Ascended")]
@@ -150,23 +151,17 @@ public class Player : MonoBehaviour
 
     void HandleSkillsInput()
     {
-        // Dash (Space)
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && Time.time >= nextDashTime)
-        {
-            StartDash();
-        }
-        // Pet (Q)
-        if (Input.GetKeyDown(KeyCode.Q) && hasPet && Time.time >= nextPetTime)
-            SummonPets();
+        if (Input.GetKeyDown(KeyCode.Space))
+            UseDashSkill();
 
-        // Energy Beam (E)
-        if (Input.GetKeyDown(KeyCode.E) && hasBeam && !isBeaming && Time.time >= nextBeamTime)
-        {
-            StartCoroutine(FireBeamCoroutine());
-        }
-        // Dual Wield (R)
-        if (Input.GetKeyDown(KeyCode.R) && hasDualWield && !dualWieldActive && Time.time >= dualWieldCooldown)
-            ActivateDualWield();
+        if (Input.GetKeyDown(KeyCode.Q))
+            UsePetSkill();
+
+        if (Input.GetKeyDown(KeyCode.E))
+            UseBeamSkill();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            UseDualWieldSkill();
     }
 
     void UpdateDualWieldTimer()
@@ -282,6 +277,7 @@ public class Player : MonoBehaviour
 
     void ActivateDualWield()
     {
+        nextDualWieldTime = Time.time + dualWieldCooldown;
         dualWieldActive = true;
         float duration = dualWieldDuration + (isAscended ? ascendedDualWieldDurationBonus : 0);
         dualWieldTimer = duration;
@@ -454,5 +450,78 @@ public class Player : MonoBehaviour
             return true;
         }
         return false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Usb"))
+        {
+            GameManager.Instance?.WinGame();
+
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public void UsePetSkill()
+    {
+        if (hasPet && Time.time >= nextPetTime)
+            SummonPets();
+    }
+
+    public void UseBeamSkill()
+    {
+        if (hasBeam && !isBeaming && Time.time >= nextBeamTime)
+            StartCoroutine(FireBeamCoroutine());
+    }
+
+    public void UseDualWieldSkill()
+    {
+        if (hasDualWield && !dualWieldActive && Time.time >= nextDualWieldTime)
+            ActivateDualWield();
+    }
+
+    public void UseDashSkill()
+    {
+        if (!isDashing && Time.time >= nextDashTime)
+            StartDash();
+    }
+
+    public float GetPetCooldownRemaining()
+    {
+        return Mathf.Max(0, nextPetTime - Time.time);
+    }
+
+    public float GetPetCooldown()
+    {
+        return petLifetime + petCooldown;
+    }
+
+    public float GetBeamCooldownRemaining()
+    {
+        return Mathf.Max(0, nextBeamTime - Time.time);
+    }
+
+    public float GetBeamCooldown()
+    {
+        return beamCooldown;
+    }
+
+    public float GetDualCooldownRemaining()
+    {
+        return Mathf.Max(0, nextDualWieldTime - Time.time);
+    }
+
+    public float GetDualCooldown()
+    {
+        return dualWieldCooldown;
+    }
+
+    public float GetDashCooldownRemaining()
+    {
+        return Mathf.Max(0, nextDashTime - Time.time);
+    }
+
+    public float GetDashCooldown()
+    {
+        return dashCooldown;
     }
 }

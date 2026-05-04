@@ -2,6 +2,10 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] protected AudioClip shootSound;
+    protected AudioSource audioSource;
+
     [Header("Base stats")]
     public float baseDamage = 10f;          // Sát thương gốc
     public float baseFireRate = 0.5f;       // Thời gian giữa hai phát bắn
@@ -51,6 +55,7 @@ public abstract class WeaponBase : MonoBehaviour
         totalAmmo = baseTotalAmmo;
         if (CursorManager.Instance != null)
             CursorManager.Instance.SetCurrentWeapon(this); // Đăng ký với CursorManager
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void UpdateStatsFromPlayer()
@@ -97,6 +102,8 @@ public abstract class WeaponBase : MonoBehaviour
         {
             nextShotTime = Time.time + fireRate;
             Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            if (shootSound != null)
+                audioSource.PlayOneShot(shootSound);
 
             // === Xử lý tiêu hao đạn ===
             // Tìm Player trong scene
