@@ -35,6 +35,9 @@ public class WeaponUpgradeUI : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI weaponNameText;
     [SerializeField] private TMPro.TextMeshProUGUI weaponDescriptionText;
 
+    [SerializeField] private GameObject panel;
+    private bool isOpen = false;
+
     void Start()
     {
         player = FindAnyObjectByType<Player>();
@@ -43,8 +46,8 @@ public class WeaponUpgradeUI : MonoBehaviour
 
     void Update()
     {
-        // Chỉ cập nhật khi panel đang hiện để tiết kiệm hiệu năng
-        if (gameObject.activeSelf)
+        // Update UI khi panel mở
+        if (panel.activeSelf)
             UpdateUI();
     }
 
@@ -96,5 +99,29 @@ public class WeaponUpgradeUI : MonoBehaviour
         {
             blocks[i].color = i < level ? activeColor : inactiveColor;
         }
+    }
+
+    public void Toggle()
+    {
+        if (panel.activeSelf) Close();
+        else Open();
+    }
+
+    public void Open()
+    {
+        panel.SetActive(true);
+        Time.timeScale = 0f;
+        UpdateUI();
+    }
+
+    public void Close()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public bool IsOpen()
+    {
+        return panel != null && panel.activeSelf;
     }
 }

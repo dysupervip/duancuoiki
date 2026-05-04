@@ -144,3 +144,6 @@ MonoBehaviour:
   firePos: {fileID: 777563406478685237}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0
+  weaponIcon: {fileID: 1120694993655897903, guid: 28df3ac9cc19272479c3b09a0fba2f67, type: 3}
+  weaponDescription: mo ta jqk
+  weaponName: COVENANT CARBINE

@@ -112,12 +112,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        WeaponUpgradeUI upgradeUI = FindAnyObjectByType<WeaponUpgradeUI>();
+
+        // ESC ưu tiên đóng bảng upgrade
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (upgradeUI != null && upgradeUI.IsOpen())
+            {
+                upgradeUI.Close();
+                return;
+            }
+
+            GameManager.Instance?.PauseGameMenu();
+            return;
+        }
+
+        // Nếu đang mở bảng upgrade thì chặn gameplay
+        if (upgradeUI != null && upgradeUI.IsOpen())
+            return;
+
         MovePlayer();
         HandleSkillsInput();
         UpdateDualWieldTimer();
         UpdateDash();
-        if (Input.GetKeyDown(KeyCode.Escape))
-            GameManager.Instance?.PauseGameMenu();
     }
 
     void MovePlayer()

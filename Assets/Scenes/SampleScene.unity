@@ -19799,7 +19799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 611}
+  m_AnchoredPosition: {x: 0, y: 422}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &362512766
@@ -21295,7 +21295,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -26516,6 +26516,7 @@ MonoBehaviour:
   weaponImage: {fileID: 733854009}
   weaponNameText: {fileID: 2063683045}
   weaponDescriptionText: {fileID: 610671346}
+  panel: {fileID: 1200586471}
 --- !u!114 &1200586474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28277,8 +28278,8 @@ MonoBehaviour:
     totalEnemies: 5
     spawnDelay: 1
     oilDropQuota: 3
-    spawnMiniBoss: 1
-    miniBossPrefab: {fileID: 8688664260988374059, guid: f0336d9bac249f548b311a9a23044398, type: 3}
+    spawnMiniBoss: 0
+    miniBossPrefab: {fileID: 0}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
     totalEnemies: 5
@@ -29373,7 +29374,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -29405,7 +29406,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -53.41024, y: 0, z: 0, w: 0}
+  m_margin: {x: -119.947266, y: 0, z: -74.260025, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
