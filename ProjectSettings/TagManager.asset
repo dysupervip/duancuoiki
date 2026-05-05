@@ -11,6 +11,8 @@ TagManager:
   - Key
   - Usb
   - Pet
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
