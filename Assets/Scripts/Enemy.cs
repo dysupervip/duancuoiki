@@ -5,6 +5,7 @@ using System.Collections;
 public abstract class Enemy : MonoBehaviour
 {
     protected bool isDead = false;
+    public bool IsDead => isDead;
     [SerializeField] protected float enemyMoveSpeed = 1f;
     protected Player player;
     [SerializeField] protected float maxHp = 50f;
