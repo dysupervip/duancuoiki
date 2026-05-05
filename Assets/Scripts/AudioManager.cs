@@ -33,6 +33,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip backgroundMusic;
     
 
+    void Start()
+    {
+        StartGameplayMusic();
+    }
     void Awake()
     {
         if (Instance == null)
@@ -110,11 +114,12 @@ public class AudioManager : MonoBehaviour
     }
     public void StartGameplayMusic()
     {
+        if (musicSource == null) return;
+        if (backgroundMusic == null) return;
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.Play();
     }
-
     public void PlayGameOver()
     {
         musicSource.Stop();
