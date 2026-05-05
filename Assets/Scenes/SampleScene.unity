@@ -27650,7 +27650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.499985, y: -3}
+  m_AnchoredPosition: {x: -40.5, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -29976,8 +29976,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639996638}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.18, y: -1.81693, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.2852209, y: 2.8585994, z: -12.831911}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30191,7 +30191,7 @@ MonoBehaviour:
   backPosition: {fileID: 2102285067}
   beamDamage: 50
   beamRange: 7
-  beamCooldown: 0
+  beamCooldown: 4
   beamDuration: 0.5
   dualGunSortingLayer: 1
   dualGunOrderInLayer: 0
@@ -33275,9 +33275,20 @@ MonoBehaviour:
   sfxSource: {fileID: 2127821910}
   musicSource: {fileID: 2127821911}
   gunShot: {fileID: 8300000, guid: 564d074d86891aa40a99038b279987cc, type: 3}
+  reloadClip: {fileID: 8300000, guid: f4dd2279ff1787942a0874fbd8082f70, type: 3}
+  dashClip: {fileID: 8300000, guid: fd8c6cc003f930848871e3d04cf2d276, type: 3}
+  beamClip: {fileID: 8300000, guid: a6ce5068e1df28645bb080905b7b700b, type: 3}
+  dualClip: {fileID: 8300000, guid: 9c64d7a66371cf147a73853b7bc03c57, type: 3}
+  petClip: {fileID: 8300000, guid: b70478b015798a640a329eefc734bd67, type: 3}
   oilPickup: {fileID: 8300000, guid: 46edd356d4d6b894081adceec1c88ee8, type: 3}
   gameOverClip: {fileID: 8300000, guid: fa1f1cc918e60db40a9778b17fc3895b, type: 3}
   victoryClip: {fileID: 8300000, guid: 95ffed88d72b4704f8b43463480dfb3f, type: 3}
+  bossBeamClip: {fileID: 8300000, guid: 1b78a94c6ac895042ac47419bee4c242, type: 3}
+  bossOrbClip: {fileID: 8300000, guid: c1f938d88c6adbe45b8d7d4d773d8453, type: 3}
+  bossFireClip: {fileID: 8300000, guid: 59cd748bbc5f3ab4a8a6f6a9ce4e26ec, type: 3}
+  miniBossMeleeClip: {fileID: 8300000, guid: 220d667569a951c4db6238f4d55f0181, type: 3}
+  miniBossSlamClip: {fileID: 8300000, guid: 7c77526db7c2d1445a5f3fd2310e04ff, type: 3}
+  miniBossThrowClip: {fileID: 8300000, guid: e8c93d2ff23ea0147ad4fee49d8e30b7, type: 3}
   backgroundMusic: {fileID: 8300000, guid: 49ad2d0477bf1cd4784d7ca54ca2d80c, type: 3}
 --- !u!4 &2127821913
 Transform:
