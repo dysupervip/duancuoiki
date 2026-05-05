@@ -637,10 +637,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1658699416571838847, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4995954985342373112, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1126419380}
   m_SourcePrefab: {fileID: 100100000, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
 --- !u!1 &83042690
 GameObject:
@@ -775,6 +779,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83042690}
   m_CullTransparentMesh: 1
+--- !u!1 &84945068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3734075574222399889, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+  m_PrefabInstance: {fileID: 1432635692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &84945075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84945068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695705483428d7748ba9385b437577ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  xpReward: 10
+  dropChip: 0
+  chipPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 5963148408286731165, guid: bff2faccacc290141b44be2bf0bb31b1, type: 3}
+  firePoint: {fileID: 834938401}
+  bulletSpeed: 8
+  attackRange: 6
+  attackCooldown: 2
 --- !u!1 &88887879
 GameObject:
   m_ObjectHideFlags: 0
@@ -21961,7 +21995,10 @@ PrefabInstance:
     - {fileID: 7745426818048057632, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1379569233}
   m_SourcePrefab: {fileID: 100100000, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
 --- !u!1 &610671345
 GameObject:
@@ -26066,8 +26103,16 @@ PrefabInstance:
     - {fileID: 8870196586924816056, guid: 001475db6a072e945949482fda17bfd7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137967287}
   m_SourcePrefab: {fileID: 100100000, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+--- !u!4 &834938401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 66653470225863318, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+  m_PrefabInstance: {fileID: 1432635692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841381796
 GameObject:
   m_ObjectHideFlags: 0
@@ -27358,6 +27403,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122435668}
   m_CullTransparentMesh: 1
+--- !u!1 &1126419373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4995954985342373112, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+  m_PrefabInstance: {fileID: 78554473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1126419380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126419373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afba3f697964a8049bc88bc21f5fbc5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  xpReward: 10
+  dropChip: 0
+  chipPrefab: {fileID: 0}
+  attackDamage: 15
+  attackRange: 1.5
+  attackCooldown: 1.2
 --- !u!1 &1147109283
 GameObject:
   m_ObjectHideFlags: 0
@@ -27835,7 +27908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25062498, y: 0.24418215}
   m_AnchorMax: {x: 0.7912709, y: 0.76354647}
-  m_AnchoredPosition: {x: -40.499985, y: -3}
+  m_AnchoredPosition: {x: -40.49997, y: -3}
   m_SizeDelta: {x: 881, y: 378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200586473
@@ -28833,6 +28906,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1379569227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+  m_PrefabInstance: {fileID: 603184406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1379569233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379569227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afba3f697964a8049bc88bc21f5fbc5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  xpReward: 10
+  dropChip: 0
+  chipPrefab: {fileID: 0}
+  attackDamage: 15
+  attackRange: 1.5
+  attackCooldown: 1.2
 --- !u!1 &1380329608
 GameObject:
   m_ObjectHideFlags: 0
@@ -28925,10 +29026,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66653470225863318, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 66653470225863318, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3734075574222399889, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
       propertyPath: m_Name
       value: MidEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7266602600093622729, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c35f8b8ead37fab499cec7e245171755, type: 2}
     - target: {fileID: 8378159418694405623, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.64
@@ -28969,10 +29082,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4780024617284776384, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3734075574222399889, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 84945075}
   m_SourcePrefab: {fileID: 100100000, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
 --- !u!1 &1434332180
 GameObject:
@@ -32500,11 +32617,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 155496202822039740, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1937027584}
   m_SourcePrefab: {fileID: 100100000, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+--- !u!1 &1937027577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+  m_PrefabInstance: {fileID: 1913302551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1937027584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937027577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afba3f697964a8049bc88bc21f5fbc5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  xpReward: 10
+  dropChip: 0
+  chipPrefab: {fileID: 0}
+  attackDamage: 15
+  attackRange: 1.5
+  attackCooldown: 1.2
 --- !u!1 &1974414321
 GameObject:
   m_ObjectHideFlags: 0
@@ -33629,6 +33778,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132471548}
   m_CullTransparentMesh: 1
+--- !u!1 &2137967281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+  m_PrefabInstance: {fileID: 788025830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137967287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137967281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94a40b320e9d434798a94810a36b747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollEnemy
+  enemyMoveSpeed: 1
+  maxHp: 50
+  hpBar: {fileID: 0}
+  enterDamage: 10
+  stayDamage: 1
+  xpReward: 10
+  dropChip: 0
+  chipPrefab: {fileID: 0}
+  rollDamage: 18
+  rollSpeed: 12
+  rollDuration: 0.6
+  rollCooldown: 3
+  rollTriggerRange: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
