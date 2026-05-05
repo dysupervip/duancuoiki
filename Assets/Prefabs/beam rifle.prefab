@@ -115,9 +115,9 @@ MonoBehaviour:
   firePos: {fileID: 5744949113385320729}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0
-  weaponIcon: {fileID: 0}
-  weaponDescription: 
-  weaponName: 
+  weaponIcon: {fileID: 21300000, guid: 61f91ce394c2f5541ac5022761cd555d, type: 3}
+  weaponDescription: mo ta beam rifle
+  weaponName: BEAM RIFLE
 --- !u!82 &8109261571809208471
 AudioSource:
   m_ObjectHideFlags: 0
