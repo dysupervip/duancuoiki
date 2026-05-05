@@ -4,18 +4,25 @@ using System.Collections;
 public class FinalBoss : Enemy
 {
     [Header("Spell 1 - Beam từ trên trời")]
-    [SerializeField] private GameObject beamPrefab;
+    [SerializeField] private GameObject beamStraightPrefab;
+    [SerializeField] private GameObject beamDiagonalPrefab;
     [SerializeField] private float spell1Cooldown = 3f;
-    [SerializeField] private float beamHeight = 6f; // Khoảng cách từ chân tia đến điểm spawn (đỉnh)
+    [SerializeField] private float spell1Range = 10f;
+    [SerializeField] private float beamHeight = 6f;
 
-    [Header("Spell 2 - Quả cầu năng lượng (4 tia xoay)")]
-    [SerializeField] private GameObject orbSpellPrefab;
+    [Header("Spell 2 - Quả cầu năng lượng")]
+    [SerializeField] private GameObject beamSpell2Prefab;
     [SerializeField] private Transform orbSpawnPoint;
     [SerializeField] private float spell2Cooldown = 5f;
+    [SerializeField] private float spell2Range = 8f;
+    [SerializeField] private int spell2BeamCount = 4;
+    [SerializeField] private float spell2RotationDuration = 1f;
+    [SerializeField] private float spell2RotationAmount = 90f;
 
     [Header("Spell 3 - Phun lửa")]
     [SerializeField] private GameObject flamePrefab;
     [SerializeField] private float spell3Cooldown = 5f;
+    [SerializeField] private float spell3Range = 4f;
     [SerializeField] private float horizontalThreshold = 1.5f;
 
     [Header("Phase HP")]
@@ -23,129 +30,117 @@ public class FinalBoss : Enemy
     [SerializeField] private int phase2HP = 600;
     [SerializeField] private int phase3HP = 700;
 
-    // Nội bộ
     private int currentPhase = 1;
     private float nextSpell1Time;
     private float nextSpell2Time;
     private float nextSpell3Time;
-    private bool spell1Ready = false;
-    private bool spell2Ready = false;
-    private bool spell3Ready = false;
-    private bool isUsingSkill = false;
+    private bool isCasting = false;
     private Animator animator;
+    
 
     protected override void Start()
     {
         base.Start();
         animator = GetComponent<Animator>();
-        if (animator == null) Debug.LogError("[FinalBoss] Không tìm thấy Animator!");
-        maxHp = phase1HP + phase2HP + phase3HP; // Tổng 1800
+        maxHp = phase1HP + phase2HP + phase3HP;
         currentHp = maxHp;
         UpdateHpBar();
 
-        nextSpell1Time = Time.time + spell1Cooldown;
-        nextSpell2Time = Time.time + spell2Cooldown;
-        nextSpell3Time = Time.time + spell3Cooldown;
+        nextSpell1Time = 0f;
+        nextSpell2Time = 0f;
+        nextSpell3Time = 0f;
     }
 
     protected override void Update()
     {
-        base.Update(); // Giữ lại để boss di chuyển (MoveToPlayer)
+        if (!isCasting)
+        {
+            base.Update();   // Di chuyển (gọi FlipEnemy đã ghi đè)
+        }
 
         if (isDead) return;
 
         CheckPhase();
-        HandleCooldowns();
 
-        // Thực hiện spell nếu có sẵn và không đang dùng skill
-        if (!isUsingSkill)
+        if (!isCasting)
         {
-            if (spell1Ready)
+            float dist = Vector2.Distance(transform.position, player.transform.position);
+
+            if (Time.time >= nextSpell1Time && currentPhase >= 1 && dist <= spell1Range)
             {
                 StartCoroutine(PerformSpell1());
+                return;
             }
-            else if (spell2Ready)
+
+            if (Time.time >= nextSpell2Time && currentPhase >= 2 && dist <= spell2Range)
             {
                 StartCoroutine(PerformSpell2());
+                return;
             }
-            else if (spell3Ready)
+
+            if (Time.time >= nextSpell3Time && currentPhase >= 3 && dist <= spell3Range && IsPlayerOnSameHorizontal())
             {
                 StartCoroutine(PerformSpell3());
+                return;
             }
         }
     }
 
-    // ===== QUẢN LÝ PHASE =====
+    // Ghi đè FlipEnemy: mặt mặc định hướng TRÁI
+    protected new void FlipEnemy()
+    {
+         if (player != null)
+        {
+
+            if (player.transform.position.x > transform.position.x)
+                transform.localScale = new Vector3(-1, 1, 1);
+            else
+                transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
     void CheckPhase()
     {
-        if (currentHp > phase2HP + phase3HP) // > 1300
-            currentPhase = 1;
-        else if (currentHp > phase3HP) // > 700
-            currentPhase = 2;
-        else
-            currentPhase = 3;
+        if (currentHp > phase2HP + phase3HP) currentPhase = 1;
+        else if (currentHp > phase3HP) currentPhase = 2;
+        else currentPhase = 3;
     }
 
-    // ===== QUẢN LÝ COOLDOWN =====
-    void HandleCooldowns()
-    {
-        if (Time.time >= nextSpell1Time && !spell1Ready && currentPhase >= 1)
-            spell1Ready = true;
-        if (Time.time >= nextSpell2Time && !spell2Ready && currentPhase >= 2)
-            spell2Ready = true;
-        if (Time.time >= nextSpell3Time && !spell3Ready && currentPhase >= 3 && IsPlayerOnSameHorizontal())
-            spell3Ready = true;
-    }
-
-    // ===== THỰC HIỆN SPELL (COROUTINE) =====
+    // ===== SPELL 1 =====
     IEnumerator PerformSpell1()
     {
-        isUsingSkill = true;
-        spell1Ready = false;
+        isCasting = true;
         nextSpell1Time = Time.time + spell1Cooldown;
 
-        animator.SetTrigger("Spell1");
-        // Animation sẽ gọi CastSpell1() qua Animation Event
-        yield return new WaitForSeconds(1.5f); // Chờ animation kết thúc (có thể thay bằng Animation Event)
-        isUsingSkill = false;
+        FlipEnemy();                   // Đảm bảo hướng mặt trước khi animation
+        animator?.SetTrigger("Spell1");
+
+        // KHÔNG gọi CastSpell1 ở đây !!
+        // Beam sẽ được tạo bởi Animation Event
+
+        yield return new WaitForSeconds(2f); // Tổng thời gian animation (bạn chỉnh theo thực tế)
+        FlipEnemy();
+        isCasting = false;
     }
 
-    IEnumerator PerformSpell2()
+    // Hàm này được gọi từ Animation Event
+    public void SpawnBeamAtSavedPosition()
     {
-        isUsingSkill = true;
-        spell2Ready = false;
-        nextSpell2Time = Time.time + spell2Cooldown;
-        animator.SetTrigger("Spell2");
-        // Animation sẽ gọi SpawnOrbSpell() qua Animation Event
-        yield return new WaitForSeconds(2f);
-        isUsingSkill = false;
+        if (player == null) return;
+
+        // Lưu vị trí Player ngay lúc này
+        Vector3 savedPos = player.transform.position;
+        CastSpell1At(savedPos);
     }
 
-    IEnumerator PerformSpell3()
+    void CastSpell1At(Vector3 targetPos)
     {
-        isUsingSkill = true;
-        spell3Ready = false;
-        nextSpell3Time = Time.time + spell3Cooldown;
-        animator.SetTrigger("Spell3");
-        // Animation sẽ gọi CastSpell3() qua Animation Event
-        yield return new WaitForSeconds(1f);
-        isUsingSkill = false;
-    }
+        GameObject selectedPrefab = Random.Range(0, 2) == 0 ? beamStraightPrefab : beamDiagonalPrefab;
+        if (selectedPrefab == null) return;
 
-    // ===== HÀM GỌI TỪ ANIMATION EVENT =====
-    public void CastSpell1()
-    {
-        if (beamPrefab == null || player == null) return;
-
-        // Lấy vị trí player ngay lúc này
-        Vector3 targetPos = player.transform.position;
-        // Spawn beam ở trên cao, ngay phía trên player
         Vector3 spawnPos = targetPos + Vector3.up * beamHeight;
-        // Chọn thẳng hoặc xiên 45°
-        float angle = Random.Range(0, 2) == 0 ? 0f : 45f;
-        GameObject beam = Instantiate(beamPrefab, spawnPos, Quaternion.Euler(0, 0, angle));
+        GameObject beam = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
 
-        // Điều chỉnh cho chân tia khớp với targetPos
         Transform footTransform = beam.transform.Find("Foot");
         if (footTransform != null)
         {
@@ -154,44 +149,113 @@ public class FinalBoss : Enemy
         }
         else
         {
-            beam.transform.position = targetPos;
+            beam.transform.position = targetPos;   // fallback
         }
     }
 
-    public void SpawnOrbSpell()
+    // ===== SPELL 2 =====
+    IEnumerator PerformSpell2()
     {
-        if (orbSpellPrefab && orbSpawnPoint)
-            Instantiate(orbSpellPrefab, orbSpawnPoint.position, Quaternion.identity);
+        isCasting = true;
+        nextSpell2Time = Time.time + spell2Cooldown;
+        FlipEnemy();
+        animator?.SetTrigger("Spell2");
+        SpawnOrbSpell();
+        yield return new WaitForSeconds(2f);
+        FlipEnemy();
+        isCasting = false;
     }
 
-    public void CastSpell3()
+    void SpawnOrbSpell()
+    {
+        if (beamSpell2Prefab == null || orbSpawnPoint == null) return;
+
+        GameObject orbContainer = new GameObject("OrbContainer");
+        orbContainer.transform.position = orbSpawnPoint.position;
+        orbContainer.transform.rotation = Quaternion.identity;
+
+        float angleStep = 360f / spell2BeamCount;
+        for (int i = 0; i < spell2BeamCount; i++)
+        {
+            float angle = i * angleStep;
+            Quaternion rot = Quaternion.Euler(0, 0, angle);
+            Instantiate(beamSpell2Prefab, orbContainer.transform.position, rot, orbContainer.transform);
+        }
+
+        StartCoroutine(RotateOrbContainer(orbContainer));
+    }
+
+    IEnumerator RotateOrbContainer(GameObject container)
+    {
+        float startAngle = container.transform.eulerAngles.z;
+        float targetAngle = startAngle + spell2RotationAmount;
+        float elapsed = 0f;
+
+        while (elapsed < spell2RotationDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / spell2RotationDuration;
+            float currentAngle = Mathf.Lerp(startAngle, targetAngle, t);
+            container.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
+            yield return null;
+        }
+        Destroy(container);
+    }
+
+    // ===== SPELL 3 =====
+    IEnumerator PerformSpell3()
+    {
+        isCasting = true;
+        nextSpell3Time = Time.time + spell3Cooldown;
+        FlipEnemy();
+        animator?.SetTrigger("Spell3");
+        CastSpell3();
+        yield return new WaitForSeconds(1f);
+        FlipEnemy();
+        isCasting = false;
+    }
+
+    void CastSpell3()
     {
         if (flamePrefab == null || player == null) return;
         Vector3 dir = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Vector3 spawnPos = transform.position + dir * 1.5f;
-        Instantiate(flamePrefab, spawnPos, Quaternion.Euler(0, 0, angle));
+        GameObject flame = Instantiate(flamePrefab, spawnPos, Quaternion.identity);
+        FlameBehaviour fb = flame.GetComponent<FlameBehaviour>();
+        if (fb != null) fb.SetDirection(dir);
     }
 
-    // ===== KIỂM TRA CÙNG TRỤC NGANG =====
     bool IsPlayerOnSameHorizontal()
     {
         if (player == null) return false;
         return Mathf.Abs(player.transform.position.y - transform.position.y) < horizontalThreshold;
     }
 
-    // ===== KẾ THỪA TAKE DAMAGE =====
     public override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage);
-        // Có thể thêm hiệu ứng khi chuyển phase (vd: rung màn hình, flash đỏ)
+        if (isDead) return;
+        currentHp -= damage;
+        currentHp = Mathf.Max(currentHp,0);
+        UpdateHpBar();
+        if ( currentHp <=0)
+        {
+            Die();
+        }
+        else
+        {
+            animator?.SetTrigger("Hurt");
+        }
     }
 
-    // ===== CHẾT =====
     protected override void Die()
     {
-        base.Die();
-        // Nếu bạn muốn boss rơi USB key, hãy thêm Instantiate(usbPrefab, transform.position, Quaternion.identity);
-        // Tạm thời dùng logic có sẵn trong Enemy.cs
+        if (isDead) return;
+        isDead = true;
+        animator?.SetTrigger("Die");
+        Collider2D col = GetComponent<Collider2D>();
+        if (col) col.enabled = false;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb) rb.simulated = false;
+        enabled = false;
     }
 }

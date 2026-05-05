@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 493951046439486935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3650765054852280888}
   - component: {fileID: 3055267164660912000}
   - component: {fileID: 192107796741117377}
+  - component: {fileID: -7525886095772444008}
   m_Layer: 0
   m_Name: EnergyBeam
   m_TagString: Untagged
@@ -193,3 +194,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5634937, y: 3.4982147}
   m_EdgeRadius: 0
+--- !u!114 &-7525886095772444008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905590903761509978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d57cb8032f95548b62a27dfb392dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeamBehaviour
+  damage: 25
+  lifetime: 1.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1

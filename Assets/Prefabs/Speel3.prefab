@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5683844225594064118}
   - component: {fileID: 4064914460462637726}
   - component: {fileID: 7331796227071638972}
+  - component: {fileID: 1677009102612254740}
   m_Layer: 0
   m_Name: Speel3
   m_TagString: Untagged
@@ -161,3 +162,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.6875, y: 8}
   m_EdgeRadius: 0
+--- !u!114 &1677009102612254740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420177800619516174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83cd8a785a9f7b4b988109f11a82a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlameBehaviour
+  damage: 15
+  speed: 8
+  lifetime: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
