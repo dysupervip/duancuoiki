@@ -9,7 +9,7 @@ public class RangedEnemy : Enemy
     [SerializeField] private float bulletSpeed = 8f;
     [SerializeField] private float attackRange = 6f;
     [SerializeField] private float attackCooldown = 2f;
-
+    
     private float nextAttackTime = 0f;
     private Animator animator;
 
