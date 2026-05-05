@@ -165,7 +165,7 @@ MonoBehaviour:
   enemyMoveSpeed: 5
   maxHp: 50
   hpBar: {fileID: 3196967702456131342}
-  enterDamage: 50
+  enterDamage: 30
   stayDamage: 10
   xpReward: 0
   dropChip: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   spell2RotationAmount: 70
   flamePrefab: {fileID: 420177800619516174, guid: 3eb2afe8425a1df4d811742368e8702a, type: 3}
   spell3Cooldown: 5
-  spell3Range: 12
+  spell3Range: 8
   phase1HP: 500
   phase2HP: 700
   phase3HP: 1000

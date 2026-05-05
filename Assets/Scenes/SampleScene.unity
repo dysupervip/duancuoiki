@@ -27059,8 +27059,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3485304339631858556, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+      propertyPath: rollSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485304339631858556, guid: 001475db6a072e945949482fda17bfd7, type: 3}
       propertyPath: enemyMoveSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5490883122567775423, guid: 001475db6a072e945949482fda17bfd7, type: 3}
       propertyPath: m_IsActive
@@ -30829,7 +30833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movespeed: 5
-  maxHp: 200
+  maxHp: 350
   hpBar: {fileID: 1034309003}
   level: 1
   xp: 0
@@ -30861,7 +30865,7 @@ MonoBehaviour:
   dualGunSortingLayer: 1
   dualGunOrderInLayer: 0
   dualWieldDuration: 5
-  dualWieldCooldown: 5
+  dualWieldCooldown: 8
   dualGunOffset: {x: 0, y: -0.2, z: 0}
   dualGunLayer: Default
   ascendedPetBonus: 2
@@ -31017,6 +31021,7 @@ Transform:
   - {fileID: 706472554}
   - {fileID: 2102285067}
   - {fileID: 1807946815}
+  - {fileID: 1674395913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1665009849
@@ -31078,8 +31083,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674395911}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.9, y: -1.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31087,7 +31092,7 @@ Transform:
   - {fileID: 752442038}
   - {fileID: 1898789253}
   - {fileID: 1205908846}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1665009848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683760819
 GameObject:
@@ -34271,7 +34276,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 498011647}
   - {fileID: 1665009848}
-  - {fileID: 1674395913}
   - {fileID: 741266978}
   - {fileID: 200950641}
   - {fileID: 47564895}
