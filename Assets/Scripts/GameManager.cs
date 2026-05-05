@@ -65,19 +65,29 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         Debug.Log("Người chơi thắng!");
+
         currentState = GameState.Victory;
+
+        AudioManager.Instance?.PlayVictory();
+
         if (victoryPanel != null)
         {
             victoryPanel.SetActive(true);
         }
+
         Time.timeScale = 0f;
     }
 
     public void GameOver()
     {
         if (currentState == GameState.Result) return;
+
         currentState = GameState.Result;
+
+        AudioManager.Instance?.PlayGameOver();
+
         resultPanel.SetActive(true);
+
         Time.timeScale = 0f;
     }
 
@@ -116,6 +126,9 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isFromMenu = false;
+
+        AudioManager.Instance?.StartGameplayMusic();
+
         RestartGame();
     }
 }

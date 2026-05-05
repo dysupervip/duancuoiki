@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5979031373020454747}
   m_Layer: 0
   m_Name: EnergyEnemy
-  m_TagString: Untagged
+  m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,13 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e02532aed4565469bb82e257d6695b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyMoveSpeed: 3
-  maxHp: 50
-  hpBar: {fileID: 2318599208364732128}
-  enterDamage: 10
-  stayDamage: 1
-  xpReward: 10
-  energryObject: {fileID: 4985292959592687857, guid: 1a35f2aa2fd45404e9635efa7391c3e2, type: 3}
+  moveSpeed: 3
+  attackDamage: 5
+  attackCooldown: 0.5
+  lifetime: 10
 --- !u!95 &5979031373020454747
 Animator:
   serializedVersion: 7
@@ -304,32 +301,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8902094130447532247, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
       propertyPath: m_Color.b
-      value: 0.24851218
+      value: 0.11961552
       objectReference: {fileID: 0}
     - target: {fileID: 8902094130447532247, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
       propertyPath: m_Color.g
-      value: 0.10588235
+      value: 0.7924528
       objectReference: {fileID: 0}
     - target: {fileID: 8902094130447532247, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
       propertyPath: m_Color.r
-      value: 0.8039216
+      value: 0.20990245
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
---- !u!114 &2318599208364732128 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8902094130447532247, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
-  m_PrefabInstance: {fileID: 6604465907798289975}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &4591819704548783374 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7214394354326723385, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}

@@ -13,27 +13,75 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float stayDamage = 1f;
     [SerializeField] protected int xpReward = 10;          
     [SerializeField] protected bool dropChip = false;      
-    [SerializeField] protected GameObject chipPrefab;      
+    [SerializeField] protected GameObject chipPrefab;
+    protected Transform currentTarget;
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
+
+        if (player != null)
+            currentTarget = player.transform;
+
         currentHp = maxHp;
         UpdateHpBar();
     }
 
-    protected virtual void Update() => MoveToPlayer();
-
-    protected void MoveToPlayer()
+    void FindTarget()
     {
+        // Tìm pet gần nhất
+        GameObject[] pets = GameObject.FindGameObjectsWithTag("Pet");
+
+        float closestDistance = Mathf.Infinity;
+        Transform closestPet = null;
+
+        foreach (GameObject pet in pets)
+        {
+            float dist = Vector2.Distance(transform.position, pet.transform.position);
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                closestPet = pet.transform;
+            }
+        }
+
+        // Nếu có pet -> target pet
+        if (closestPet != null)
+        {
+            currentTarget = closestPet;
+            return;
+        }
+
+        // Không có pet -> target player
         if (player != null)
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyMoveSpeed * Time.deltaTime);
+            currentTarget = player.transform;
+    }
+
+    protected virtual void Update()
+    {
+        FindTarget();
+        MoveToTarget();
+    }
+
+    protected void MoveToTarget()
+    {
+        if (currentTarget == null) return;
+
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            currentTarget.position,
+            enemyMoveSpeed * Time.deltaTime
+        );
+
         FlipEnemy();
     }
 
     protected void FlipEnemy()
     {
-        if (player != null)
-            transform.localScale = new Vector3(player.transform.position.x < transform.position.x ? -1 : 1, 1, 1);
+        if (currentTarget != null)
+            transform.localScale = new Vector3(
+                currentTarget.position.x < transform.position.x ? -1 : 1,
+                1, 1
+            );
     }
 
     public virtual void TakeDamage(float damage)

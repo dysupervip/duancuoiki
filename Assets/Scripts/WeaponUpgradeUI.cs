@@ -21,7 +21,22 @@ public class WeaponUpgradeUI : MonoBehaviour
     [SerializeField] private Text magazineLevelText;    // Text cấp băng đạn
     [SerializeField] private Text reloadLevelText;      // Text cấp nạp đạn
 
+    [SerializeField] private Image[] damageBlocks;
+    [SerializeField] private Image[] magazineBlocks;
+    [SerializeField] private Image[] reloadBlocks;
+
+    [SerializeField] private Color activeColor = new Color(0.85f, 0.65f, 0.2f);
+    [SerializeField] private Color inactiveColor = new Color(0.15f, 0.15f, 0.15f);
+
     private Player player;
+
+    [Header("Weapon UI")]
+    [SerializeField] private Image weaponImage;
+    [SerializeField] private TMPro.TextMeshProUGUI weaponNameText;
+    [SerializeField] private TMPro.TextMeshProUGUI weaponDescriptionText;
+
+    [SerializeField] private GameObject panel;
+    private bool isOpen = false;
 
     void Start()
     {
@@ -31,8 +46,8 @@ public class WeaponUpgradeUI : MonoBehaviour
 
     void Update()
     {
-        // Chỉ cập nhật khi panel đang hiện để tiết kiệm hiệu năng
-        if (gameObject.activeSelf)
+        // Update UI khi panel mở
+        if (panel.activeSelf)
             UpdateUI();
     }
 
@@ -60,10 +75,53 @@ public class WeaponUpgradeUI : MonoBehaviour
         reloadCostText.text = player.reloadLevel < 3 ? "Cost: " + relCost : "MAX";
         reloadLevelText.text = "Lv." + player.reloadLevel + "/3";
         reloadButton.interactable = (player.reloadLevel < 3 && player.crudeOil >= relCost);
+
+        UpdateBlocks(damageBlocks, player.damageLevel);
+        UpdateBlocks(magazineBlocks, player.magazineLevel);
+        UpdateBlocks(reloadBlocks, player.reloadLevel);
+
+        if (player.currentWeapon != null)
+        {
+            weaponImage.sprite = player.currentWeapon.weaponIcon;
+            weaponNameText.text = player.currentWeapon.weaponName;
+            weaponDescriptionText.text = player.currentWeapon.weaponDescription;
+        }
     }
 
     // Các hàm gán cho sự kiện OnClick của Button
     public void UpgradeDamage()    { if (player.UpgradeDamage()) UpdateUI(); }
     public void UpgradeMagazine()  { if (player.UpgradeMagazine()) UpdateUI(); }
     public void UpgradeReload()    { if (player.UpgradeReloadSpeed()) UpdateUI(); }
+
+    void UpdateBlocks(Image[] blocks, int level)
+    {
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            blocks[i].color = i < level ? activeColor : inactiveColor;
+        }
+    }
+
+    public void Toggle()
+    {
+        if (panel.activeSelf) Close();
+        else Open();
+    }
+
+    public void Open()
+    {
+        panel.SetActive(true);
+        Time.timeScale = 0f;
+        UpdateUI();
+    }
+
+    public void Close()
+    {
+        panel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public bool IsOpen()
+    {
+        return panel != null && panel.activeSelf;
+    }
 }
