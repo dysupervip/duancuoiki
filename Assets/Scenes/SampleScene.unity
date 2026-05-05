@@ -593,10 +593,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem2Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4995954985342373112, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5292131332760366922, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 839cd8439f0399d4bb0549f2c97621cc, type: 2}
+    - target: {fileID: 6522365782819774411, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522365782819774411, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6522365782819774411, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.93
@@ -635,6 +647,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522365782819774411, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436816923073200798, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -21948,6 +21964,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 1ef211f74abd2fa41bc6aecde45229ad, type: 2}
     - target: {fileID: 1232165366139482670, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232165366139482670, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232165366139482670, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.48
       objectReference: {fileID: 0}
@@ -21990,6 +22014,14 @@ PrefabInstance:
     - target: {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
       propertyPath: m_Name
       value: GolemEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043777100446856246, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7745426818048057632, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
@@ -26059,6 +26091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NhimEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3240845526730400889, guid: 001475db6a072e945949482fda17bfd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.19
@@ -26099,14 +26135,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5490883122567775423, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8870196586924816056, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+    - {fileID: 9183702281737267046, guid: 001475db6a072e945949482fda17bfd7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2137967287}
+    - targetCorrespondingSourceObject: {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137967288}
   m_SourcePrefab: {fileID: 100100000, guid: 001475db6a072e945949482fda17bfd7, type: 3}
 --- !u!4 &834938401 stripped
 Transform:
@@ -29038,6 +29082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3734075574222399889, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7266602600093622729, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -29080,6 +29128,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8378159418694405623, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015697569709862468, guid: 9bbb0e4d0be0a6743a46295ad91e486f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -30326,7 +30378,7 @@ MonoBehaviour:
   enemyLibrary:
   - {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
   - {fileID: 3731147011525249550, guid: f394a3a1bffea1e4984c3d69e5df845f, type: 3}
-  - {fileID: 5766228539789985143, guid: 1ab0e163eea3c694b9dad83e532c7dc0, type: 3}
+  - {fileID: 4995954985342373112, guid: bb56b3b006f73ca459bccf38d8ece761, type: 3}
 --- !u!4 &1639996640
 Transform:
   m_ObjectHideFlags: 0
@@ -32569,13 +32621,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1530218610816734721, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2155735412624337889, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7825e8a955ef97f438ef2d9600141cca, type: 2}
+    - target: {fileID: 4487721364177270833, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_Radius
+      value: 0.39980572
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487721364177270833, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08994174
+      objectReference: {fileID: 0}
     - target: {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
       propertyPath: m_Name
       value: SlimeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375783942319874701, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766431025905456598, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766431025905456598, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6766431025905456598, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33808,6 +33884,52 @@ MonoBehaviour:
   rollDuration: 0.6
   rollCooldown: 3
   rollTriggerRange: 4
+--- !u!61 &2137967288
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137967281}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.047243476, y: -0.050979495}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6666666, y: 1.6666666}
+    newSize: {x: 0.29, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.9632634, y: 0.6093774}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
