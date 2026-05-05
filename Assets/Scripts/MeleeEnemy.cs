@@ -70,7 +70,7 @@ public class MeleeEnemy : Enemy
     {
         if (isDead) return;
         animator?.SetTrigger("Die");
-        StartCoroutine(DeathRoutine());
+        base.Die(); // Gọi Die mới của Enemy (sẽ tự delay hủy)
     }
 
     IEnumerator DeathRoutine()

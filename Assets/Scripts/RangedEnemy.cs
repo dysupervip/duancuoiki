@@ -9,8 +9,9 @@ public class RangedEnemy : Enemy
     [SerializeField] private float bulletSpeed = 8f;
     [SerializeField] private float attackRange = 6f;
     [SerializeField] private float attackCooldown = 2f;
-    
+
     private float nextAttackTime = 0f;
+    private bool isAttacking = false;   // Đang thực hiện tấn công thì đứng im
     private Animator animator;
 
     protected override void Start()
@@ -21,15 +22,18 @@ public class RangedEnemy : Enemy
 
     protected override void Update()
     {
-        base.Update();
-
         if (isDead) return;
 
-        if (currentTarget != null)
+        // Chỉ di chuyển khi không đang tấn công
+        if (!isAttacking)
+        {
+            base.Update(); // Gọi MoveToTarget, FlipEnemy
+        }
+
+        if (currentTarget != null && Time.time >= nextAttackTime)
         {
             float dist = Vector2.Distance(transform.position, currentTarget.position);
-
-            if (dist <= attackRange && Time.time >= nextAttackTime)
+            if (dist <= attackRange)
             {
                 StartCoroutine(PerformAttack());
             }
@@ -38,28 +42,28 @@ public class RangedEnemy : Enemy
 
     IEnumerator PerformAttack()
     {
+        isAttacking = true;                  // Chặn di chuyển
         nextAttackTime = Time.time + attackCooldown;
+
         animator?.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(0.4f); // Chờ animation bắn
+        yield return new WaitForSeconds(0.4f); // Chờ đến lúc bắn
 
         if (currentTarget != null && bulletPrefab != null && firePoint != null)
         {
             Vector3 dir = (currentTarget.position - firePoint.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            EnemyBullet eb = bullet.GetComponent<EnemyBullet>();
-            if (eb != null)
+
+            FireBall fireBall = bullet.GetComponent<FireBall>();
+            if (fireBall != null)
             {
-                eb.SetMovementDirection(dir * bulletSpeed);
-            }
-            else
-            {
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                if (rb != null) rb.linearVelocity = dir * bulletSpeed;
+                fireBall.SetDirection(dir);
             }
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f); // Chờ animation kết thúc
+
+        isAttacking = false;                 // Cho phép di chuyển lại
     }
 
     public override void TakeDamage(float damage)
@@ -69,12 +73,13 @@ public class RangedEnemy : Enemy
             animator?.SetTrigger("Hurt");
     }
 
+  
     protected override void Die()
-    {
-        if (isDead) return;
-        animator?.SetTrigger("Die");
-        StartCoroutine(DeathRoutine());
-    }
+{
+    if (isDead) return;
+    animator?.SetTrigger("Die");
+    base.Die(); // Gọi Die mới của Enemy (sẽ tự delay hủy)
+}
 
     IEnumerator DeathRoutine()
     {

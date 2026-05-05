@@ -79,12 +79,12 @@ public class RollEnemy : Enemy
     }
 
     protected override void Die()
-    {
-        if (isDead) return;
-        animator?.SetTrigger("Die");
-        StartCoroutine(DeathRoutine());
-    }
-
+{
+    if (isDead) return;
+    animator?.SetTrigger("Die");
+    base.Die(); // Gọi Die mới của Enemy (sẽ tự delay hủy)
+}
+    
     IEnumerator DeathRoutine()
     {
         yield return new WaitForSeconds(0.8f);

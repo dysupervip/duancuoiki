@@ -9,12 +9,14 @@ public class WaveManager : MonoBehaviour
     {
         public bool isBossPhase;
         public GameObject bossPrefab;
-        public int totalEnemies = 10;
+        public int totalEnemies = 10;               // Tổng số enemy sẽ spawn trong phase này
         public float spawnDelay = 1.5f;
         public int oilDropQuota = 3;
-        // Hỗ trợ MiniBoss trong phase thường
-        public bool spawnMiniBoss = false;
+        public bool spawnMiniBoss;
         public GameObject miniBossPrefab;
+
+        // Danh sách các prefab enemy được phép spawn trong phase này
+        public List<GameObject> enemyPrefabs;
     }
 
     [SerializeField] private List<Phase> phases;
@@ -22,10 +24,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private SkillSelectionUI skillSelectionUI;
 
-    [Header("Mở khóa enemy theo phase")]
-    [SerializeField] private List<GameObject> enemyLibrary; // 3 loại enemy thường
-
-    private List<GameObject> unlockedEnemyPrefabs = new List<GameObject>();
     private int currentPhaseIndex = 0;
     private int enemiesKilled;
     private int enemiesSpawned;
@@ -34,13 +32,30 @@ public class WaveManager : MonoBehaviour
     public static WaveManager Instance;
 
     void Awake() { Instance = this; }
-    void Start() { StartCoroutine(RunPhase(currentPhaseIndex)); }
 
-    IEnumerator RunPhase(int index)
+    void Start()
     {
-        if (index >= phases.Count) yield break;
-        Phase phase = phases[index];
+        if (phases.Count == 0)
+        {
+            Debug.LogError("[WaveManager] Không có phase nào được thiết lập!");
+            return;
+        }
+        StartCoroutine(RunPhase(0));
+    }
+
+    IEnumerator RunPhase(int phaseIndex)
+    {
+        if (phaseIndex >= phases.Count)
+        {
+            Debug.Log("[WaveManager] Hoàn thành tất cả phase.");
+            yield break;
+        }
+
+        Phase phase = phases[phaseIndex];
         oilRemaining = phase.oilDropQuota;
+
+        Debug.Log($"[WaveManager] ===== BẮT ĐẦU PHASE {phaseIndex + 1} =====");
+
         if (ThanhTienTrinhUI.Instance != null)
         {
             ThanhTienTrinhUI.Instance.ResetBar();
@@ -49,69 +64,90 @@ public class WaveManager : MonoBehaviour
 
         if (!phase.isBossPhase)
         {
-            // Mở khóa enemy mới (nếu còn)
-            if (currentPhaseIndex < enemyLibrary.Count)
+            // Kiểm tra danh sách enemy của phase
+            if (phase.enemyPrefabs == null || phase.enemyPrefabs.Count == 0)
             {
-                GameObject newEnemy = enemyLibrary[currentPhaseIndex];
-                if (!unlockedEnemyPrefabs.Contains(newEnemy))
-                    unlockedEnemyPrefabs.Add(newEnemy);
+                Debug.LogError($"[WaveManager] Phase {phaseIndex + 1}: Danh sách enemy trống! Hãy thêm ít nhất 1 prefab.");
+                yield break;
+            }
+
+            // Lọc bỏ phần tử null (nếu có) để tránh lỗi
+            List<GameObject> validEnemies = phase.enemyPrefabs.FindAll(e => e != null);
+            if (validEnemies.Count == 0)
+            {
+                Debug.LogError($"[WaveManager] Phase {phaseIndex + 1}: Tất cả prefab trong danh sách đều bị null!");
+                yield break;
             }
 
             enemiesKilled = 0;
             enemiesSpawned = 0;
 
-            // Spawn MiniBoss ngay từ đầu nếu có
+            // Spawn MiniBoss nếu có
             if (phase.spawnMiniBoss && phase.miniBossPrefab != null)
             {
                 spawner.SpawnSpecificEnemy(phase.miniBossPrefab);
                 enemiesSpawned++;
+                Debug.Log($"[WaveManager] Phase {phaseIndex + 1}: Đã spawn MiniBoss.");
             }
 
-            // Vòng lặp spawn quái thường
+            // Vòng lặp spawn enemy
             while (enemiesKilled < phase.totalEnemies)
             {
                 if (enemiesSpawned < phase.totalEnemies)
                 {
                     yield return new WaitForSeconds(phase.spawnDelay);
-                    if (unlockedEnemyPrefabs.Count > 0)
-                    {
-                        GameObject prefab = unlockedEnemyPrefabs[Random.Range(0, unlockedEnemyPrefabs.Count)];
-                        spawner.SpawnSpecificEnemy(prefab);
-                        enemiesSpawned++;
-                    }
+
+                    // Chọn ngẫu nhiên một prefab từ danh sách của phase
+                    GameObject prefab = validEnemies[Random.Range(0, validEnemies.Count)];
+                    spawner.SpawnSpecificEnemy(prefab);
+                    enemiesSpawned++;
+
+                    Debug.Log($"[WaveManager] Phase {phaseIndex + 1}: Spawn {prefab.name} ({enemiesSpawned}/{phase.totalEnemies})");
                 }
                 else
                 {
-                    if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) break;
+                    // Đã spawn đủ số lượng, kiểm tra nếu không còn enemy thì kết thúc sớm
+                    if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                    {
+                        Debug.LogWarning($"[WaveManager] Phase {phaseIndex + 1}: Không còn enemy, kết thúc sớm.");
+                        break;
+                    }
                     yield return null;
                 }
             }
 
-            // Chỉ hiển thị chọn kỹ năng nếu còn kỹ năng chưa mở khóa
-            if (skillSelectionUI.HasAvailableSkills())
+            // Chọn kỹ năng nếu còn
+            if (skillSelectionUI != null && skillSelectionUI.HasAvailableSkills())
             {
                 yield return StartCoroutine(ShowSkillSelection());
             }
             else
             {
-                Debug.Log("Tất cả kỹ năng đã mở khóa. Bỏ qua chọn kỹ năng.");
+                Debug.Log("[WaveManager] Tất cả kỹ năng đã mở khóa hoặc không có UI.");
             }
         }
         else
         {
-            // Phase boss (phase 4)
+            // Phase Boss
             yield return new WaitForSeconds(1f);
             GameObject boss = spawner.SpawnBoss(phase.bossPrefab);
-            Enemy bossEnemy = boss.GetComponent<Enemy>();
-            bossEnemy.HideHpBar();
-            while (bossEnemy != null)
+            if (boss != null)
             {
-                ThanhTienTrinhUI.Instance.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP() / 3f);
-                yield return null;
+                Enemy bossEnemy = boss.GetComponent<Enemy>();
+                if (bossEnemy != null)
+                {
+                    bossEnemy.HideHpBar();
+                    while (bossEnemy != null)
+                    {
+                        ThanhTienTrinhUI.Instance?.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP() / 3f);
+                        yield return null;
+                    }
+                }
             }
         }
 
-        currentPhaseIndex++;
+        Debug.Log($"[WaveManager] ===== KẾT THÚC PHASE {phaseIndex + 1} =====");
+        currentPhaseIndex = phaseIndex + 1;
         StartCoroutine(RunPhase(currentPhaseIndex));
     }
 

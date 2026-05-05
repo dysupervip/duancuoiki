@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 0186559c6a537b443bf8e8de7c61f5ee
+guid: a65a59c98821fdb4c8199bd5613a71ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7671958889965188698
-    second: Run1-sheet_0
+      213: -1612363032822981687
+    second: Tentacle-Attack_1-sheet_0
   - first:
-      213: -7204955119920004580
-    second: Run1-sheet_1
+      213: 2920958168220612350
+    second: Tentacle-Attack_1-sheet_1
   - first:
-      213: -5852558966994977376
-    second: Run1-sheet_2
+      213: 776351905533968147
+    second: Tentacle-Attack_1-sheet_2
   - first:
-      213: 217025952218641365
-    second: Run1-sheet_3
+      213: -2928360858279541343
+    second: Tentacle-Attack_1-sheet_3
   - first:
-      213: -4689303653769291051
-    second: Run1-sheet_4
+      213: 5291967464323524662
+    second: Tentacle-Attack_1-sheet_4
   - first:
-      213: 2850023188506704722
-    second: Run1-sheet_5
+      213: -6220073698815530256
+    second: Tentacle-Attack_1-sheet_5
+  - first:
+      213: -2101451041958443001
+    second: Tentacle-Attack_1-sheet_6
+  - first:
+      213: -4262198303795527292
+    second: Tentacle-Attack_1-sheet_7
+  - first:
+      213: 7614856851435839094
+    second: Tentacle-Attack_1-sheet_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +137,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run1-sheet_0
+      name: Tentacle-Attack_1-sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 62
+        y: 1
+        width: 37
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 464318a17d422b5439ffd59387dcd505
-      internalID: 7671958889965188698
+      spriteID: 9cb5d934d5cbf99e0800000000000000
+      internalID: -1612363032822981687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_1
+      name: Tentacle-Attack_1-sheet_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        x: 235
+        y: 1
+        width: 45
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bce02f8f89d94874294e9c32305ecd89
-      internalID: -7204955119920004580
+      spriteID: ef6b0946af3598820800000000000000
+      internalID: 2920958168220612350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_2
+      name: Tentacle-Attack_1-sheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 409
+        y: 1
+        width: 41
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: abf75b170d385274db2a75d8037c4747
-      internalID: -5852558966994977376
+      spriteID: 31fbc0ed1f726ca00800000000000000
+      internalID: 776351905533968147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_3
+      name: Tentacle-Attack_1-sheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 541
+        y: 1
+        width: 64
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2e4123d10deff8d45836bfa26cf287e9
-      internalID: 217025952218641365
+      spriteID: 1a50714805f5c57d0800000000000000
+      internalID: -2928360858279541343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_4
+      name: Tentacle-Attack_1-sheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
+        x: 694
+        y: 18
+        width: 48
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b285a47c7d59694d960233d40be313c
-      internalID: -4689303653769291051
+      spriteID: 638ade9ee58d07940800000000000000
+      internalID: 5291967464323524662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_5
+      name: Tentacle-Attack_1-sheet_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
+        x: 695
+        y: 4
+        width: 39
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7fff4baecdb1d3f43a521edfe03b914c
-      internalID: 2850023188506704722
+      spriteID: 0faa9512debdda9a0800000000000000
+      internalID: -6220073698815530256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tentacle-Attack_1-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1
+        width: 71
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 708413b496526d2e0800000000000000
+      internalID: -2101451041958443001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tentacle-Attack_1-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 1
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481cefb8931a9d4c0800000000000000
+      internalID: -4262198303795527292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tentacle-Attack_1-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1
+        width: 43
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e584d06f76da960800000000000000
+      internalID: 7614856851435839094
       vertices: []
       indices: 
       edges: []
@@ -263,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3babf5277e41d2e45b22905ddbf280ce
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -271,16 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Run1-sheet_0: 7671958889965188698
-      Run1-sheet_1: -7204955119920004580
-      Run1-sheet_2: -5852558966994977376
-      Run1-sheet_3: 217025952218641365
-      Run1-sheet_4: -4689303653769291051
-      Run1-sheet_5: 2850023188506704722
+      Tentacle-Attack_1-sheet_0: -1612363032822981687
+      Tentacle-Attack_1-sheet_1: 2920958168220612350
+      Tentacle-Attack_1-sheet_2: 776351905533968147
+      Tentacle-Attack_1-sheet_3: -2928360858279541343
+      Tentacle-Attack_1-sheet_4: 5291967464323524662
+      Tentacle-Attack_1-sheet_5: -6220073698815530256
+      Tentacle-Attack_1-sheet_6: -2101451041958443001
+      Tentacle-Attack_1-sheet_7: -4262198303795527292
+      Tentacle-Attack_1-sheet_8: 7614856851435839094
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

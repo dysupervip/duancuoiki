@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 0186559c6a537b443bf8e8de7c61f5ee
+guid: 151af7b2717d4374f859d6644b5e97e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7671958889965188698
-    second: Run1-sheet_0
+      213: 4939714756379344252
+    second: Tentacle-Spawn_1-sheet_0
   - first:
-      213: -7204955119920004580
-    second: Run1-sheet_1
+      213: 926852614556822275
+    second: Tentacle-Spawn_1-sheet_1
   - first:
-      213: -5852558966994977376
-    second: Run1-sheet_2
+      213: -2212393426331274079
+    second: Tentacle-Spawn_1-sheet_2
   - first:
-      213: 217025952218641365
-    second: Run1-sheet_3
+      213: -7178971148048916778
+    second: Tentacle-Spawn_1-sheet_3
   - first:
-      213: -4689303653769291051
-    second: Run1-sheet_4
+      213: -4657897558842073445
+    second: Tentacle-Spawn_1-sheet_4
   - first:
-      213: 2850023188506704722
-    second: Run1-sheet_5
+      213: 6239323003546516184
+    second: Tentacle-Spawn_1-sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run1-sheet_0
+      name: Tentacle-Spawn_1-sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 65
+        y: 1
+        width: 25
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 464318a17d422b5439ffd59387dcd505
-      internalID: 7671958889965188698
+      spriteID: c7dfeb136646d8440800000000000000
+      internalID: 4939714756379344252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_1
+      name: Tentacle-Spawn_1-sheet_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 230
         y: 0
-        width: 16
-        height: 16
+        width: 38
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bce02f8f89d94874294e9c32305ecd89
-      internalID: -7204955119920004580
+      spriteID: 30b2dc1da87dcdc00800000000000000
+      internalID: 926852614556822275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_2
+      name: Tentacle-Spawn_1-sheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
+        x: 400
+        y: 1
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: abf75b170d385274db2a75d8037c4747
-      internalID: -5852558966994977376
+      spriteID: 1a47d1886effb41e0800000000000000
+      internalID: -2212393426331274079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_3
+      name: Tentacle-Spawn_1-sheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 410
+        y: 1
+        width: 29
+        height: 40
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2e4123d10deff8d45836bfa26cf287e9
-      internalID: 217025952218641365
+      spriteID: 6de14c3d6cb2f5c90800000000000000
+      internalID: -7178971148048916778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_4
+      name: Tentacle-Spawn_1-sheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
+        x: 569
+        y: 1
+        width: 41
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b285a47c7d59694d960233d40be313c
-      internalID: -4689303653769291051
+      spriteID: b9e1f0d49d2db5fb0800000000000000
+      internalID: -4657897558842073445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run1-sheet_5
+      name: Tentacle-Spawn_1-sheet_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
+        x: 741
+        y: 1
+        width: 40
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7fff4baecdb1d3f43a521edfe03b914c
-      internalID: 2850023188506704722
+      spriteID: 8da3051e637869650800000000000000
+      internalID: 6239323003546516184
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3babf5277e41d2e45b22905ddbf280ce
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -271,16 +271,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Run1-sheet_0: 7671958889965188698
-      Run1-sheet_1: -7204955119920004580
-      Run1-sheet_2: -5852558966994977376
-      Run1-sheet_3: 217025952218641365
-      Run1-sheet_4: -4689303653769291051
-      Run1-sheet_5: 2850023188506704722
+      Tentacle-Spawn_1-sheet_0: 4939714756379344252
+      Tentacle-Spawn_1-sheet_1: 926852614556822275
+      Tentacle-Spawn_1-sheet_2: -2212393426331274079
+      Tentacle-Spawn_1-sheet_3: -7178971148048916778
+      Tentacle-Spawn_1-sheet_4: -4657897558842073445
+      Tentacle-Spawn_1-sheet_5: 6239323003546516184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
