@@ -1,4 +1,4 @@
-# 🔫 Tên Game Của Bạn
+# 🔫 Cùng tải ngay và chơi
 
 Game bắn súng top‑down 2D được phát triển bằng Unity.  
 Người chơi sẽ vượt qua các wave (phase) kẻ thù, nâng cấp vũ khí và kỹ năng để đối đầu với boss cuối cùng.
