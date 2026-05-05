@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GlEnemy : Enemy
 {
+    [Header("Golem Attack")]
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackHitDelay = 0.25f;
 
@@ -10,6 +11,7 @@ public class GlEnemy : Enemy
     private bool touchingPlayer;
     private bool isAttacking;
     private bool isDying;
+    private float nextAttackTime;
 
     protected override void Start()
     {
@@ -23,17 +25,19 @@ public class GlEnemy : Enemy
 
         if (touchingPlayer)
         {
-            StartCoroutine(AttackRoutine());
+            if (Time.time >= nextAttackTime)
+                StartCoroutine(AttackRoutine());
         }
         else
         {
-            base.Update(); // Enemy tự MoveToPlayer + FlipEnemy
+            base.Update(); // Enemy.cs tự MoveToPlayer + FlipEnemy
         }
     }
 
     private IEnumerator AttackRoutine()
     {
         isAttacking = true;
+        nextAttackTime = Time.time + attackCooldown;
 
         if (anim != null)
             anim.SetTrigger("Attack");
