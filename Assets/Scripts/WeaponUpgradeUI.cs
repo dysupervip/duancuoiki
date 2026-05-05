@@ -36,7 +36,6 @@ public class WeaponUpgradeUI : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI weaponDescriptionText;
 
     [SerializeField] private GameObject panel;
-    private bool isOpen = false;
 
     void Start()
     {

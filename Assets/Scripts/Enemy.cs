@@ -84,13 +84,8 @@ public abstract class Enemy : MonoBehaviour
             );
     }
 
-            transform.localScale = new Vector3(
-                player.transform.position.x < transform.position.x ? -sizeX : sizeX,
-                sizeY,
-                transform.localScale.z
-            );
-        }
-    }
+           
+    
     public virtual void TakeDamage(float damage)
     {
         currentHp -= damage;
