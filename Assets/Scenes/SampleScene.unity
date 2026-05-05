@@ -33276,7 +33276,7 @@ MonoBehaviour:
   musicSource: {fileID: 2127821911}
   gunShot: {fileID: 8300000, guid: 564d074d86891aa40a99038b279987cc, type: 3}
   reloadClip: {fileID: 8300000, guid: f4dd2279ff1787942a0874fbd8082f70, type: 3}
-  dashClip: {fileID: 8300000, guid: fd8c6cc003f930848871e3d04cf2d276, type: 3}
+  dashClip: {fileID: 8300000, guid: 1a3e3867bc2732b4c85fb38fea5b5c21, type: 3}
   beamClip: {fileID: 8300000, guid: a6ce5068e1df28645bb080905b7b700b, type: 3}
   dualClip: {fileID: 8300000, guid: 9c64d7a66371cf147a73853b7bc03c57, type: 3}
   petClip: {fileID: 8300000, guid: b70478b015798a640a329eefc734bd67, type: 3}
