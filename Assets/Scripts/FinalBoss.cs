@@ -29,20 +29,27 @@ public class FinalBoss : Enemy
     [SerializeField] private int phase2HP = 600;
     [SerializeField] private int phase3HP = 700;
 
+    [Header("Reward")]
+    [SerializeField] private GameObject usbPrefab;
+
     private int currentPhase = 1;
     private float nextSpell1Time;
     private float nextSpell2Time;
     private float nextSpell3Time;
     private bool isCasting = false;
     private Animator animator;
-    
+
 
     protected override void Start()
     {
+        maxHp = phase1HP;
+
         base.Start();
+
         animator = GetComponent<Animator>();
-        maxHp = phase1HP + phase2HP + phase3HP;
+
         currentHp = maxHp;
+
         UpdateHpBar();
 
         nextSpell1Time = 0f;
@@ -100,9 +107,31 @@ public class FinalBoss : Enemy
 
     void CheckPhase()
     {
-        if (currentHp > phase2HP + phase3HP) currentPhase = 1;
-        else if (currentHp > phase3HP) currentPhase = 2;
-        else currentPhase = 3;
+        // Phase 1 -> 2
+        if (currentPhase == 1 && currentHp <= 0)
+        {
+            currentPhase = 2;
+
+            maxHp = phase2HP;
+            currentHp = maxHp;
+
+            UpdateHpBar();
+
+            Debug.Log("PHASE 2");
+        }
+
+        // Phase 2 -> 3
+        else if (currentPhase == 2 && currentHp <= 0)
+        {
+            currentPhase = 3;
+
+            maxHp = phase3HP;
+            currentHp = maxHp;
+
+            UpdateHpBar();
+
+            Debug.Log("PHASE 3");
+        }
     }
 
     // ===== SPELL 1 =====
@@ -228,13 +257,30 @@ public class FinalBoss : Enemy
 
     public override void TakeDamage(float damage)
     {
+        Debug.Log("Boss tru mau");
+
         if (isDead) return;
+
+        Debug.Log("HP truoc: " + currentHp);
+
         currentHp -= damage;
-        currentHp = Mathf.Max(currentHp,0);
+
+        Debug.Log("HP sau: " + currentHp);
+
+        currentHp = Mathf.Max(currentHp, 0);
+
         UpdateHpBar();
-        if ( currentHp <=0)
+
+        if (currentHp <= 0)
         {
-            Die();
+            if (currentPhase < 3)
+            {
+                CheckPhase();
+            }
+            else
+            {
+                Die();
+            }
         }
         else
         {
@@ -248,9 +294,14 @@ public class FinalBoss : Enemy
         isDead = true;
         animator?.SetTrigger("Die");
         Collider2D col = GetComponent<Collider2D>();
+        if (usbPrefab != null)
+        {
+            Instantiate(usbPrefab, transform.position, Quaternion.identity);
+        }
         if (col) col.enabled = false;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
         enabled = false;
+        Destroy(gameObject, 3f);
     }
 }
