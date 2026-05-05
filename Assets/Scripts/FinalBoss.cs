@@ -23,7 +23,6 @@ public class FinalBoss : Enemy
     [SerializeField] private GameObject flamePrefab;
     [SerializeField] private float spell3Cooldown = 5f;
     [SerializeField] private float spell3Range = 4f;
-    [SerializeField] private float horizontalThreshold = 1.5f;
 
     [Header("Phase HP")]
     [SerializeField] private int phase1HP = 500;
@@ -78,7 +77,7 @@ public class FinalBoss : Enemy
                 return;
             }
 
-            if (Time.time >= nextSpell3Time && currentPhase >= 3 && dist <= spell3Range && IsPlayerOnSameHorizontal())
+            if (Time.time >= nextSpell3Time && currentPhase >= 3 && dist <= spell3Range)
             {
                 StartCoroutine(PerformSpell3());
                 return;
@@ -225,11 +224,7 @@ public class FinalBoss : Enemy
         if (fb != null) fb.SetDirection(dir);
     }
 
-    bool IsPlayerOnSameHorizontal()
-    {
-        if (player == null) return false;
-        return Mathf.Abs(player.transform.position.y - transform.position.y) < horizontalThreshold;
-    }
+    
 
     public override void TakeDamage(float damage)
     {
