@@ -20,9 +20,6 @@ public class SkillCooldownUI : MonoBehaviour
     [SerializeField] private GameObject rLock;
     [SerializeField] private Image rCooldownOverlay;
 
-    [Header("SPACE Skill - Dash")]
-    [SerializeField] private Image spaceCooldownOverlay;
-
     void Update()
     {
         if (player == null) return;
@@ -53,20 +50,6 @@ public class SkillCooldownUI : MonoBehaviour
             player.GetDualCooldownRemaining(),
             player.GetDualCooldown()
         );
-
-        // SPACE (Dash luôn mở)
-        float dashRemain = Mathf.Max(0, player.GetDashCooldownRemaining());
-        float dashMax = player.GetDashCooldown();
-
-        if (dashRemain > 0)
-        {
-            spaceCooldownOverlay.gameObject.SetActive(true);
-            spaceCooldownOverlay.fillAmount = dashRemain / dashMax;
-        }
-        else
-        {
-            spaceCooldownOverlay.gameObject.SetActive(false);
-        }
     }
 
     void UpdateSkill(
@@ -76,18 +59,15 @@ public class SkillCooldownUI : MonoBehaviour
         float remain,
         float maxCooldown)
     {
-        // LOCK
         if (lockObj != null)
             lockObj.SetActive(!unlocked);
 
-        // Chưa mở skill
         if (!unlocked)
         {
             overlay.gameObject.SetActive(false);
             return;
         }
 
-        // Đang cooldown
         if (remain > 0)
         {
             overlay.gameObject.SetActive(true);
