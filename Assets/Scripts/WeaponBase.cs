@@ -4,6 +4,7 @@ public abstract class WeaponBase : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] protected AudioClip shootSound;
+    [SerializeField] protected AudioClip reloadSound;
     protected AudioSource audioSource;
 
     [Header("Base stats")]
@@ -152,9 +153,13 @@ public abstract class WeaponBase : MonoBehaviour
 
     void StartReload()
     {
-        if (totalAmmo <= 0) return; // Không còn đạn dự trữ
+        if (totalAmmo <= 0) return;
+        if (isReloading) return;
+        if (currentAmmo >= magazineSize) return;
         isReloading = true;
-        reloadTimer = reloadTime;    // Đặt lại thời gian nạp
-        OnReloadStarted?.Invoke();   // Báo sự kiện bắt đầu nạp
+        reloadTimer = reloadTime;
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayReload();
+        OnReloadStarted?.Invoke();
     }
 }

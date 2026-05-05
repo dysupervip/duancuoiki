@@ -24,13 +24,8 @@ public class CrudeOilItem : MonoBehaviour
                 player.AddCrudeOil(oilAmount);
 
                 // Phát âm thanh nhặt dầu
-                if (collectSound != null)
-                {
-                    AudioSource.PlayClipAtPoint(
-                        collectSound,
-                        transform.position
-                    );
-                }
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlayOilPickup();
 
                 // Xóa vật phẩm dầu
                 Destroy(transform.root.gameObject);

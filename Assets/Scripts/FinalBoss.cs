@@ -109,6 +109,8 @@ public class FinalBoss : Enemy
     // ===== SPELL 1 =====
     IEnumerator PerformSpell1()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayBossBeam();
         isCasting = true;
         nextSpell1Time = Time.time + spell1Cooldown;
 
@@ -156,6 +158,8 @@ public class FinalBoss : Enemy
     // ===== SPELL 2 =====
     IEnumerator PerformSpell2()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayBossOrb();
         isCasting = true;
         nextSpell2Time = Time.time + spell2Cooldown;
         FlipEnemy();
@@ -205,6 +209,8 @@ public class FinalBoss : Enemy
     // ===== SPELL 3 =====
     IEnumerator PerformSpell3()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayBossFire();
         isCasting = true;
         nextSpell3Time = Time.time + spell3Cooldown;
         FlipEnemy();

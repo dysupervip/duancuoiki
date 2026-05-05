@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform backPosition;      // Vị trí lưng
     [SerializeField] private float beamDamage = 20f;
     [SerializeField] private float beamRange = 5f;
-    [SerializeField] private float beamCooldown = 2f;
+    [SerializeField] private float beamCooldown = 4f;
     [SerializeField] private float beamDuration = 0.5f;
     private bool hasBeam = false;
     private float nextBeamTime = 0f;
@@ -179,6 +179,8 @@ public class Player : MonoBehaviour
         isDashing = true;
         dashTimer = dashDuration;
         nextDashTime = Time.time + dashCooldown;
+        if (AudioManager.Instance != null)
+        AudioManager.Instance.PlayDash();
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (input.magnitude > 0)
@@ -208,6 +210,8 @@ public class Player : MonoBehaviour
 
     void SummonPets()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayPet();
         int totalPets = petCount + (isAscended ? (int)ascendedPetBonus : 0);
         for (int i = 0; i < totalPets; i++)
         {
@@ -253,7 +257,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(beamDuration);
 
         isBeaming = false;
-        nextBeamTime = Time.time + beamCooldown;
     }
 
     /// <summary>
@@ -470,13 +473,19 @@ public class Player : MonoBehaviour
     public void UseBeamSkill()
     {
         if (hasBeam && !isBeaming && Time.time >= nextBeamTime)
+        {
+            nextBeamTime = Time.time + beamDuration + beamCooldown;
             StartCoroutine(FireBeamCoroutine());
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayBeam();
+        }
     }
-
     public void UseDualWieldSkill()
     {
         if (hasDualWield && !dualWieldActive && Time.time >= nextDualWieldTime)
             ActivateDualWield();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDual();
     }
 
     public void UseDashSkill()
@@ -502,9 +511,8 @@ public class Player : MonoBehaviour
 
     public float GetBeamCooldown()
     {
-        return beamCooldown;
+        return beamDuration + beamCooldown;
     }
-
     public float GetDualCooldownRemaining()
     {
         return Mathf.Max(0, nextDualWieldTime - Time.time);
