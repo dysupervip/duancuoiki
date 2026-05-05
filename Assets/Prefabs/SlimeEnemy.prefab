@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba3f697964a8049bc88bc21f5fbc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
-  enemyMoveSpeed: 3
-  maxHp: 50
+  enemyMoveSpeed: 2
+  maxHp: 100
   hpBar: {fileID: 0}
   enterDamage: 10
   stayDamage: 1

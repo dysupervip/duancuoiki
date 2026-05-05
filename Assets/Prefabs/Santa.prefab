@@ -415,10 +415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniBossEnemy
   enemyMoveSpeed: 10
-  maxHp: 200
+  maxHp: 1000
   hpBar: {fileID: 748401321841213434}
   enterDamage: 50
-  stayDamage: 10
+  stayDamage: 20
   xpReward: 0
   dropChip: 1
   chipPrefab: {fileID: 4985292959592687857, guid: 1a35f2aa2fd45404e9635efa7391c3e2, type: 3}

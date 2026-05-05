@@ -194,11 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollEnemy
   enemyMoveSpeed: 4
-  maxHp: 50
+  maxHp: 80
   hpBar: {fileID: 0}
-  enterDamage: 10
-  stayDamage: 1
-  xpReward: 10
+  enterDamage: 20
+  stayDamage: 20
+  xpReward: 15
   dropChip: 0
   chipPrefab: {fileID: 0}
   rollDamage: 18

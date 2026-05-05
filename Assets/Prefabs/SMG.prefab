@@ -138,11 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SMG
   shootSound: {fileID: 8300000, guid: 564d074d86891aa40a99038b279987cc, type: 3}
-  baseDamage: 15
+  reloadSound: {fileID: 8300000, guid: f4dd2279ff1787942a0874fbd8082f70, type: 3}
+  baseDamage: 30
   baseFireRate: 0.2
   baseReloadTime: 1.5
-  baseMagazine: 32
-  baseTotalAmmo: 64
+  baseMagazine: 24
   firePos: {fileID: 2078578605502048830}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0

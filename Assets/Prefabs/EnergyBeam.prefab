@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d57cb8032f95548b62a27dfb392dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamBehaviour
-  damage: 25
+  damage: 30
   lifetime: 1.5
   playerLayer:
     serializedVersion: 2

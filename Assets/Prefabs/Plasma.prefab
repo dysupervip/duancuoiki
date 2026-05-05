@@ -105,14 +105,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc76f779246b2a24590e5a6f734eeea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rifle
-  baseDamage: 30
+  shootSound: {fileID: 8300000, guid: 564d074d86891aa40a99038b279987cc, type: 3}
+  reloadSound: {fileID: 8300000, guid: f4dd2279ff1787942a0874fbd8082f70, type: 3}
+  baseDamage: 60
   baseFireRate: 0.09
   baseReloadTime: 0.7
   baseMagazine: 100
-  baseTotalAmmo: 300
   firePos: {fileID: 2322086024269571498}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0
+  weaponIcon: {fileID: 0}
+  weaponDescription: 
+  weaponName: 
 --- !u!1 &9106113002198955973
 GameObject:
   m_ObjectHideFlags: 0

@@ -153,5 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   moveSpeed: 25
   timeDestroy: 0.5
-  damage: 10
+  damage: 30
   bloodPrefabs: {fileID: 2328012827161981078, guid: b74976e62167f7b4e886bbfdb8e4843d, type: 3}

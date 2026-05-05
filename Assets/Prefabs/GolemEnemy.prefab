@@ -106,7 +106,7 @@ Animator:
   m_GameObject: {fileID: 3731147011525249550}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 72a815c0f6d16b24c8854c59d1a825e1, type: 2}
+  m_Controller: {fileID: 9100000, guid: e72ad8c906d0e624a916cbd12b060b10, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,12 +203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afba3f697964a8049bc88bc21f5fbc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
-  enemyMoveSpeed: 1
-  maxHp: 50
+  enemyMoveSpeed: 3
+  maxHp: 200
   hpBar: {fileID: 0}
-  enterDamage: 10
-  stayDamage: 1
-  xpReward: 10
+  enterDamage: 30
+  stayDamage: 5
+  xpReward: 20
   dropChip: 0
   chipPrefab: {fileID: 0}
   attackDamage: 15

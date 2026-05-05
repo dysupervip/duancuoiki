@@ -138,11 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rifle
   shootSound: {fileID: 8300000, guid: 564d074d86891aa40a99038b279987cc, type: 3}
-  baseDamage: 10
+  reloadSound: {fileID: 8300000, guid: f4dd2279ff1787942a0874fbd8082f70, type: 3}
+  baseDamage: 35
   baseFireRate: 0.1
-  baseReloadTime: 1.5
-  baseMagazine: 12
-  baseTotalAmmo: 60
+  baseReloadTime: 1.3
+  baseMagazine: 32
   firePos: {fileID: 777563406478685237}
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0

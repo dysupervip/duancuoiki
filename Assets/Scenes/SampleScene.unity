@@ -484,7 +484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 808.99, y: 407.12}
+  m_AnchoredPosition: {x: 866, y: 190}
   m_SizeDelta: {x: 110, y: 40.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51739367
@@ -1834,6 +1834,10 @@ PrefabInstance:
     - target: {fileID: 8366375999038798892, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749352204102377214, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8902094130447532247, guid: e9fb19716d5d9194fb9cd33cc57a4c70, type: 3}
       propertyPath: m_Color.b
@@ -20596,7 +20600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &415730323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27479,7 +27483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 747, y: 308}
+  m_AnchoredPosition: {x: 810, y: 91}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009054800
@@ -28661,7 +28665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1200586472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30578,7 +30582,7 @@ MonoBehaviour:
   phases:
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
-    totalEnemies: 5
+    totalEnemies: 15
     spawnDelay: 1
     oilDropQuota: 3
     spawnMiniBoss: 0
@@ -30587,7 +30591,7 @@ MonoBehaviour:
     - {fileID: 2749448114711245269, guid: a83e3a823ef2c394d867b40b17fe3974, type: 3}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
-    totalEnemies: 5
+    totalEnemies: 25
     spawnDelay: 1
     oilDropQuota: 6
     spawnMiniBoss: 0
@@ -30597,7 +30601,7 @@ MonoBehaviour:
     - {fileID: 1742511992968664744, guid: 001475db6a072e945949482fda17bfd7, type: 3}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
-    totalEnemies: 5
+    totalEnemies: 30
     spawnDelay: 1
     oilDropQuota: 9
     spawnMiniBoss: 0
@@ -30609,7 +30613,7 @@ MonoBehaviour:
     - {fileID: 1657251454056731371, guid: c02f1b072ff3cc8418f5f6d244fcef05, type: 3}
   - isBossPhase: 0
     bossPrefab: {fileID: 0}
-    totalEnemies: 5
+    totalEnemies: 20
     spawnDelay: 1
     oilDropQuota: 5
     spawnMiniBoss: 1
@@ -30621,7 +30625,7 @@ MonoBehaviour:
     - {fileID: 1657251454056731371, guid: c02f1b072ff3cc8418f5f6d244fcef05, type: 3}
   - isBossPhase: 1
     bossPrefab: {fileID: 6743224966983901966, guid: 19ca63ca1dde89748be4673f64a368e3, type: 3}
-    totalEnemies: 0
+    totalEnemies: 30
     spawnDelay: 0
     oilDropQuota: 0
     spawnMiniBoss: 0
@@ -30825,11 +30829,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movespeed: 5
-  maxHp: 700
+  maxHp: 200
   hpBar: {fileID: 1034309003}
   level: 1
   xp: 0
-  xpToNextLevel: 1e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000
+  xpToNextLevel: 1e00000032000000460000004b000000550000005a0000006400000096000000c8000000
   weaponSocket: {fileID: 1807946815}
   weaponUpgrades:
   - {fileID: 3205743854554823245, guid: 308533f92d3fc814dad72769a057e140, type: 3}
@@ -30846,18 +30850,18 @@ MonoBehaviour:
   petPrefab: {fileID: 3368834648038048934, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
   petCount: 3
   petLifetime: 10
-  petCooldown: 5
+  petCooldown: 3
   beamPrefab: {fileID: 2280357409879286715, guid: d367285f5126f2142a2972c9638b749d, type: 3}
   bellyPosition: {fileID: 706472554}
   backPosition: {fileID: 2102285067}
   beamDamage: 50
   beamRange: 7
-  beamCooldown: 4
+  beamCooldown: 3
   beamDuration: 0.5
   dualGunSortingLayer: 1
   dualGunOrderInLayer: 0
   dualWieldDuration: 5
-  dualWieldCooldown: 10
+  dualWieldCooldown: 5
   dualGunOffset: {x: 0, y: -0.2, z: 0}
   dualGunLayer: Default
   ascendedPetBonus: 2
@@ -31273,7 +31277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 684.25, y: 151.61998}
+  m_AnchoredPosition: {x: 809, y: 286}
   m_SizeDelta: {x: 156.99, y: 40.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796875394
@@ -32975,7 +32979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 747.7, y: 498}
+  m_AnchoredPosition: {x: 747.7, y: 186}
   m_SizeDelta: {x: 149.73, y: 31.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974414323
@@ -34086,7 +34090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3368834648038048934, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5693451540474377458, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
       propertyPath: m_LocalPosition.x
