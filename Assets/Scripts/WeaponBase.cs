@@ -4,6 +4,7 @@ public abstract class WeaponBase : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] protected AudioClip shootSound;
+    [SerializeField] protected AudioClip reloadSound;
     protected AudioSource audioSource;
 
     [Header("Base stats")]

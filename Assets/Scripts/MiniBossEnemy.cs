@@ -141,6 +141,8 @@ public class MiniBossEnemy : Enemy
     // ===== ĐÁNH THƯỜNG =====
     IEnumerator DoMelee()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMiniBossMelee();
         currentState = State.Attacking;
         nextMeleeTime = Time.time + meleeCooldown;
         if (animator) animator.SetBool(BOOL_MOVING, false);
@@ -169,6 +171,8 @@ public class MiniBossEnemy : Enemy
     // ===== NHẢY ĐẬP =====
     IEnumerator DoJump()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMiniBossSlam();
         currentState = State.Jumping;
         // Đặt cooldown ngay từ đầu để tránh gọi lại liên tục
         nextJumpTime = Time.time + jumpCooldown;
@@ -216,6 +220,8 @@ public class MiniBossEnemy : Enemy
     // ===== NÉM HỘP QUÀ =====
     IEnumerator DoThrow()
     {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMiniBossThrow();
         currentState = State.Throwing;
         nextThrowTime = Time.time + throwCooldown;
         nextSpecialSkillTime = Time.time + specialSkillCooldown;
