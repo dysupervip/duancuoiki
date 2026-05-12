@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollEnemy
   enemyMoveSpeed: 4
-  maxHp: 80
+  maxHp: 200
   hpBar: {fileID: 0}
   enterDamage: 20
   stayDamage: 20

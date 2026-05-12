@@ -94,6 +94,8 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         mainMenu.SetActive(true);
+        victoryPanel.SetActive(false);  // ← THÊM
+        resultPanel.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 0f;
     }

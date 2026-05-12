@@ -414,17 +414,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb78b85713b52049aecc7e85e6b5c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniBossEnemy
-  enemyMoveSpeed: 15
-  maxHp: 2000
+  enemyMoveSpeed: 40
+  maxHp: 3000
   hpBar: {fileID: 748401321841213434}
-  enterDamage: 50
+  enterDamage: 60
   stayDamage: 20
   xpReward: 0
   dropChip: 1
   chipPrefab: {fileID: 4985292959592687857, guid: 1a35f2aa2fd45404e9635efa7391c3e2, type: 3}
   animator: {fileID: 0}
   playerTransform: {fileID: 0}
-  moveSpeed: 15
   meleeDamage: 20
   meleeRange: 2.5
   meleeCooldown: 1

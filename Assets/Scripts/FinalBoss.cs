@@ -66,8 +66,6 @@ public class FinalBoss : Enemy
 
         if (isDead) return;
 
-        CheckPhase();
-
         if (!isCasting)
         {
             float dist = Vector2.Distance(transform.position, player.transform.position);
@@ -116,6 +114,7 @@ public class FinalBoss : Enemy
             currentHp = maxHp;
 
             UpdateHpBar();
+            ThanhTienTrinhUI.Instance?.ResetBar();
 
             Debug.Log("PHASE 2");
         }
@@ -129,7 +128,7 @@ public class FinalBoss : Enemy
             currentHp = maxHp;
 
             UpdateHpBar();
-
+            ThanhTienTrinhUI.Instance?.ResetBar();
             Debug.Log("PHASE 3");
         }
     }

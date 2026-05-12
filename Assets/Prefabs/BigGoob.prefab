@@ -116,7 +116,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8277565455178611079, guid: fc18c6170103ed446a80fc2758b255aa, type: 3}
   isClone: 0
   weaponIcon: {fileID: 2234290222422349094, guid: 9a67d557aa40f2846816ecc3c24a75b2, type: 3}
-  weaponDescription: mo ta big goob
+  weaponDescription: 
   weaponName: BIG GOOB
 --- !u!82 &1470494990734149534
 AudioSource:

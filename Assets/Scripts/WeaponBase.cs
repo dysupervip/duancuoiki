@@ -61,6 +61,7 @@ public abstract class WeaponBase : MonoBehaviour
             fireRate = baseFireRate;
             reloadTime = Mathf.Max(0.1f, baseReloadTime - player.reloadLevel * 0.3f);
             magazineSize = baseMagazine + player.magazineLevel * 5;
+            currentAmmo = magazineSize;
         }
         else
         {
@@ -86,7 +87,10 @@ public abstract class WeaponBase : MonoBehaviour
         if (Input.GetMouseButton(0) && currentAmmo > 0 && Time.time >= nextShotTime && !isReloading)
         {
             nextShotTime = Time.time + fireRate;
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            GameObject bulletObj = Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            PlayerBullet bullet = bulletObj.GetComponent<PlayerBullet>();
+            if (bullet != null)
+            bullet.SetDamage(damage); // ← truyền damage đã tính từ upgrade
             if (shootSound != null)
                 audioSource.PlayOneShot(shootSound);
 

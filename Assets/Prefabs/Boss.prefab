@@ -185,9 +185,9 @@ MonoBehaviour:
   flamePrefab: {fileID: 420177800619516174, guid: 3eb2afe8425a1df4d811742368e8702a, type: 3}
   spell3Cooldown: 6
   spell3Range: 7
-  phase1HP: 500
-  phase2HP: 700
-  phase3HP: 1000
+  phase1HP: 1000
+  phase2HP: 1500
+  phase3HP: 2000
   usbPrefab: {fileID: 225555011757464626, guid: 1b099abd98580374dbfea1705072ebd8, type: 3}
 --- !u!61 &2817313102578979478
 BoxCollider2D:

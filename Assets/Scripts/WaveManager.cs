@@ -139,7 +139,7 @@ public class WaveManager : MonoBehaviour
                     bossEnemy.HideHpBar();
                     while (bossEnemy != null)
                     {
-                        ThanhTienTrinhUI.Instance?.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP() / 3f);
+                        ThanhTienTrinhUI.Instance?.UpdateBossHP(bossEnemy.GetCurrentHP(), bossEnemy.GetMaxHP());
                         yield return null;
                     }
                 }

@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
   enemyMoveSpeed: 3
-  maxHp: 200
+  maxHp: 700
   hpBar: {fileID: 0}
   enterDamage: 30
   stayDamage: 5

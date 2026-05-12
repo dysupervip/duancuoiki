@@ -7,8 +7,8 @@ public class MiniBossEnemy : Enemy
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerTransform;
 
-    [Header("Di chuyển")]
-    [SerializeField] private float moveSpeed = 5f;
+
+
 
     [Header("Đánh thường")]
     [SerializeField] private float meleeDamage = 20f;
@@ -58,6 +58,7 @@ public class MiniBossEnemy : Enemy
 
     protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
 
@@ -132,7 +133,7 @@ public class MiniBossEnemy : Enemy
     private void MoveTowardsPlayer()
     {
         Vector2 dir = (playerTransform.position - transform.position).normalized;
-        Vector2 newPos = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+        Vector2 newPos = Vector2.MoveTowards(transform.position, playerTransform.position, enemyMoveSpeed * Time.deltaTime);
         if (rb) rb.MovePosition(newPos);
         else transform.position = newPos;
         FlipEnemy();
