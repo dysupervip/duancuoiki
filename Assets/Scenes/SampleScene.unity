@@ -30833,7 +30833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movespeed: 5
-  maxHp: 350
+  maxHp: 700
   hpBar: {fileID: 1034309003}
   level: 1
   xp: 0
@@ -30849,23 +30849,23 @@ MonoBehaviour:
   magazineLevel: 0
   reloadLevel: 0
   dashDistance: 3
-  dashDuration: 0.2
-  dashCooldown: 0.5
+  dashDuration: 0.15
+  dashCooldown: 1
   petPrefab: {fileID: 3368834648038048934, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
   petCount: 3
-  petLifetime: 10
+  petLifetime: 7
   petCooldown: 3
   beamPrefab: {fileID: 2280357409879286715, guid: d367285f5126f2142a2972c9638b749d, type: 3}
   bellyPosition: {fileID: 706472554}
   backPosition: {fileID: 2102285067}
-  beamDamage: 50
+  beamDamage: 70
   beamRange: 7
   beamCooldown: 3
   beamDuration: 0.5
   dualGunSortingLayer: 1
   dualGunOrderInLayer: 0
-  dualWieldDuration: 5
-  dualWieldCooldown: 8
+  dualWieldDuration: 4
+  dualWieldCooldown: 10
   dualGunOffset: {x: 0, y: -0.2, z: 0}
   dualGunLayer: Default
   ascendedPetBonus: 2
@@ -34135,6 +34135,14 @@ PrefabInstance:
     - target: {fileID: 5693451540474377458, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854418299360388582, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854418299360388582, guid: 8963256fc793ed3409f7bb892d222872, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1717950831
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1488360307
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5768715146580463011, guid: 56c04d8468988404abe420850534a9ac, type: 3}
@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d57cb8032f95548b62a27dfb392dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamBehaviour
-  damage: 25
-  lifetime: 1.5
+  damage: 15
+  lifetime: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 1

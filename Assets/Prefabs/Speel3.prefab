@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83cd8a785a9f7b4b988109f11a82a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlameBehaviour
-  damage: 25
+  damage: 15
   speed: 8
   lifetime: 2
   playerLayer:

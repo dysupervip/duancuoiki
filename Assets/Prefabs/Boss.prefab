@@ -165,26 +165,26 @@ MonoBehaviour:
   enemyMoveSpeed: 5
   maxHp: 50
   hpBar: {fileID: 3196967702456131342}
-  enterDamage: 30
+  enterDamage: 15
   stayDamage: 10
   xpReward: 0
   dropChip: 1
   chipPrefab: {fileID: 225555011757464626, guid: 1b099abd98580374dbfea1705072ebd8, type: 3}
   beamStraightPrefab: {fileID: 905590903761509978, guid: 2dab08c16e657c6478f63e3c00516d14, type: 3}
   beamDiagonalPrefab: {fileID: 8460356225475119240, guid: cbe958da0b7880749bcbfe314cb155e7, type: 3}
-  spell1Cooldown: 3
+  spell1Cooldown: 5
   spell1Range: 10
   beamHeight: 10
   beamSpell2Prefab: {fileID: 10870276983926794, guid: 76b3e03187488e044a2132075038033a, type: 3}
   orbSpawnPoint: {fileID: 2715984313729898680}
-  spell2Cooldown: 5
+  spell2Cooldown: 7
   spell2Range: 8
   spell2BeamCount: 4
-  spell2RotationDuration: 1
-  spell2RotationAmount: 70
+  spell2RotationDuration: 1.5
+  spell2RotationAmount: 45
   flamePrefab: {fileID: 420177800619516174, guid: 3eb2afe8425a1df4d811742368e8702a, type: 3}
-  spell3Cooldown: 5
-  spell3Range: 8
+  spell3Cooldown: 6
+  spell3Range: 7
   phase1HP: 500
   phase2HP: 700
   phase3HP: 1000

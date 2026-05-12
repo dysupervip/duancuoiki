@@ -201,8 +201,8 @@ MonoBehaviour:
   xpReward: 15
   dropChip: 0
   chipPrefab: {fileID: 0}
-  rollDamage: 18
-  rollSpeed: 12
+  rollDamage: 15
+  rollSpeed: 10
   rollDuration: 0.6
   rollCooldown: 3
   rollTriggerRange: 4
