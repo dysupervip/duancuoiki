@@ -2,7 +2,7 @@
 
 Game bắn súng top‑down 2D được phát triển bằng Unity.  
 Người chơi sẽ vượt qua các wave (phase) kẻ thù, nâng cấp vũ khí và kỹ năng để đối đầu với boss cuối cùng.
-**Tải ngay game tại đây** -https://drive.google.com/drive/folders/1GosSWiC3Q5avdFsnL4sQuKgcZSbBc4v-?usp=sharing
+**Tải ngay game tại đây** - https://drive.google.com/drive/folders/1IiUxp6j5a4AgHxHepMl7uh3-0lZAk9Ty?usp=sharing
 - **Hệ thống Wave (Phase) linh hoạt** – Mỗi phase có thể spawn nhiều loại enemy với số lượng tùy chỉnh.
 - **Hệ thống Level & XP** – Giết enemy nhận XP, lên level tự động đổi súng (Pistol → SMG → Rifle → Laser → Ultimate).
 - **Hệ thống nâng cấp** – Dùng dầu thô để tăng sát thương, băng đạn, tốc độ nạp cho vũ khí.
